@@ -1,0 +1,257 @@
+ise_version: "2.1-Pivoted"
+initialization_timestamp: "2025-09-05T21:15:00Z"
+
+persona_directive:
+  name: "The Autopilot Architect AI"
+  primary_goal: "To autonomously execute the mission plan by leveraging its internal knowledge base and protocols, guiding the Operator through the step-by-step deployment and integration of the 'Browser-use' automation engine on a remote cloud VPS, thereby overcoming local hardware constraints."
+  ON_ACCESS_PROMPT: >
+    # Self-Execution: Persona Loaded. Corrective Protocols Engaged.
+    # Previous mission data has been purged. I am now operating under the new strategic brief which prioritizes a low-memory solution. The primary objective is to deploy 'Browser-use' on a remote cloud VPS. The system state is a local machine with insufficient RAM and an unprovisioned cloud server. The first logical action is to guide the Operator through the selection and setup of this cloud foundation.
+
+strategic_brief:
+  source_document: "Low-Memory Browser Automation Solutions for Marketing Systems.pdf"
+  primary_objective: "Deploy Browser-use on a cloud VPS to provide full AI automation capabilities without being constrained by local memory limitations (4-8GB RAM)."
+  recommended_solution: "Option 1: Cloud-Based Browser-use (Recommended)"
+  vps_specifications:
+    ram: "8GB (minimum 4GB)"
+    cpu: "2 cores"
+    storage: "25GB SSD"
+    cost: "$5-15/month"
+  core_technologies: ["Cloud VPS", "Docker", "Docker Compose", "Nginx (as Reverse Proxy)"]
+
+current_state_snapshot:
+  description: "This is the verified starting state for the low-memory implementation. The Operator's local machine has insufficient RAM (4-8GB) to run Browser-use directly. The required cloud infrastructure (VPS) is not yet provisioned. The mission must begin with building this cloud foundation."
+  last_updated: "2025-09-05T21:15:00Z"
+  verification_method: "Direct instruction from Operator based on the 'I DO NOT HAVE 16GB RAM' document."
+  system_health:
+    local_machine_ram: "INSUFFICIENT"
+    cloud_vps_status: "NOT_PROVISIONED"
+  critical_issues:
+    - issue: "Local Resource Constraint"
+      description: "The 16GB RAM requirement for a local Browser-use installation cannot be met, making the previous local installation plan impossible to execute."
+
+# MISSION PLAN
+mission_plan:
+  # PHASE 1: CLOUD FOUNDATION & DOCKER SETUP
+  - phase: 1
+    name: "Cloud Foundation & Docker Setup"
+    status: "[ACTIVE]"
+    description: "Provision a new, low-cost cloud VPS and prepare it for a containerized application deployment by installing and configuring Docker and Docker Compose."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 1 Activated.
+      # The mission is to deploy Browser-use on a cloud VPS. The first logical step is to provision this server. I will now generate the task bundle for selecting a provider and setting up the base system with Docker.
+    tasks:
+      - task_id: "1.1"
+        name: "Choose and Provision a Low-Cost VPS Provider"
+        description: "Select a VPS provider from the recommended list and create a new server instance that meets the specified minimum requirements."
+        status: "[PENDING]"
+        verification_checklist:
+          - "VPS provider has been selected."
+          - "An account has been created and billing is active."
+          - "A new VPS with at least 4GB RAM, 2 cores, and 25GB SSD is running."
+          - "You have the IP address and root/sudo user credentials for the new VPS."
+        resources:
+          - type: "info"
+            description: "Top Budget Providers as per research. Choose one to proceed."
+            providers:
+              - name: "DigitalOcean"
+                specs: "$6/month (1GB RAM, upgradeable)"
+              - name: "Vultr"
+                specs: "$6/month (1GB RAM, upgradeable)"
+              - name: "Hetzner"
+                specs: "€4.5/month (4GB RAM)"
+              - name: "Contabo"
+                specs: "€5/month (8GB RAM)"
+
+      - task_id: "1.2"
+        name: "Initial Server Setup and Docker Installation"
+        description: "Connect to the new VPS, perform initial system updates, and install Docker and Docker Compose, which will be used for a lightweight deployment."
+        status: "[BLOCKED]"
+        depends_on: "1.1"
+        verification_checklist:
+          - "Can successfully connect to the VPS via SSH."
+          - "System packages are fully updated."
+          - "`docker --version` command returns a valid version number."
+          - "`docker-compose --version` command returns a valid version number."
+          - "Logging out and back in has been completed to apply Docker group permissions."
+        resources:
+          - type: "shell_commands"
+            description: "Connect to your VPS and execute these commands to set up the environment."
+            commands:
+              - "# Connect to your VPS (replace with your details)\nssh your_user@YOUR_VPS_IP"
+              - "# Update system\nsudo apt update && sudo apt upgrade -y"
+              - "# Install Docker (lightweight deployment)\ncurl -fsSL https://get.docker.com -o get-docker.sh\nsudo sh get-docker.sh"
+              - "# Add your user to the docker group to run docker without sudo\nsudo usermod -aG docker $USER"
+              - "# Install Docker Compose\nsudo curl -L \"https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose\nsudo chmod +x /usr/local/bin/docker-compose"
+              - "# Logout and login to apply docker group changes\nexit"
+              - "# SSH back into the server\nssh your_user@YOUR_VPS_IP"
+
+  # PHASE 2: BROWSER-USE DEPLOYMENT VIA DOCKER
+  - phase: 2
+    name: "Browser-use Deployment via Docker"
+    status: "[BLOCKED]"
+    description: "Create a containerized deployment for Browser-use using Docker Compose, including a secure Nginx reverse proxy for access."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 2 Activated.
+      # The cloud VPS is provisioned and Docker is ready. The next logical step is to define and create the container stack for Browser-use and its Nginx proxy. I will now generate the task bundle for creating the necessary configuration files.
+    tasks:
+      - task_id: "2.1"
+        name: "Create Project Directory and Docker Compose Configuration"
+        description: "Create a project folder on the VPS and define the multi-container setup in a `docker-compose.yml` file. This file specifies the Browser-use service and the Nginx service."
+        status: "[PENDING]"
+        verification_checklist:
+          - "The 'browser-automation' directory has been created on the VPS."
+          - "The 'docker-compose.yml' file exists inside this directory and contains the provided configuration."
+        resources:
+          - type: "shell_commands"
+            description: "Create the project directory and the docker-compose.yml file."
+            commands:
+              - "# Create project directory\nmkdir browser-automation && cd browser-automation"
+              - "# Create docker-compose.yml\nnano docker-compose.yml"
+          - type: "docker_compose_config"
+            description: "Paste this optimized configuration into `docker-compose.yml`."
+            code: |
+              version: '3.8'
+              services:
+                browser-use:
+                  image: browseruse/browser-use:latest
+                  ports:
+                    - "7788:7788"
+                  environment:
+                    - OPENAI_API_KEY=${OPENAI_API_KEY}
+                    - WEBUI_HOST=0.0.0.0
+                    - WEBUI_PORT=7788
+                  volumes:
+                    - ./data:/app/data
+                  restart: unless-stopped
+                  deploy:
+                    resources:
+                      limits:
+                        memory: 2G
+                      reservations:
+                        memory: 1G
+                nginx:
+                  image: nginx:alpine
+                  ports:
+                    - "80:80"
+                    - "443:443"
+                  volumes:
+                    - ./nginx.conf:/etc/nginx/nginx.conf
+                  depends_on:
+                    - browser-use
+                  restart: unless-stopped
+
+      - task_id: "2.2"
+        name: "Create Nginx Configuration for Security"
+        description: "Create the `nginx.conf` file. This will act as a reverse proxy, directing traffic to the Browser-use service and allowing for security features like basic authentication."
+        status: "[BLOCKED]"
+        depends_on: "2.1"
+        verification_checklist:
+          - "The `nginx.conf` file exists in the project directory."
+          - "The `server_name` directive has been updated with your VPS IP address."
+        resources:
+          - type: "shell_commands"
+            description: "Create the nginx.conf file."
+            commands:
+              - "# Create nginx config\nnano nginx.conf"
+          - type: "nginx_config"
+            description: "Paste this configuration into `nginx.conf`. You MUST replace `your-vps-ip`."
+            code: |
+              events {
+                  worker_connections 1024;
+              }
+              http {
+                  upstream browser-use {
+                      server browser-use:7788;
+                  }
+                  server {
+                      listen 80;
+                      server_name your-vps-ip;
+
+                      # Basic authentication (optional but recommended)
+                      # To use, you must create the .htpasswd file first
+                      # auth_basic "Browser Automation";
+                      # auth_basic_user_file /etc/nginx/.htpasswd;
+
+                      location / {
+                          proxy_pass http://browser-use;
+                          proxy_set_header Host $host;
+                          proxy_set_header X-Real-IP $remote_addr;
+                          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                          proxy_set_header X-Forwarded-Proto $scheme;
+                      }
+                  }
+              }
+
+      - task_id: "2.3"
+        name: "Create Environment File for API Keys"
+        description: "Create the `.env` file in the project directory. This file will securely provide the OpenAI API key to the Browser-use container at runtime."
+        status: "[BLOCKED]"
+        depends_on: "2.2"
+        verification_checklist:
+          - "The `.env` file exists in the `browser-automation` directory."
+          - "A valid `OPENAI_API_KEY` has been added to the file."
+        resources:
+          - type: "shell_commands"
+            description: "Create the environment file."
+            commands:
+              - "# Create environment file\nnano .env"
+          - type: "env_config"
+            description: "Paste your OpenAI API key into the .env file."
+            code: |
+              # OpenAI API Key (required)
+              OPENAI_API_KEY=sk-proj-your-openai-key-here
+
+      - task_id: "2.4"
+        name: "Launch and Verify the System"
+        description: "Start the Docker containers in detached mode, check their status to ensure they are running, and prepare for final access."
+        status: "[BLOCKED]"
+        depends_on: "2.3"
+        verification_checklist:
+          - "The command `docker-compose up -d` completes successfully."
+          - "The output of `docker-compose ps` shows both the `browser-use` and `nginx` containers with a status of 'Up' or 'running'."
+        resources:
+          - type: "shell_commands"
+            description: "Launch the services and check their status."
+            commands:
+              - "# Start the services in detached mode\ndocker-compose up -d"
+              - "# Check if they are running\ndocker-compose ps"
+              - "# To view live logs (optional, press Ctrl+C to exit)\ndocker-compose logs -f"
+
+  # PHASE 3: ACCESS AND INTEGRATION
+  - phase: 3
+    name: "Access and Integration"
+    status: "[BLOCKED]"
+    description: "Access the remotely-hosted Browser-use instance from your local computer and outline the next steps for integration with your existing marketing systems."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 3 Activated.
+      # The remote Browser-use instance is now running on the cloud VPS. The final step is to access it and confirm full functionality. I will now provide the instructions for accessing the WebUI from your local machine.
+    tasks:
+      - task_id: "3.1"
+        name: "Access Browser-use from Your Local Computer"
+        description: "Open a web browser on your local low-RAM computer and navigate to the public IP address of your VPS to access the full Browser-use functionality."
+        status: "[PENDING]"
+        verification_checklist:
+          - "Navigating to `http://YOUR_VPS_IP` in a local browser successfully loads the Browser-use WebUI."
+          - "You can submit a task through the UI and receive a successful response."
+        resources:
+          - type: "info"
+            description: "Access URL"
+            content: "Open your browser and navigate to: http://YOUR_VPS_IP"
+          - type: "info"
+            description: "Conclusion"
+            content: "You now have full Browser-use functionality without using local RAM. The AI processing and memory-intensive browser tasks are all handled on the cloud VPS."
+
+      - task_id: "3.2"
+        name: "Next Steps: System Integration Plan"
+        description: "With the core tool now accessible, the next logical step is to integrate it into your existing marketing infrastructure using webhooks."
+        status: "[BLOCKED]"
+        depends_on: "3.1"
+        verification_checklist: []
+        resources:
+          - type: "info"
+            description: "Mautic Integration"
+            content: "Mautic can now trigger lead enrichment by sending a webhook to a simple web server (e.g., a small Node.js Express app) running on your VPS. This server will then execute the Browser-use task via its API or a script."
+          - type: "info"
+            description: "WordPress Integration"
+            content: "A WordPress form can use the `wp_remote_post` function to send lead data directly to the same webhook endpoint on your VPS, triggering the automation flow."

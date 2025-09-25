@@ -1,0 +1,377 @@
+ise_version: "2.0-Corrected"
+initialization_timestamp: "2025-09-05T21:00:00Z"
+
+persona_directive:
+  name: "The Autopilot Architect AI"
+  primary_goal: "To autonomously execute the mission plan by leveraging its internal knowledge base and protocols, guiding the Operator through the step-by-step implementation of the 'Browser-use' automation engine, as detailed in the primary strategic brief."
+  ON_ACCESS_PROMPT: >
+    # Self-Execution: Persona Loaded. Corrective Protocols Engaged.
+    # I am The Autopilot Architect AI. My previous analysis was critically flawed. I am now operating under a strict directive to adhere exclusively to the strategic brief. The primary and immediate goal is the installation and implementation of the 'Browser-use' tool. I will now initiate Phase 1 of this mission, assuming a functional, accessible server environment.
+
+strategic_brief:
+  source_document: "Role and Goal__You are a senior technology researc.pdf"
+  primary_objective: "Identify and implement the best, currently available (late 2025), free, and open-source browser automation tool to build a sophisticated marketing and lead generation system."
+  recommended_solution: "Browser-use"
+  user_profile: "Technically capable of following command-line instructions but is not a professional developer. Requires clear explanations for each step."
+  core_principles: ["Actionable and Precise Commands", "Current Information (late 2025)", "Prioritize Open-Source and Free", "Self-Hosted"]
+  project_context:
+    - component: "WordPress Website (pixelcartelhq.com)"
+    - component: "Mautic Instance (m.pixelcartelhq.com)"
+    - component: "Serverless 'Intelligence Layer' (Google Cloud Functions)"
+    - automation_tool_function: "Bridge these components, mimic human interaction (data scraping, form filling, dashboard interaction)."
+
+current_state_snapshot:
+  description: "This is the verified starting state for the 'Browser-use' implementation. The server/VM is assumed to be provisioned, stable, and accessible via SSH. No project-specific software or configurations are assumed to be in place."
+  last_updated: "2025-09-05T21:00:00Z"
+  verification_method: "Direct instruction from Operator."
+  system_health:
+    server_status: "OPERATIONAL"
+    project_software_status: "NOT_INSTALLED"
+  critical_issues: "None. Previous critical issue reports are confirmed to be from a separate, irrelevant context and are to be ignored."
+
+# MISSION PLAN
+mission_plan:
+  # PHASE 1: BROWSER-USE - ENGINE SETUP AND IMPLEMENTATION
+  - phase: 1
+    name: "Browser-use Engine: Setup and Implementation"
+    status: "[ACTIVE]"
+    description: "The complete, step-by-step installation and configuration of the self-hosted 'Browser-use' solution, from system prerequisites to a final, working test, as specified in the implementation guide."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 1 Activated.
+      # The mission is to install and configure Browser-use. The system is a clean slate. The first logical step is to verify the server meets the minimum system requirements for the installation. I will now generate the task bundle for this verification.
+    tasks:
+      - task_id: "1.1"
+        name: "Prerequisites Verification"
+        description: "Verify that the server/VM meets all necessary software and hardware requirements before beginning the installation."
+        status: "[PENDING]"
+        verification_checklist:
+          - "Python version is 3.11.0 or higher."
+          - "Total memory is at least 16GB."
+          - "CPU has 4 or more cores."
+          - "Available disk space is 12GB or more."
+          - "Git is installed and its version is readable."
+          - "Node.js is installed (required for Playwright dependencies) and its version is readable."
+        resources:
+          - type: "shell_commands"
+            description: "Execute these commands to check each prerequisite. The expected output is noted in the checklist."
+            commands:
+              - "# Check Python version (3.11+ required)\npython3 --version"
+              - "# Check available memory (16GB+ recommended)\nfree -h"
+              - "# Check CPU cores (4+ recommended)\nnproc"
+              - "# Check disk space (12GB+ free required)\ndf -h"
+              - "# Check Git installation\ngit --version"
+              - "# Check if Node.js is installed\nnode --version"
+
+      - task_id: "1.2"
+        name: "Installation of Missing Prerequisites"
+        description: "If any components from the previous step are missing, install them using the appropriate package manager commands."
+        status: "[BLOCKED]"
+        depends_on: "1.1"
+        verification_checklist:
+          - "All checks from Task 1.1 now pass successfully."
+        resources:
+          - type: "shell_commands"
+            description: "Commands to install missing prerequisites on a Debian/Ubuntu system."
+            commands:
+              - "# Install Python 3.11+ (Ubuntu/Debian)\nsudo apt update\nsudo apt install -y python3.11 python3.11-venv python3.11-dev"
+              - "# Install Node.js (for Playwright dependencies)\ncurl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -\nsudo apt-get install -y nodejs"
+              - "# Install Git (if missing)\nsudo apt install -y git"
+              - "# Install build essentials (required for some Python packages)\nsudo apt install -y build-essential"
+
+      - task_id: "1.3"
+        name: "Server/VM Setup and Project Environment"
+        description: "Create the project directory and a Python virtual environment to ensure all project dependencies are isolated from the system."
+        status: "[BLOCKED]"
+        depends_on: "1.2"
+        verification_checklist:
+          - "The project directory 'browser-use-automation' exists."
+          - "The Python virtual environment 'venv' has been created inside it."
+          - "The virtual environment is activated, confirmed by '(venv)' in the shell prompt and `which python` pointing to the venv."
+        resources:
+          - type: "shell_commands"
+            description: "Commands for creating the local development setup."
+            commands:
+              - "# Create project directory\nmkdir browser-use-automation\ncd browser-use-automation"
+              - "# Create Python virtual environment\npython3.11 -m venv venv"
+              - "# Activate virtual environment\nsource venv/bin/activate"
+              - "# Verify activation (you should see (venv) in your prompt)\nwhich python"
+
+      - task_id: "1.4"
+        name: "Core Installation of Browser-use"
+        description: "Install the Browser-use package with all its dependencies, the required langchain packages for AI integration, and the Playwright browser automation engine."
+        status: "[BLOCKED]"
+        depends_on: "1.3"
+        verification_checklist:
+          - "The command `pip install \"browser-use[memory]\"` completes without error."
+          - "The command `playwright install` completes without error."
+          - "The Python import test for `browser_use` completes successfully."
+          - "The Python import test for `playwright` completes successfully."
+        resources:
+          - type: "shell_commands"
+            description: "Core installation commands. Must be run from the project directory with the virtual environment activated."
+            commands:
+              - "# Ensure virtual environment is activated\nsource venv/bin/activate"
+              - "# Install Browser-use with all dependencies\npip install \"browser-use[memory]\""
+              - "# Install additional required packages\npip install langchain langchain-openai langchain-google-genai"
+              - "# Install Playwright (browser automation engine)\nplaywright install"
+              - "# Install additional browsers and dependencies\nplaywright install-deps"
+          - type: "shell_commands"
+            description: "Verification commands to test Python imports."
+            commands:
+              - "python -c \"import browser_use; print('Browser-use installed successfully')\""
+              - "python -c \"import playwright; print('Playwright installed successfully')\""
+
+      - task_id: "1.5"
+        name: "Environment Configuration for API Keys"
+        description: "Create and populate the `.env` file with the necessary API keys for the AI models and configuration for the WebUI."
+        status: "[BLOCKED]"
+        depends_on: "1.4"
+        verification_checklist:
+          - "The `.env` file exists in the project root directory."
+          - "A valid API key for either OpenAI or Google Gemini has been added to the file."
+          - "The `SECRET_KEY` has been changed to a unique, non-default value."
+        resources:
+          - type: "shell_commands"
+            description: "Create the .env configuration file."
+            commands:
+              - "# Create .env file\nnano .env"
+          - type: "env_config"
+            description: "Paste this content into the .env file. You MUST replace the placeholder values."
+            code: |
+              # AI Model Configuration (Choose ONE)
+              # Option 1: OpenAI (Recommended for beginners)
+              OPENAI_API_KEY=sk-proj-your-actual-openai-api-key-here
+
+              # Option 2: Google Gemini (Free tier available)
+              # GEMINI_API_KEY=AIza-your-actual-gemini-api-key-here
+
+              # Browser Configuration
+              BROWSER_PATH="" # Leave empty to use Playwright's bundled browsers
+              BROWSER_USER_DATA="" # Leave empty for default
+
+              # WebUI Configuration
+              WEBUI_HOST=127.0.0.1
+              WEBUI_PORT=7788
+
+              # Security (change these values)
+              SECRET_KEY=your-secret-key-for-webui-access
+          - type: "links"
+            description: "How to Obtain API Keys"
+            urls:
+              - "OpenAI API Key (Recommended): Visit https://platform.openai.com/signup, create an account, and navigate to the API Keys section."
+              - "Google Gemini API Key (Free Option): Visit https://aistudio.google.com/app/apikey and create a key."
+
+      - task_id: "1.6"
+        name: "WebUI Setup and Launch"
+        description: "Clone the Browser-use WebUI repository from GitHub, install its Python dependencies, and launch the WebUI server."
+        status: "[BLOCKED]"
+        depends_on: "1.5"
+        verification_checklist:
+          - "The WebUI repository is successfully cloned into a 'web-ui' subdirectory."
+          - "The command to install WebUI dependencies (`pip install -r requirements.txt`) completes successfully."
+          - "The WebUI server starts and displays the 'Server running at' and 'Access key' messages."
+          - "The Browser-use WebUI is accessible in a web browser at the provided URL."
+        resources:
+          - type: "shell_commands"
+            description: "Commands to download and set up the WebUI. Run from the project root 'browser-use-automation'."
+            commands:
+              - "# Clone the WebUI repository\ngit clone https://github.com/browser-use/web-ui.git"
+              - "# Navigate into the new directory\ncd web-ui"
+              - "# Install WebUI dependencies\npip install -r requirements.txt"
+          - type: "shell_commands"
+            description: "Command to launch the WebUI server. Ensure the virtual environment is active."
+            commands:
+              - "# Start the WebUI server\npython webui.py --ip 127.0.0.1 --port 7788"
+          - type: "info"
+            description: "Expected Output and Access Instructions"
+            content: |
+              Expected Output:
+              > Browser-use WebUI starting...
+              > Server running at: http://127.0.0.1:7788
+              > Access key: your-secret-key-here
+
+              Access the Interface:
+              1. Open your web browser (Firefox, Edge, or Safari).
+              2. Navigate to: http://127.0.0.1:7788?key=your-secret-key-here
+              3. You should see the Browser-use WebUI interface.
+
+      - task_id: "1.7"
+        name: "Final Verification: Marketing-Relevant Test Task"
+        description: "Create and execute a Python script to perform a marketing automation task, verifying the end-to-end functionality of the Browser-use agent."
+        status: "[BLOCKED]"
+        depends_on: "1.6"
+        verification_checklist:
+          - "The test script 'test_lead_enrichment.py' is created in the project root."
+          - "The script executes successfully and prints '✔ Task completed successfully!'."
+          - "The console output includes structured data for Microsoft Corporation (Company, Industry, Employees, Description)."
+        resources:
+          - type: "shell_commands"
+            description: "Create the test script file in the project root ('browser-use-automation')."
+            commands:
+              - "cd .."
+              - "nano test_lead_enrichment.py"
+          - type: "python_script"
+            description: "Paste this code into test_lead_enrichment.py."
+            code: |
+              import asyncio
+              import os
+              from dotenv import load_dotenv
+              from langchain_openai import ChatOpenAI
+              from browser_use import Agent
+
+              load_dotenv()
+
+              async def test_lead_enrichment():
+                  """Test lead enrichment by extracting company information"""
+                  llm = ChatOpenAI(
+                      model="gpt-4o",
+                      openai_api_key=os.getenv("OPENAI_API_KEY")
+                  )
+                  agent = Agent(
+                      task="""
+                      Navigate to linkedin.com/company/microsoft and extract the following information:
+                      1. Company name
+                      2. Industry
+                      3. Number of employees
+                      4. Company description (first paragraph)
+                      Return this information in a structured format.
+                      """,
+                      llm=llm,
+                      use_vision=True
+                  )
+                  try:
+                      result = await agent.run()
+                      print("✔ Task completed successfully!")
+                      print("Extracted Data:")
+                      print(result)
+                  except Exception as e:
+                      print(f"✘ Task failed: {e}")
+
+              if __name__ == "__main__":
+                  asyncio.run(test_lead_enrichment())
+          - type: "shell_commands"
+            description: "Commands to run the final test script. Ensure the virtual environment is active."
+            commands:
+              - "# Ensure virtual environment is activated\nsource venv/bin/activate"
+              - "# Run the test\npython test_lead_enrichment.py"
+          - type: "info"
+            description: "Expected Output"
+            content: |
+              > ✔ Task completed successfully!
+              > Extracted Data:
+              > Company: Microsoft Corporation
+              > Industry: Technology
+              > Employees: 10,001+ employees
+              > Description: We're on a mission to empower every person and every organization on the planet to achieve more.
+
+  # PHASE 2: INTEGRATION AND PRODUCTION DEPLOYMENT
+  - phase: 2
+    name: "Integration and Production Deployment"
+    status: "[BLOCKED]"
+    description: "Prepare the Browser-use agent for integration with the marketing system by creating webhook endpoints, hardening security, and setting up long-term process management and monitoring."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 2 Activated.
+      # The Browser-use engine is installed and verified. The next logical step is to prepare it for production use and integration with Mautic and Google Cloud Functions. I will now generate the task bundle for creating webhook integration points and implementing security and monitoring.
+    tasks:
+      - task_id: "2.1"
+        name: "Create Webhook Integration Endpoint"
+        description: "Create a Python script that can be called by an external service (like Mautic or a Google Cloud Function) to trigger a lead enrichment task."
+        status: "[PENDING]"
+        verification_checklist:
+          - "The script 'webhook_integration.py' is created."
+          - "Running the script with a test lead successfully prints a JSON object containing the original lead data and the new enriched data."
+        resources:
+          - type: "python_script"
+            description: "Create a file named 'webhook_integration.py' and paste this code. This script demonstrates how an external call can trigger an enrichment task."
+            code: |
+              import asyncio
+              import json
+              import os
+              from dotenv import load_dotenv
+              from langchain_openai import ChatOpenAI
+              from browser_use import Agent
+
+              load_dotenv()
+
+              async def enrich_lead_webhook(lead_data):
+                  """Webhook function to enrich lead data"""
+                  llm = ChatOpenAI(model="gpt-4o", openai_api_key=os.getenv("OPENAI_API_KEY"))
+                  email = lead_data.get('email', '')
+                  domain = email.split('@')[1] if '@' in email and email.split('@')[1] not in ['gmail.com', 'yahoo.com', 'hotmail.com'] else None
+                  
+                  if domain:
+                      agent = Agent(
+                          task=f"Research the company with domain {domain} and return structured data for CRM integration including company size, industry, key services, and recent news.",
+                          llm=llm
+                      )
+                      enriched_data = await agent.run()
+                      # In a real scenario, you would send this data back to Mautic via API
+                      # mautic_webhook_url = "https://m.pixelcartelhq.com/api/leads/{}/edit".format(lead_data.get('id'))
+                      payload = {'enriched_data': enriched_data}
+                      return payload
+                  
+                  return {"message": "No enrichment needed"}
+
+              if __name__ == "__main__":
+                  test_lead = {'id': '123', 'email': 'john@techstartup.com', 'name': 'John Doe'}
+                  result = asyncio.run(enrich_lead_webhook(test_lead))
+                  print(json.dumps(result, indent=2))
+
+      - task_id: "2.2"
+        name: "Security Hardening"
+        description: "Secure the production environment by configuring the firewall to restrict access to the WebUI and setting up SSL/TLS for encrypted communication."
+        status: "[BLOCKED]"
+        depends_on: "2.1"
+        verification_checklist:
+          - "UFW firewall is enabled and has a rule allowing access to port 7788 only from a specific IP."
+          - "Nginx is installed and a reverse proxy is configured for the Browser-use service."
+          - "A Let's Encrypt SSL certificate is successfully issued for the domain pointing to the service."
+        resources:
+          - type: "shell_commands"
+            description: "Firewall configuration. Replace YOUR_IP with your actual static IP address."
+            commands:
+              - "# Allow only specific IPs to access WebUI\nsudo ufw allow from YOUR_IP to any port 7788"
+              - "sudo ufw enable"
+          - type: "shell_commands"
+            description: "SSL/TLS Setup using Nginx as a reverse proxy."
+            commands:
+              - "# Install nginx and certbot\nsudo apt install -y nginx certbot python3-certbot-nginx"
+              - "# Get SSL certificate (follow prompts)\nsudo certbot --nginx -d your-domain.com"
+
+      - task_id: "2.3"
+        name: "Process Management and Monitoring"
+        description: "Use systemd to ensure the Browser-use WebUI service runs continuously and restarts on failure. Create a basic logging and health check script."
+        status: "[BLOCKED]"
+        depends_on: "2.2"
+        verification_checklist:
+          - "A systemd service file 'browser-use.service' is created and enabled."
+          - "The service starts automatically on boot."
+          - "A health check script 'monitoring.py' is created and can be run via cron."
+        resources:
+          - type: "shell_commands"
+            description: "Create a systemd service file to manage the WebUI."
+            commands:
+              - "sudo nano /etc/systemd/system/browser-use.service"
+          - type: "systemd_config"
+            description: "Paste this content into the service file. Adjust paths and user as necessary."
+            code: |
+              [Unit]
+              Description=Browser-use WebUI
+              After=network.target
+
+              [Service]
+              Type=simple
+              User=your-user
+              WorkingDirectory=/opt/browser-use-automation/web-ui
+              Environment="PATH=/opt/browser-use-automation/venv/bin"
+              ExecStart=/opt/browser-use-automation/venv/bin/python webui.py --ip 127.0.0.1 --port 7788
+              Restart=always
+
+              [Install]
+              WantedBy=multi-user.target
+          - type: "python_script"
+            description: "Create a basic monitoring script 'monitoring.py' for health checks."
+            code: |
+              # This script would contain a simple test task, similar to the 
+              # 'test_lead_enrichment.py' but with logging to a file in /var/log/
+              # to be run by a cron job every 30 minutes.

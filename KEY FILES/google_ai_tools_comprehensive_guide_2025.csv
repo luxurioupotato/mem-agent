@@ -1,0 +1,23 @@
+Service,Category,Free_Tier_Status,Key_Limitations,Monthly_Value_USD,Expiration_Date,Production_Ready
+Google Opal,No-Code AI Platform,Free (Beta),"US Only, Experimental",0 (Beta),Unknown,No
+Google AI Studio,AI Development,Free,API Key based system,50-200,No announced date,Yes
+NotebookLM,AI Research,Free,Early testing phase,100-300,Unknown,No
+Google Cloud Platform,Cloud Infrastructure,$300 Credits + Always Free,One-time per org,300 (one-time),No expiration,Yes
+GitHub Student Pack,Developer Tools Bundle,Free for Students,Student verification required,10000+,Annual renewal,Yes
+GitHub Copilot Pro,AI Coding Assistant,Free for Students,Student verification required,20,While enrolled,Yes
+OpenAI API (Data Sharing),AI API,Up to 11M tokens/day,Data sharing required,150+,2025-04-30,Yes
+Microsoft Azure Students,Cloud Platform,$100 Credits for Students,Student verification required,100,Annual renewal,Yes
+n8n Community Edition,Workflow Automation,Free (Self-hosted),Self-hosting required,0,Never,Yes
+Playwright,Browser Automation,Free & Open Source,None,0,Never,Yes
+Puppeteer,Browser Automation,Free & Open Source,None,0,Never,Yes
+Browser-Use AI Agent,AI Browser Agent,Free & Open Source,Local execution only,0,Never,No
+Huginn,Agent Automation,Free & Open Source,Self-hosting required,0,Never,Yes
+Apache Airflow,Data Pipeline,Free & Open Source,Self-hosting required,0,Never,Yes
+Vercel Hobby,Web Hosting,Free,100GB bandwidth/month,50-100,Never,Yes
+Cloudflare Workers,Edge Computing,Free (100K requests/day),100K requests/day limit,25-50,Never,Yes
+Railway,Container Hosting,$5 Trial Credit,One-time $5 credit,5-20,After $5 used,Limited
+Docker,Containerization,Free & Open Source,None,0,Never,Yes
+Node.js,Runtime,Free & Open Source,None,0,Never,Yes
+PostgreSQL,Database,Free & Open Source,None,0,Never,Yes
+Redis,In-Memory Database,Free & Open Source,None,0,Never,Yes
+Nginx,Web Server,Free & Open Source,None,0,Never,Yes

@@ -1,0 +1,444 @@
+{
+  "metadata": {
+    "created_date": "2025-09-17",
+    "version": "1.0",
+    "purpose": "Modular Self-Adapting Memory Agent Architecture",
+    "system_type": "Advanced Business Assistant Cognitive Backbone",
+    "architecture_principle": "Living System with Perpetual Improvement"
+  },
+  "core_architecture": {
+    "system_philosophy": "Multi-module agent ecosystem with semi-autonomous operation, self-learning capabilities, and human-level reasoning",
+    "design_principles": [
+      "Modular design with defined interfaces",
+      "Self-adapting and learning protocols",
+      "Efficient internal communication",
+      "Advanced fail-safes and triggers",
+      "Big picture cognition and orchestration"
+    ],
+    "foundational_patterns": "Derived from autopilot_architect, ai_mentor_brain_memory, and strategic_ai_implementation optimized files"
+  },
+  "module_architecture": {
+    "core_modules": {
+      "ingestion_agent": {
+        "id": "ING-001",
+        "purpose": "Data ingestion, parsing, and initial processing",
+        "capabilities": [
+          "Multi-format data ingestion (PDF, text, images, web content)",
+          "Real-time data streaming and batch processing",
+          "Content validation and quality assessment",
+          "Automatic format detection and conversion"
+        ],
+        "interfaces": {
+          "input": ["file_system", "web_scraping", "api_endpoints", "user_upload"],
+          "output": ["categorization_agent", "context_assembly_agent", "analytics_agent"]
+        },
+        "internal_communication": "Structured data packets with metadata",
+        "self_prompting": "Auto-generates prompts based on data type, quality, and processing requirements"
+      },
+      "categorization_agent": {
+        "id": "CAT-002", 
+        "purpose": "Intelligent content categorization and classification",
+        "capabilities": [
+          "Multi-dimensional content classification",
+          "Dynamic schema adaptation",
+          "Semantic relationship mapping",
+          "Confidence scoring and validation"
+        ],
+        "interfaces": {
+          "input": ["ingestion_agent", "search_agent", "analytics_agent"],
+          "output": ["search_agent", "context_assembly_agent", "memory_manager"]
+        },
+        "internal_communication": "Classification vectors with confidence scores",
+        "self_prompting": "Generates categorization prompts based on content patterns and business context"
+      },
+      "search_agent": {
+        "id": "SRC-003",
+        "purpose": "Intelligent search and retrieval operations",
+        "capabilities": [
+          "Semantic search across all memory types",
+          "Context-aware query expansion",
+          "Multi-modal search (text, image, structured data)",
+          "Real-time search optimization"
+        ],
+        "interfaces": {
+          "input": ["categorization_agent", "context_assembly_agent", "brain_module"],
+          "output": ["context_assembly_agent", "analytics_agent", "brain_module"]
+        },
+        "internal_communication": "Search vectors and relevance scores",
+        "self_prompting": "Auto-generates search strategies based on query complexity and context"
+      },
+      "context_assembly_agent": {
+        "id": "CTX-004",
+        "purpose": "Context building and information synthesis",
+        "capabilities": [
+          "Multi-source context assembly",
+          "Temporal context management",
+          "Cross-reference resolution",
+          "Context quality assessment"
+        ],
+        "interfaces": {
+          "input": ["search_agent", "categorization_agent", "memory_manager"],
+          "output": ["reasoning_agent", "summarization_agent", "brain_module"]
+        },
+        "internal_communication": "Context graphs with relationship weights",
+        "self_prompting": "Generates context assembly prompts based on information gaps and user intent"
+      },
+      "analytics_agent": {
+        "id": "ANL-005",
+        "purpose": "Pattern detection and analytical insights",
+        "capabilities": [
+          "Real-time pattern recognition",
+          "Business metric tracking",
+          "Predictive analytics",
+          "Anomaly detection"
+        ],
+        "interfaces": {
+          "input": ["ingestion_agent", "search_agent", "memory_manager"],
+          "output": ["reasoning_agent", "brain_module", "learning_agent"]
+        },
+        "internal_communication": "Analytical vectors and insight scores",
+        "self_prompting": "Auto-generates analysis prompts based on data patterns and business objectives"
+      },
+      "reasoning_agent": {
+        "id": "RSN-006",
+        "purpose": "Advanced reasoning and decision making",
+        "capabilities": [
+          "Multi-step logical reasoning",
+          "Hypothesis generation and testing",
+          "Causal analysis",
+          "Strategic decision support"
+        ],
+        "interfaces": {
+          "input": ["context_assembly_agent", "analytics_agent", "brain_module"],
+          "output": ["summarization_agent", "action_agent", "brain_module"]
+        },
+        "internal_communication": "Reasoning chains with confidence levels",
+        "self_prompting": "Generates reasoning prompts based on problem complexity and available context"
+      },
+      "summarization_agent": {
+        "id": "SUM-007",
+        "purpose": "Content summarization and synthesis",
+        "capabilities": [
+          "Multi-level summarization",
+          "Key insight extraction",
+          "Executive summary generation",
+          "Adaptive summarization based on audience"
+        ],
+        "interfaces": {
+          "input": ["context_assembly_agent", "reasoning_agent", "memory_manager"],
+          "output": ["output_agent", "brain_module", "learning_agent"]
+        },
+        "internal_communication": "Summary vectors with importance scores",
+        "self_prompting": "Auto-generates summarization prompts based on content type and user requirements"
+      },
+      "error_detection_agent": {
+        "id": "ERR-008",
+        "purpose": "Error detection, logging, and recovery",
+        "capabilities": [
+          "Real-time error monitoring",
+          "Pattern-based error prediction",
+          "Automated recovery procedures",
+          "Error correlation analysis"
+        ],
+        "interfaces": {
+          "input": ["all_modules"],
+          "output": ["brain_module", "learning_agent", "emergency_override"]
+        },
+        "internal_communication": "Error vectors with severity and context",
+        "self_prompting": "Generates error analysis prompts based on failure patterns and system state"
+      },
+      "learning_agent": {
+        "id": "LRN-009",
+        "purpose": "Continuous learning and adaptation",
+        "capabilities": [
+          "Pattern learning from interactions",
+          "Schema evolution and updates",
+          "Performance optimization",
+          "Knowledge gap identification"
+        ],
+        "interfaces": {
+          "input": ["all_modules", "brain_module"],
+          "output": ["all_modules", "brain_module"]
+        },
+        "internal_communication": "Learning vectors with adaptation signals",
+        "self_prompting": "Auto-generates learning prompts based on performance metrics and new patterns"
+      },
+      "memory_manager": {
+        "id": "MEM-010",
+        "purpose": "Centralized memory management and storage",
+        "capabilities": [
+          "Multi-tier memory management (episodic, semantic, working, procedural)",
+          "Memory compression and optimization",
+          "Cross-memory relationship mapping",
+          "Memory lifecycle management"
+        ],
+        "interfaces": {
+          "input": ["all_modules"],
+          "output": ["all_modules"]
+        },
+        "internal_communication": "Memory vectors with access patterns",
+        "self_prompting": "Generates memory management prompts based on access patterns and storage requirements"
+      },
+      "brain_module": {
+        "id": "BRN-000",
+        "purpose": "Supervisory orchestration and big picture cognition",
+        "capabilities": [
+          "Cross-module coordination",
+          "Strategic decision making",
+          "System health monitoring",
+          "Meta-analysis and insights"
+        ],
+        "interfaces": {
+          "input": ["all_modules"],
+          "output": ["all_modules", "external_apis"]
+        },
+        "internal_communication": "Orchestration vectors with priority scores",
+        "self_prompting": "Generates high-level reasoning prompts based on system state and business objectives"
+      }
+    }
+  },
+  "internal_communication_protocol": {
+    "message_format": {
+      "message_id": "Unique identifier with timestamp",
+      "source_agent": "Sending agent ID",
+      "target_agent": "Receiving agent ID or broadcast",
+      "message_type": "REQUEST|RESPONSE|NOTIFICATION|ERROR|LEARNING",
+      "priority": "CRITICAL|HIGH|MEDIUM|LOW",
+      "payload": "Compressed data payload",
+      "metadata": {
+        "timestamp": "ISO 8601 timestamp",
+        "version": "Message format version",
+        "confidence": "Confidence score 0-1",
+        "dependencies": "Required dependencies",
+        "context_hash": "Context fingerprint"
+      }
+    },
+    "compression_strategies": {
+      "symbolic_representation": "Use symbols and codes for common concepts",
+      "vector_compression": "Compress data into high-dimensional vectors",
+      "knowledge_graph": "Represent relationships as graph structures",
+      "binary_encoding": "Use binary formats for numerical data"
+    },
+    "self_prompting_mechanism": {
+      "prompt_generation": "Auto-generate prompts based on current context, data patterns, and objectives",
+      "prompt_templates": "Reusable prompt templates for common scenarios",
+      "prompt_optimization": "Continuously optimize prompts based on success rates",
+      "prompt_logging": "Log all generated prompts for analysis and reuse"
+    }
+  },
+  "memory_architecture": {
+    "memory_types": {
+      "episodic_memory": {
+        "purpose": "Store temporally indexed experiences and interactions",
+        "structure": "Time-series data with context vectors",
+        "access_pattern": "Temporal queries and pattern matching",
+        "retention_policy": "Configurable based on importance and recency"
+      },
+      "semantic_memory": {
+        "purpose": "Maintain structured knowledge representations",
+        "structure": "Knowledge graph with entity relationships",
+        "access_pattern": "Semantic queries and relationship traversal",
+        "retention_policy": "Long-term with version control"
+      },
+      "working_memory": {
+        "purpose": "Transient buffer for real-time task execution",
+        "structure": "High-speed cache with attention mechanisms",
+        "access_pattern": "Immediate access with priority queuing",
+        "retention_policy": "Short-term with automatic cleanup"
+      },
+      "procedural_memory": {
+        "purpose": "Encode executable action schemas and skills",
+        "structure": "Executable code with parameter templates",
+        "access_pattern": "Pattern matching and skill composition",
+        "retention_policy": "Long-term with performance tracking"
+      }
+    },
+    "memory_management": {
+      "hierarchical_storage": "Short-term (working) and long-term (persistent) memory layers",
+      "compression_algorithms": "Advanced compression for memory optimization",
+      "relationship_mapping": "Cross-memory relationship tracking",
+      "version_control": "Complete version history for all memory updates"
+    }
+  },
+  "self_learning_protocols": {
+    "pattern_detection": {
+      "data_patterns": "Detect new data patterns and structures",
+      "usage_patterns": "Identify user behavior and preference patterns",
+      "error_patterns": "Recognize recurring errors and failure modes",
+      "success_patterns": "Identify successful strategies and approaches"
+    },
+    "adaptation_mechanisms": {
+      "schema_evolution": "Automatically update schemas based on new patterns",
+      "rule_refinement": "Continuously refine logic rules and decision trees",
+      "knowledge_linking": "Create new knowledge connections and relationships",
+      "performance_optimization": "Optimize system performance based on usage patterns"
+    },
+    "learning_triggers": {
+      "new_data_frequency": "Trigger learning when new data patterns emerge",
+      "error_thresholds": "Activate learning when error rates exceed thresholds",
+      "performance_degradation": "Trigger learning when performance drops",
+      "scheduled_intervals": "Regular learning cycles for continuous improvement"
+    }
+  },
+  "error_detection_and_recovery": {
+    "error_types": {
+      "data_anomalies": "Detect unusual or contradictory data",
+      "knowledge_gaps": "Identify missing or incomplete information",
+      "system_failures": "Monitor system health and performance",
+      "communication_errors": "Track inter-agent communication issues"
+    },
+    "recovery_procedures": {
+      "auto_restart": "Automatically restart failed modules",
+      "context_reset": "Reset context when inconsistencies detected",
+      "escalation": "Escalate critical issues to human oversight",
+      "research_cycles": "Trigger autonomous research for missing information"
+    },
+    "logging_system": {
+      "structured_logging": "All activities logged with structured metadata",
+      "correlation_analysis": "Cross-correlate logs for pattern detection",
+      "audit_trail": "Complete audit trail for all system activities",
+      "performance_metrics": "Track performance metrics and system health"
+    }
+  },
+  "big_picture_cognition": {
+    "supervisory_brain": {
+      "orchestration": "Coordinate activities across all modules",
+      "strategic_analysis": "Generate high-level insights and recommendations",
+      "health_monitoring": "Monitor system health and performance",
+      "meta_analysis": "Analyze system behavior and optimize operations"
+    },
+    "analysis_triggers": {
+      "scheduled_analysis": "Regular analysis cycles for system optimization",
+      "event_triggers": "Analysis triggered by specific business events",
+      "anomaly_detection": "Analysis triggered by detected anomalies",
+      "user_commands": "Analysis triggered by user requests"
+    },
+    "insight_generation": {
+      "trend_analysis": "Identify trends and patterns across time",
+      "correlation_discovery": "Discover hidden correlations and relationships",
+      "strategic_recommendations": "Generate strategic business recommendations",
+      "optimization_suggestions": "Suggest system and process optimizations"
+    }
+  },
+  "external_research_integration": {
+    "research_protocols": {
+      "mandatory_research": "Always research external sources before recommendations",
+      "real_time_scraping": "Continuously scrape latest information from trusted sources",
+      "comparison_analysis": "Compare external findings with internal knowledge",
+      "contradiction_detection": "Flag contradictions between external and internal data"
+    },
+    "research_sources": {
+      "web_scraping": "Scrape industry websites and forums",
+      "api_integration": "Integrate with external APIs and data sources",
+      "academic_sources": "Access academic and research databases",
+      "industry_reports": "Monitor industry reports and publications"
+    },
+    "knowledge_integration": {
+      "fresh_information": "Integrate latest external findings into memory",
+      "obsolescence_detection": "Identify and flag outdated information",
+      "validation_procedures": "Validate external information before integration",
+      "source_tracking": "Track sources and credibility of external information"
+    }
+  },
+  "emergency_and_override_systems": {
+    "emergency_protocols": {
+      "cold_restart": "Complete system restart with safe state recovery",
+      "partial_restart": "Restart specific modules while maintaining others",
+      "rollback_procedures": "Rollback to previous stable states",
+      "human_escalation": "Escalate critical issues to human oversight"
+    },
+    "override_mechanisms": {
+      "manual_override": "Allow human intervention in automated processes",
+      "emergency_stop": "Immediate system halt for critical issues",
+      "safe_mode": "Operate in reduced functionality mode during issues",
+      "recovery_procedures": "Automated recovery from various failure states"
+    },
+    "monitoring_systems": {
+      "real_time_monitoring": "Continuous monitoring of all system components",
+      "alert_systems": "Proactive alerting for potential issues",
+      "health_dashboards": "Real-time system health visualization",
+      "performance_tracking": "Track and analyze system performance metrics"
+    }
+  },
+  "implementation_guidelines": {
+    "development_tools": {
+      "ai_studio_integration": "Leverage AI Studio for model management and deployment",
+      "cursor_ide": "Use Cursor for code development and AI-assisted programming",
+      "browser_use": "Integrate browser automation for web scraping and research",
+      "extensible_alternatives": "Design for easy integration of new tools and capabilities"
+    },
+    "api_standards": {
+      "restful_apis": "RESTful APIs for external integration",
+      "graphql": "GraphQL for complex data queries",
+      "websocket": "WebSocket for real-time communication",
+      "message_queues": "Message queues for asynchronous processing"
+    },
+    "deployment_architecture": {
+      "microservices": "Deploy as microservices for scalability",
+      "containerization": "Use Docker containers for consistent deployment",
+      "orchestration": "Use Kubernetes for container orchestration",
+      "monitoring": "Implement comprehensive monitoring and logging"
+    }
+  },
+  "example_workflows": {
+    "data_ingestion_workflow": {
+      "trigger": "New document uploaded to system",
+      "process": [
+        "Ingestion agent receives document",
+        "Auto-generates processing prompt based on document type",
+        "Validates and parses document content",
+        "Sends structured data to categorization agent",
+        "Categorization agent classifies content",
+        "Updates memory with new knowledge",
+        "Triggers learning agent for pattern analysis"
+      ],
+      "output": "Document processed and integrated into knowledge base"
+    },
+    "error_recovery_workflow": {
+      "trigger": "Error detected in any module",
+      "process": [
+        "Error detection agent identifies issue",
+        "Auto-generates diagnostic prompt",
+        "Analyzes error patterns and context",
+        "Attempts automated recovery procedures",
+        "Escalates to brain module if needed",
+        "Updates learning agent with error patterns",
+        "Broadcasts lessons learned to all modules"
+      ],
+      "output": "Error resolved and system learning updated"
+    },
+    "strategic_analysis_workflow": {
+      "trigger": "Scheduled analysis or business event",
+      "process": [
+        "Brain module initiates analysis",
+        "Queries all modules for relevant data",
+        "Performs external research for latest information",
+        "Correlates internal and external findings",
+        "Generates strategic insights and recommendations",
+        "Updates memory with new insights",
+        "Presents findings to user or external systems"
+      ],
+      "output": "Strategic analysis report with actionable recommendations"
+    }
+  },
+  "maintenance_and_evolution": {
+    "continuous_improvement": {
+      "performance_monitoring": "Continuously monitor and optimize system performance",
+      "user_feedback_integration": "Integrate user feedback into system improvements",
+      "pattern_analysis": "Analyze usage patterns for optimization opportunities",
+      "schema_evolution": "Evolve schemas based on changing requirements"
+    },
+    "system_health": {
+      "regular_health_checks": "Scheduled system health assessments",
+      "performance_metrics": "Track key performance indicators",
+      "error_rate_monitoring": "Monitor and analyze error rates",
+      "capacity_planning": "Plan for system capacity and scaling"
+    },
+    "evolution_protocols": {
+      "schema_updates": "Procedures for updating system schemas",
+      "module_upgrades": "Process for upgrading individual modules",
+      "feature_additions": "Protocol for adding new features and capabilities",
+      "backward_compatibility": "Maintain backward compatibility during updates"
+    }
+  }
+}

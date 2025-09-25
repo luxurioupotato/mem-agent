@@ -1,0 +1,482 @@
+{
+  "metadata": {
+    "created_date": "2025-09-17",
+    "version": "1.0",
+    "purpose": "Setup, maintenance, and evolution guide for modular memory agent architecture",
+    "target_audience": "System administrators, developers, and business stakeholders",
+    "guide_type": "Comprehensive operational documentation"
+  },
+  "initial_setup": {
+    "phase_1_foundation": {
+      "timeline": "Week 1-2",
+      "objectives": [
+        "Set up core infrastructure",
+        "Deploy essential services",
+        "Configure basic monitoring",
+        "Establish development environment"
+      ],
+      "tasks": [
+        {
+          "task_id": "SETUP-1.1",
+          "name": "Infrastructure Setup",
+          "description": "Set up Kubernetes cluster or Docker Swarm environment",
+          "prerequisites": [
+            "Cloud provider account (AWS, GCP, Azure)",
+            "Domain name and SSL certificates",
+            "Monitoring and logging tools access"
+          ],
+          "steps": [
+            "Provision Kubernetes cluster with 3+ nodes",
+            "Configure persistent storage (EBS, GCE Persistent Disk)",
+            "Set up load balancer and ingress controller",
+            "Configure DNS and SSL certificates",
+            "Deploy monitoring stack (Prometheus, Grafana)"
+          ],
+          "verification": [
+            "Cluster health check passes",
+            "All nodes are ready and schedulable",
+            "Storage classes are available",
+            "Load balancer is accessible"
+          ]
+        },
+        {
+          "task_id": "SETUP-1.2",
+          "name": "Database Services Deployment",
+          "description": "Deploy and configure all required database services",
+          "prerequisites": ["Infrastructure setup completed"],
+          "steps": [
+            "Deploy Redis cluster for working memory",
+            "Deploy Neo4j for semantic memory",
+            "Deploy InfluxDB for episodic memory",
+            "Deploy PostgreSQL for procedural memory",
+            "Configure database replication and backups"
+          ],
+          "verification": [
+            "All databases are accessible",
+            "Replication is working",
+            "Backups are configured",
+            "Performance metrics are within limits"
+          ]
+        },
+        {
+          "task_id": "SETUP-1.3",
+          "name": "Message Queue Setup",
+          "description": "Deploy and configure message queuing system",
+          "prerequisites": ["Database services deployed"],
+          "steps": [
+            "Deploy Apache Kafka cluster",
+            "Configure topics for each agent",
+            "Set up dead letter queues",
+            "Configure monitoring and alerting"
+          ],
+          "verification": [
+            "Kafka cluster is healthy",
+            "Topics are created and accessible",
+            "Message flow is working",
+            "Monitoring is configured"
+          ]
+        }
+      ]
+    },
+    "phase_2_core_agents": {
+      "timeline": "Week 3-4",
+      "objectives": [
+        "Deploy core agent services",
+        "Configure inter-agent communication",
+        "Set up basic workflows",
+        "Implement error handling"
+      ],
+      "tasks": [
+        {
+          "task_id": "SETUP-2.1",
+          "name": "Memory Manager Deployment",
+          "description": "Deploy and configure the central memory manager",
+          "prerequisites": ["Message queue setup completed"],
+          "steps": [
+            "Deploy memory manager service",
+            "Configure database connections",
+            "Set up memory compression algorithms",
+            "Configure memory lifecycle policies",
+            "Test memory operations"
+          ],
+          "verification": [
+            "Memory manager is accessible",
+            "Database connections are working",
+            "Memory operations are successful",
+            "Compression is functioning"
+          ]
+        },
+        {
+          "task_id": "SETUP-2.2",
+          "name": "Core Agent Deployment",
+          "description": "Deploy ingestion, categorization, and search agents",
+          "prerequisites": ["Memory manager deployed"],
+          "steps": [
+            "Deploy ingestion agent with file processing",
+            "Deploy categorization agent with ML models",
+            "Deploy search agent with Elasticsearch",
+            "Configure inter-agent communication",
+            "Test basic workflows"
+          ],
+          "verification": [
+            "All agents are running",
+            "Communication is working",
+            "Basic workflows are functional",
+            "Error handling is working"
+          ]
+        },
+        {
+          "task_id": "SETUP-2.3",
+          "name": "Brain Module Deployment",
+          "description": "Deploy the supervisory brain module",
+          "prerequisites": ["Core agents deployed"],
+          "steps": [
+            "Deploy brain module service",
+            "Configure orchestration logic",
+            "Set up health monitoring",
+            "Configure strategic analysis",
+            "Test system coordination"
+          ],
+          "verification": [
+            "Brain module is running",
+            "Orchestration is working",
+            "Health monitoring is active",
+            "Strategic analysis is functional"
+          ]
+        }
+      ]
+    },
+    "phase_3_advanced_features": {
+      "timeline": "Week 5-6",
+      "objectives": [
+        "Deploy advanced agents",
+        "Implement learning capabilities",
+        "Set up external research",
+        "Configure monitoring and alerting"
+      ],
+      "tasks": [
+        {
+          "task_id": "SETUP-3.1",
+          "name": "Advanced Agent Deployment",
+          "description": "Deploy analytics, reasoning, and summarization agents",
+          "prerequisites": ["Brain module deployed"],
+          "steps": [
+            "Deploy analytics agent with ML models",
+            "Deploy reasoning agent with LLM integration",
+            "Deploy summarization agent with transformers",
+            "Configure advanced workflows",
+            "Test complex scenarios"
+          ],
+          "verification": [
+            "Advanced agents are running",
+            "ML models are loaded",
+            "LLM integration is working",
+            "Complex workflows are functional"
+          ]
+        },
+        {
+          "task_id": "SETUP-3.2",
+          "name": "Learning System Setup",
+          "description": "Deploy and configure learning and adaptation systems",
+          "prerequisites": ["Advanced agents deployed"],
+          "steps": [
+            "Deploy learning agent",
+            "Configure pattern detection",
+            "Set up schema evolution",
+            "Configure performance optimization",
+            "Test learning capabilities"
+          ],
+          "verification": [
+            "Learning agent is running",
+            "Pattern detection is working",
+            "Schema evolution is functional",
+            "Performance optimization is active"
+          ]
+        },
+        {
+          "task_id": "SETUP-3.3",
+          "name": "External Research Integration",
+          "description": "Set up external research and web scraping capabilities",
+          "prerequisites": ["Learning system setup completed"],
+          "steps": [
+            "Deploy web scraping services",
+            "Configure API integrations",
+            "Set up research workflows",
+            "Configure knowledge integration",
+            "Test external research"
+          ],
+          "verification": [
+            "Web scraping is working",
+            "API integrations are functional",
+            "Research workflows are active",
+            "Knowledge integration is working"
+          ]
+        }
+      ]
+    }
+  },
+  "operational_procedures": {
+    "daily_operations": {
+      "health_checks": {
+        "frequency": "Every 15 minutes",
+        "checks": [
+          "All agent services are running",
+          "Database connections are healthy",
+          "Message queues are processing",
+          "Memory usage is within limits",
+          "Error rates are below thresholds"
+        ],
+        "automation": "Automated health checks with alerting",
+        "escalation": "Alert to on-call engineer if issues detected"
+      },
+      "monitoring": {
+        "dashboards": "Real-time dashboards for system health",
+        "metrics": "Key performance indicators tracking",
+        "alerts": "Proactive alerting for potential issues",
+        "reports": "Daily operational reports"
+      },
+      "maintenance": {
+        "log_rotation": "Automatic log rotation and cleanup",
+        "backup_verification": "Daily backup verification",
+        "performance_review": "Daily performance metrics review",
+        "capacity_monitoring": "Resource usage monitoring"
+      }
+    },
+    "weekly_operations": {
+      "system_analysis": {
+        "performance_review": "Weekly performance analysis",
+        "error_analysis": "Error pattern analysis and resolution",
+        "capacity_planning": "Resource capacity planning",
+        "optimization": "System optimization recommendations"
+      },
+      "learning_updates": {
+        "model_retraining": "Retrain ML models with new data",
+        "schema_updates": "Update schemas based on new patterns",
+        "knowledge_integration": "Integrate new knowledge and insights",
+        "performance_optimization": "Optimize system performance"
+      },
+      "backup_verification": {
+        "full_backup": "Weekly full system backup",
+        "recovery_testing": "Test backup recovery procedures",
+        "data_integrity": "Verify data integrity and consistency",
+        "disaster_recovery": "Test disaster recovery procedures"
+      }
+    },
+    "monthly_operations": {
+      "system_evolution": {
+        "architecture_review": "Review system architecture and design",
+        "performance_analysis": "Comprehensive performance analysis",
+        "scalability_assessment": "Assess system scalability needs",
+        "technology_updates": "Evaluate and implement technology updates"
+      },
+      "security_review": {
+        "security_audit": "Monthly security audit and review",
+        "access_review": "Review user access and permissions",
+        "vulnerability_scan": "Vulnerability scanning and patching",
+        "compliance_check": "Compliance and regulatory checks"
+      },
+      "business_alignment": {
+        "requirements_review": "Review business requirements and needs",
+        "feature_planning": "Plan new features and capabilities",
+        "stakeholder_feedback": "Collect and analyze stakeholder feedback",
+        "roadmap_update": "Update product roadmap and priorities"
+      }
+    }
+  },
+  "evolution_protocols": {
+    "continuous_learning": {
+      "pattern_detection": {
+        "data_patterns": "Continuously detect new data patterns",
+        "usage_patterns": "Identify user behavior patterns",
+        "error_patterns": "Recognize error and failure patterns",
+        "success_patterns": "Identify successful strategies"
+      },
+      "adaptation_mechanisms": {
+        "schema_evolution": "Automatically evolve schemas",
+        "rule_refinement": "Refine logic rules and decision trees",
+        "knowledge_linking": "Create new knowledge connections",
+        "performance_optimization": "Optimize system performance"
+      },
+      "learning_triggers": {
+        "new_data": "Trigger learning on new data patterns",
+        "error_thresholds": "Activate learning on error spikes",
+        "performance_drops": "Trigger learning on performance issues",
+        "scheduled_cycles": "Regular learning cycles"
+      }
+    },
+    "system_upgrades": {
+      "agent_upgrades": {
+        "individual_upgrades": "Upgrade individual agents independently",
+        "compatibility_checking": "Check compatibility before upgrades",
+        "rollback_procedures": "Rollback procedures for failed upgrades",
+        "testing": "Comprehensive testing before deployment"
+      },
+      "architecture_evolution": {
+        "modular_updates": "Update individual modules without affecting others",
+        "interface_evolution": "Evolve interfaces while maintaining compatibility",
+        "performance_improvements": "Implement performance improvements",
+        "feature_additions": "Add new features and capabilities"
+      },
+      "technology_refresh": {
+        "dependency_updates": "Update dependencies and libraries",
+        "security_patches": "Apply security patches and updates",
+        "performance_improvements": "Implement performance improvements",
+        "new_technologies": "Integrate new technologies and tools"
+      }
+    },
+    "emergency_procedures": {
+      "incident_response": {
+        "detection": "Automated incident detection and alerting",
+        "classification": "Classify incidents by severity and impact",
+        "response": "Execute appropriate response procedures",
+        "recovery": "Recover from incidents and restore service"
+      },
+      "disaster_recovery": {
+        "backup_restoration": "Restore from backups in case of disaster",
+        "service_recovery": "Recover services and restore functionality",
+        "data_recovery": "Recover data and maintain consistency",
+        "business_continuity": "Maintain business continuity during disasters"
+      },
+      "emergency_overrides": {
+        "manual_override": "Manual override capabilities for critical situations",
+        "emergency_stop": "Emergency stop procedures for critical issues",
+        "safe_mode": "Safe mode operation during system issues",
+        "human_escalation": "Escalate critical issues to human operators"
+      }
+    }
+  },
+  "monitoring_and_alerting": {
+    "metrics_collection": {
+      "system_metrics": [
+        "CPU usage and memory consumption",
+        "Disk I/O and network traffic",
+        "Database performance and query times",
+        "Message queue throughput and latency"
+      ],
+      "application_metrics": [
+        "Agent response times and success rates",
+        "Memory usage and compression ratios",
+        "Learning progress and model accuracy",
+        "Error rates and failure patterns"
+      ],
+      "business_metrics": [
+        "User engagement and satisfaction",
+        "Content processing volumes",
+        "Search performance and accuracy",
+        "Strategic analysis effectiveness"
+      ]
+    },
+    "alerting_rules": {
+      "critical_alerts": [
+        "Service down or unreachable",
+        "Database connection failures",
+        "Memory usage above 90%",
+        "Error rate above 5%"
+      ],
+      "warning_alerts": [
+        "High CPU usage (>80%)",
+        "Slow response times (>5s)",
+        "Disk space below 20%",
+        "Unusual error patterns"
+      ],
+      "info_alerts": [
+        "Successful deployments",
+        "Performance improvements",
+        "Learning milestones",
+        "System optimizations"
+      ]
+    },
+    "dashboards": {
+      "operational_dashboard": "Real-time system health and performance",
+      "business_dashboard": "Business metrics and user engagement",
+      "technical_dashboard": "Technical metrics and system performance",
+      "learning_dashboard": "Learning progress and model performance"
+    }
+  },
+  "troubleshooting_guide": {
+    "common_issues": {
+      "agent_failures": {
+        "symptoms": "Agent not responding or returning errors",
+        "causes": ["Resource exhaustion", "Configuration errors", "Dependency failures"],
+        "solutions": [
+          "Check resource usage and scaling",
+          "Verify configuration and dependencies",
+          "Restart agent or rollback changes",
+          "Check logs for specific error messages"
+        ]
+      },
+      "memory_issues": {
+        "symptoms": "Slow memory operations or memory errors",
+        "causes": ["Memory fragmentation", "Insufficient resources", "Corrupted data"],
+        "solutions": [
+          "Check memory usage and fragmentation",
+          "Scale memory resources if needed",
+          "Verify data integrity and consistency",
+          "Restart memory services if necessary"
+        ]
+      },
+      "communication_failures": {
+        "symptoms": "Agents not communicating or message queue issues",
+        "causes": ["Network issues", "Message queue failures", "Configuration errors"],
+        "solutions": [
+          "Check network connectivity and configuration",
+          "Verify message queue health and configuration",
+          "Check agent configuration and dependencies",
+          "Restart communication services if needed"
+        ]
+      }
+    },
+    "diagnostic_procedures": {
+      "health_checks": "Comprehensive system health checks",
+      "log_analysis": "Analyze logs for error patterns and issues",
+      "performance_analysis": "Analyze performance metrics and bottlenecks",
+      "dependency_verification": "Verify all dependencies and connections"
+    },
+    "recovery_procedures": {
+      "service_restart": "Restart individual services or agents",
+      "system_rollback": "Rollback to previous stable state",
+      "data_recovery": "Recover data from backups if needed",
+      "emergency_procedures": "Execute emergency procedures for critical issues"
+    }
+  },
+  "best_practices": {
+    "development": {
+      "code_quality": "Maintain high code quality with testing and reviews",
+      "documentation": "Keep comprehensive documentation up to date",
+      "version_control": "Use proper version control and branching strategies",
+      "testing": "Implement comprehensive testing at all levels"
+    },
+    "operations": {
+      "monitoring": "Implement comprehensive monitoring and alerting",
+      "backup": "Maintain regular backups and test recovery procedures",
+      "security": "Follow security best practices and regular audits",
+      "performance": "Monitor and optimize performance continuously"
+    },
+    "evolution": {
+      "incremental_changes": "Make incremental changes rather than large updates",
+      "testing": "Test all changes thoroughly before deployment",
+      "rollback": "Always have rollback procedures ready",
+      "communication": "Communicate changes to stakeholders"
+    }
+  },
+  "success_metrics": {
+    "technical_metrics": {
+      "availability": "99.9% system availability",
+      "performance": "Sub-second response times for most operations",
+      "scalability": "Ability to handle 10x current load",
+      "reliability": "Less than 0.1% error rate"
+    },
+    "business_metrics": {
+      "user_satisfaction": "High user satisfaction scores",
+      "content_processing": "Efficient content processing and organization",
+      "insight_generation": "Valuable insights and recommendations",
+      "cost_effectiveness": "Cost-effective operation and maintenance"
+    },
+    "learning_metrics": {
+      "adaptation_rate": "System adaptation to new patterns",
+      "improvement_rate": "Continuous performance improvement",
+      "knowledge_growth": "Growth in system knowledge and capabilities",
+      "error_reduction": "Reduction in errors over time"
+    }
+  }
+}

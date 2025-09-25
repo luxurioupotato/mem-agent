@@ -1,0 +1,40 @@
+{
+  "timestamp": "2025-09-14T04:00:36.244333",
+  "platform": "Windows",
+  "project_root": "C:\\Users\\himel\\OneDrive\\Documents\\GitHub\\demo-1",
+  "checks": {
+    "project_structure": {
+      "file_R1_Detailed_Task_Bundles.yaml": true,
+      "file_Complete_Execution_Guide_Current_Stage.yaml": true,
+      "file_Master_Prompt_Task_Bundle_Planning.yaml": true,
+      "file_.cursor/rules/master.md": true,
+      "file_.cursor/scripts/health-check.py": true,
+      "file_.cursor/scripts/automation-runner.py": true,
+      "dir_.cursor": true,
+      "dir_.cursor/rules": true,
+      "dir_.cursor/scripts": true,
+      "dir_docs": true,
+      "dir_tests": true
+    },
+    "python_environment": {
+      "python_version": "3.13.7",
+      "package_requests": true,
+      "package_pathlib": true,
+      "package_json": true,
+      "package_subprocess": true
+    },
+    "environment_variables": {
+      "GEMINI_API_KEY": true,
+      "OPENAI_API_KEY": false,
+      "PATH": true
+    },
+    "automation_readiness": {
+      "automation_.cursor/scripts/automation-runner.py": true,
+      "automation_.cursor/scripts/gcp-deploy.sh": true,
+      "automation_.cursor/scripts/setup.ps1": true,
+      "gemini_api_ready": true
+    }
+  },
+  "health_percentage": 91.30434782608695,
+  "overall_status": "HEALTHY"
+}

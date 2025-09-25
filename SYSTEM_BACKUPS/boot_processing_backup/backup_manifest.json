@@ -1,0 +1,86 @@
+{
+  "backup_name": "boot_processing_backup",
+  "timestamp": "2025-09-21T10:48:13.586575",
+  "files_backed_up": [
+    "modules.py",
+    "orchestrator.py",
+    "working_memory_agent.py",
+    "ai_mentor_system.py",
+    "integrated_ai_mentor_ui.py",
+    "enhanced_ui_system.py",
+    "intelligent_context_analyzer.py",
+    "military_grade_ssi_processor.py",
+    ".env",
+    "requirements_rag.txt"
+  ],
+  "backup_path": "SYSTEM_BACKUPS\\boot_processing_backup",
+  "system_state": {
+    "timestamp": "2025-09-21T10:48:13.586585",
+    "protected_files_status": {
+      "modules.py": {
+        "exists": true,
+        "size": 37738,
+        "modified": "2025-09-21T02:39:24.076624",
+        "checksum": "1ddb6cbfd6f704e2f6a8b17db89eccd1"
+      },
+      "orchestrator.py": {
+        "exists": true,
+        "size": 24012,
+        "modified": "2025-09-21T03:57:18.583358",
+        "checksum": "a0cc8d643e9c1e107bfcef8eb65b9284"
+      },
+      "working_memory_agent.py": {
+        "exists": true,
+        "size": 17435,
+        "modified": "2025-09-21T04:58:20.977946",
+        "checksum": "bb66c132c50c357a546f8f43f94b7090"
+      },
+      "ai_mentor_system.py": {
+        "exists": true,
+        "size": 37363,
+        "modified": "2025-09-21T10:16:37.705763",
+        "checksum": "2eb80205def042e873873bbf82051fbc"
+      },
+      "integrated_ai_mentor_ui.py": {
+        "exists": true,
+        "size": 22148,
+        "modified": "2025-09-21T10:16:37.654874",
+        "checksum": "c27cb987e4c690b1997b1747a94a92da"
+      },
+      "enhanced_ui_system.py": {
+        "exists": true,
+        "size": 23237,
+        "modified": "2025-09-21T10:47:33.919759",
+        "checksum": "46e128c4619f30805d3a42cb75c33b24"
+      },
+      "intelligent_context_analyzer.py": {
+        "exists": true,
+        "size": 28183,
+        "modified": "2025-09-21T10:21:41.555748",
+        "checksum": "ffc33f9c2ec2491e3b96e9bf7f79923c"
+      },
+      "military_grade_ssi_processor.py": {
+        "exists": true,
+        "size": 21966,
+        "modified": "2025-09-21T10:16:37.654874",
+        "checksum": "ab4697c7a217450981ba88cd9807b88a"
+      },
+      ".env": {
+        "exists": true,
+        "size": 59,
+        "modified": "2025-09-21T09:05:06.416893",
+        "checksum": "85e944ed0bb060eb2cc471a1d099ac34"
+      },
+      "requirements_rag.txt": {
+        "exists": true,
+        "size": 268,
+        "modified": "2025-09-21T04:30:31.561610",
+        "checksum": "7e4d306222321a6a81607f0e767d1af8"
+      }
+    },
+    "system_health": "OPERATIONAL",
+    "active_processes": [],
+    "memory_usage": "NORMAL",
+    "performance_metrics": {}
+  }
+}

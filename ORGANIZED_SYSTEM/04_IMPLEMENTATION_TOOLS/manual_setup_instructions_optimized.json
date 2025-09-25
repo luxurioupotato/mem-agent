@@ -1,0 +1,173 @@
+{
+  "metadata": {
+    "source": "MANUAL_SETUP_INSTRUCTIONS.md",
+    "version": "1.0",
+    "processed_date": "2025-09-17",
+    "content_type": "manual_instructions",
+    "token_optimized": true,
+    "categories": ["manual_setup", "deployment", "configuration", "integration"]
+  },
+  "phases": [
+    {
+      "phase": 2,
+      "title": "Website Deployment & Mautic Funnel",
+      "tasks": [
+        {
+          "task": "Domain Configuration",
+          "type": "MANUAL",
+          "steps": [
+            "Register domain name with reputable registrar",
+            "Configure DNS A record to point to VM external IP (34.28.159.240)",
+            "Set up CNAME records for www + subdomains",
+            "Wait for DNS propagation (24-48 hours)"
+          ],
+          "tags": ["domain", "dns", "configuration"]
+        },
+        {
+          "task": "SSL Certificate Setup",
+          "type": "MANUAL",
+          "steps": [
+            "Install Certbot: sudo apt-get install certbot python3-certbot-nginx",
+            "Obtain SSL certificate: sudo certbot --nginx -d yourdomain.com -d www.yourdomain.com",
+            "Configure auto-renewal: sudo crontab -e (add: 0 12 * * * /usr/bin/certbot renew --quiet)"
+          ],
+          "tags": ["ssl", "security", "certificates"]
+        },
+        {
+          "task": "Mautic Installation",
+          "type": "MANUAL",
+          "steps": [
+            "Access Mautic installation: http://34.28.159.240/mautic/",
+            "Follow installation wizard",
+            "Configure database connection (mautic/mautic_password)",
+            "Set up admin user account",
+            "Configure email settings for campaigns"
+          ],
+          "tags": ["mautic", "crm", "email_marketing"]
+        },
+        {
+          "task": "Content Creation",
+          "type": "MANUAL",
+          "steps": [
+            "Write compelling website copy",
+            "Create lead capture forms",
+            "Design email marketing sequences",
+            "Set up analytics tracking (Google Analytics, Facebook Pixel)"
+          ],
+          "tags": ["content", "forms", "analytics", "tracking"]
+        }
+      ]
+    },
+    {
+      "phase": 3,
+      "title": "Chatbot Persona Development",
+      "tasks": [
+        {
+          "task": "Persona Definition",
+          "type": "MANUAL",
+          "steps": [
+            "Define chatbot personality + tone",
+            "Create conversation flow diagrams",
+            "Write sample dialogues",
+            "Set up escalation procedures"
+          ],
+          "tags": ["chatbot", "persona", "conversation_design"]
+        },
+        {
+          "task": "Integration Testing",
+          "type": "MANUAL",
+          "steps": [
+            "Test chatbot responses",
+            "Verify lead qualification logic",
+            "Test integration with Mautic",
+            "Configure monitoring + alerts"
+          ],
+          "tags": ["testing", "integration", "monitoring"]
+        }
+      ]
+    },
+    {
+      "phase": 4,
+      "title": "Tool Integration & Data Pipelines",
+      "tasks": [
+        {
+          "task": "Tool Selection",
+          "type": "MANUAL",
+          "steps": [
+            "Choose web scraping tools",
+            "Select data processing platforms",
+            "Configure API integrations",
+            "Set up monitoring dashboards"
+          ],
+          "tags": ["tools", "scraping", "apis", "monitoring"]
+        },
+        {
+          "task": "Business Logic",
+          "type": "MANUAL",
+          "steps": [
+            "Define data processing rules",
+            "Create content generation templates",
+            "Set up social media schedules",
+            "Configure SEO optimization"
+          ],
+          "tags": ["business_logic", "templates", "social_media", "seo"]
+        }
+      ]
+    },
+    {
+      "phase": 5,
+      "title": "Full Agency Automation",
+      "tasks": [
+        {
+          "task": "Process Design",
+          "type": "MANUAL",
+          "steps": [
+            "Map client onboarding workflow",
+            "Create service delivery templates",
+            "Design revenue tracking system",
+            "Plan scaling infrastructure"
+          ],
+          "tags": ["process_design", "workflows", "templates", "scaling"]
+        },
+        {
+          "task": "Quality Assurance",
+          "type": "MANUAL",
+          "steps": [
+            "Test all automation workflows",
+            "Verify data accuracy",
+            "Check system performance",
+            "Document procedures"
+          ],
+          "tags": ["qa", "testing", "performance", "documentation"]
+        }
+      ]
+    }
+  ],
+  "implementation_notes": {
+    "domain_setup": "Critical for external access + SSL certificate generation",
+    "ssl_certificates": "Required for secure HTTPS connections + user trust",
+    "mautic_integration": "Core CRM + email marketing automation platform",
+    "content_creation": "Foundation for lead generation + conversion",
+    "chatbot_development": "Automated lead qualification + customer support",
+    "tool_integration": "Data collection + processing automation",
+    "business_logic": "Rules + templates for consistent operations",
+    "process_design": "Scalable workflows for agency operations",
+    "quality_assurance": "Ensures reliability + performance standards"
+  },
+  "dependencies": {
+    "phase_2_prerequisites": ["Domain registration", "VM with external IP", "Basic server setup"],
+    "phase_3_prerequisites": ["Phase 2 completion", "Mautic installation", "Website deployment"],
+    "phase_4_prerequisites": ["Phase 3 completion", "Chatbot integration", "Basic automation"],
+    "phase_5_prerequisites": ["Phase 4 completion", "Full tool integration", "Process documentation"]
+  },
+  "success_criteria": {
+    "domain_configuration": ["Domain resolves to correct IP", "SSL certificate active", "HTTPS accessible"],
+    "mautic_setup": ["Installation wizard completed", "Database connected", "Admin user created", "Email configured"],
+    "content_creation": ["Website copy written", "Lead forms created", "Email sequences designed", "Analytics tracking"],
+    "chatbot_development": ["Persona defined", "Conversation flows mapped", "Integration tested", "Monitoring configured"],
+    "tool_integration": ["Tools selected + configured", "APIs integrated", "Dashboards set up"],
+    "business_logic": ["Processing rules defined", "Templates created", "Schedules configured", "SEO optimized"],
+    "process_design": ["Workflows mapped", "Templates created", "Revenue tracking designed", "Scaling planned"],
+    "quality_assurance": ["All workflows tested", "Data accuracy verified", "Performance checked", "Procedures documented"]
+  }
+}

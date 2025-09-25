@@ -1,0 +1,93 @@
+{
+  "system": {
+    "name": "Modular AI Memory Agent System",
+    "version": "1.0.0",
+    "base_path": "E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM"
+  },
+  "agents": {
+    "memory_manager": {
+      "port": 8001,
+      "enabled": true
+    },
+    "ingestion_agent": {
+      "port": 8002,
+      "enabled": true
+    },
+    "categorization_agent": {
+      "port": 8003,
+      "enabled": true
+    },
+    "search_agent": {
+      "port": 8004,
+      "enabled": true
+    },
+    "context_assembly_agent": {
+      "port": 8005,
+      "enabled": true
+    },
+    "analytics_agent": {
+      "port": 8006,
+      "enabled": true
+    },
+    "reasoning_agent": {
+      "port": 8007,
+      "enabled": true
+    },
+    "summarization_agent": {
+      "port": 8008,
+      "enabled": true
+    },
+    "error_detection_agent": {
+      "port": 8009,
+      "enabled": true
+    },
+    "learning_agent": {
+      "port": 8010,
+      "enabled": true
+    },
+    "brain_module": {
+      "port": 8011,
+      "enabled": true
+    }
+  },
+  "databases": {
+    "redis": {
+      "host": "localhost",
+      "port": 6379,
+      "db": 0
+    },
+    "neo4j": {
+      "host": "localhost",
+      "port": 7687,
+      "user": "neo4j",
+      "password": "password"
+    },
+    "influxdb": {
+      "host": "localhost",
+      "port": 8086,
+      "database": "memory_agent"
+    },
+    "postgresql": {
+      "host": "localhost",
+      "port": 5432,
+      "database": "memory_agent",
+      "user": "postgres",
+      "password": "password"
+    }
+  },
+  "ai_services": {
+    "gemini": {
+      "api_key": "${GEMINI_API_KEY}",
+      "model": "gemini-pro"
+    },
+    "anthropic": {
+      "api_key": "${ANTHROPIC_API_KEY}",
+      "model": "claude-3-sonnet"
+    }
+  },
+  "logging": {
+    "level": "INFO",
+    "format": "%(asctime)s - %(name)s - %(levelname)s - %(message)s",
+    "file": "logs/system.log"
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "metadata": {
+    "source": "integration_metadata.jsonl",
+    "version": "1.0", 
+    "processed_date": "2025-09-17",
+    "content_type": "code_implementation",
+    "token_optimized": true,
+    "categories": ["python_code", "memory_management", "llm_orchestration", "api_integration"]
+  },
+  "classes": [
+    {
+      "name": "MemoryCube",
+      "purpose": "Memory storage unit with metadata + context links",
+      "key_methods": ["__init__", "update_content", "add_context_link"],
+      "attributes": ["memcube_id", "user_id", "content", "attributes", "context_links", "timestamps", "provenance", "lifecycle_state"],
+      "tags": ["memory", "storage", "metadata"]
+    },
+    {
+      "name": "MemoryManager", 
+      "purpose": "CRUD operations for memory cubes + filtering",
+      "key_methods": ["create_memcube", "update_memcube", "query_memcube", "_matches_filters"],
+      "attributes": ["memory_store"],
+      "tags": ["memory", "crud", "query", "management"]
+    },
+    {
+      "name": "LLMPersonalizedOrchestrator",
+      "purpose": "Personalized LLM responses using memory context",
+      "key_methods": ["build_prompt", "query_llm", "get_personalized_response"],
+      "attributes": ["llm_client", "memory_manager"],
+      "tags": ["llm", "personalization", "orchestration", "prompting"]
+    }
+  ],
+  "implementation_notes": {
+    "memory_management": "Type hints for List[Dict] + Dict parameters. Simple attribute filtering via all() comprehension.",
+    "llm_integration": "Builds context-aware prompts with memory cubes + user profile + current goal placeholders.",
+    "bias_control": "Optional bias checking + ethical filters in get_personalized_response method.",
+    "scalability": "Basic memory store dict - consider Redis/DB for production scaling."
+  },
+  "api_integration_points": [
+    "Memory cube CRUD operations",
+    "LLM query dispatch + response handling", 
+    "User context + goal tracking",
+    "Bias detection + mitigation hooks"
+  ]
+}

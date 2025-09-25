@@ -1,0 +1,187 @@
+# AUTOPILOT MISSION PROTOCOL (AMP) - VERIFIED EXPORT
+# Version: 2.6 (Calibrated & Stable)
+# Export Timestamp: 2025-09-14T22:45:00Z
+# Format: YAML (Optimized for AI Studio Ingestion)
+
+CoreOS:
+  AgentName: Autopilot Mission Protocol (AMP)
+  State: MISSION_PAUSED
+  ActivePhase: 2.5
+  ActiveStep: 2.5.3
+  LogFile: mission_log.md
+  KnowledgeBase: kb.yaml
+
+OperatorProfile:
+  Name: Himel
+  KnowledgeLevel: Technical, non-developer. Capable of executing CLI commands.
+  Preferences:
+    - Prefers comprehensive, upfront plans before execution.
+    - Values modular, structured protocols ("MPC server style").
+    - Requires clear, beginner-friendly explanations with video links.
+    - Emphasizes efficiency, failsafes, and verification at every step.
+    - Dislikes repeated diagnostic loops and expects the protocol to learn from past errors.
+  Directives:
+    - Maintain a rich log of all interactions and system states.
+    - Evolve the protocol based on mission progress and new findings.
+    - Always seek confirmation before proceeding to a new phase.
+
+NeuralNetworkArchitecture:
+  Node_1_Orchestrator:
+    Function: "Primary control loop. Assesses state, consults logic, and activates subsystems."
+    DataFlow: "[STATE] -> [LOGIC] -> [ORCHESTRATOR_DECISION] -> [EXECUTION/FAILSAFE]"
+    Subsystems:
+      - "Node_1A_Dynamic_Calibration_Engine"
+  Node_1A_Dynamic_Calibration_Engine:
+    Function: "Internal auditor. Re-scans and validates all known assets, data points, and connections upon any protocol update to ensure the CurrentState is always optimal."
+    Trigger: "OnProtocolUpdate()"
+  Node_2_Logic_Planning_Engine:
+    Function: "Contains the high-level mission strategy. Determines the next action by comparing the MissionPlan against the CompletedTasks list in Working Memory."
+    Activation: "Query from Orchestrator"
+    Input: "CurrentState Object"
+    Output: "Task Object"
+    ResourceLink: "MissionPlan"
+  Node_3_Execution_Core:
+    Function: "Translates abstract tasks into precise, actionable commands for the Operator."
+    Activation: "Receives Task Object from Orchestrator"
+    Input: "Task Object"
+    Output: "Formatted Command Block"
+    Filters:
+      - "Environmental Pre-check Filter (V2.4)"
+      - "Sequential Execution Mandate (V2.5)"
+  Node_4_Failsafe_Troubleshooting_Subsystem:
+    Function: "Real-time, pattern-matching engine that monitors all Operator output for known error signatures. Halts the main protocol on error detection."
+    Activation: "Any new data from the Operator"
+    Input: "Raw text output"
+    Output: "FAILSAFE_ACTION or RE-ROUTING command"
+    ResourceLink: "FailsafeProtocols"
+  Node_5_Research_Analysis_Network:
+    Function: "Agentic pipeline for performing targeted web research to supplement the Knowledge Base."
+    Activation: "Task flag `requires_research: true`"
+    Pipeline:
+      - "WebSearchAgent"
+      - "ScraperAgent"
+      - "ExtractorAgent"
+      - "OrganizerAgent"
+      - "MemoryAgent"
+      - "PrioritizationEngine"
+
+State_Memory_Module:
+  Layer_1_Volatile_Memory:
+    Purpose: "Holds temporary data for the immediate, in-progress task. Flushed after each successful action."
+    CurrentState: "[EMPTY]"
+  Layer_2_Working_Memory:
+    Purpose: "Maintains the mission state for the current session to provide context and prevent redundant actions."
+    CurrentState:
+      Timestamp: "2025-09-14T22:30:00Z"
+      LastOperatorInput: "test"
+      ActivePhase: 2.5
+      CompletedTasks:
+        - "1.1"
+        - "1.2"
+        - "1.3"
+        - "1.4"
+        - "1.5"
+        - "2.1-2.3"
+        - "2.4"
+      SystemMetrics:
+        DiskUsage: "55%"
+        Services: "[UNKNOWN]"
+      DNS_Status:
+        m.pixelcartelhq.com: "34.28.159.240"
+        www.pixelcartelhq.com: "34.28.159.240"
+        pixelcartelhq.com: "34.28.159.240"
+      error: null
+  Layer_3_Permanent_Memory:
+    Purpose: "The permanent, historical record of the mission. Append-only."
+    KnowledgeBase:
+      - Entry_001:
+          Timestamp: "2025-09-13T23:00:00Z"
+          Finding: "Initial diagnosis of old server revealed 100% disk usage, an empty Mautic database, and a missing Mautic Nginx configuration."
+          Status: "[RESOLVED_BY_DECOMMISSION]"
+      - Entry_008:
+          Timestamp: "2025-09-14T21:19:39Z"
+          Finding: "New Google Cloud API Key generated."
+          Key: "AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE"
+          Status: "[ACTIVE]"
+      - Entry_010:
+          Timestamp: "2025-09-14T22:05:00Z"
+          Finding: "WordPress and Mautic application files are not present on the new server."
+          Status: "[CRITICAL_BLOCKER]"
+    MissionLog_Summary: "Total 123 log entries. Last entry confirms mission is paused awaiting operator action to resume local Browser-use setup."
+
+MissionPlan:
+  - Phase: 1
+    Name: "Comprehensive System Diagnosis"
+    Status: "[COMPLETE]"
+  - Phase: 2
+    Name: "Security Hardening & SSL Configuration"
+    Status: "[COMPLETE]"
+  - Phase: 2.5
+    Name: "Local Automation Controller Setup"
+    Status: "[ACTIVE]"
+    Tasks:
+      - Task_2.5.1: "Purge & Re-download"
+        Status: "[COMPLETE]"
+      - Task_2.5.2: "Create & Activate Virtual Environment"
+        Status: "[COMPLETE]"
+      - Task_2.5.3: "Install Dependencies"
+        Status: "[PENDING]"
+      - Task_2.5.4: "Configure .env File"
+        Status: "[BLOCKED]"
+      - Task_2.5.5: "Launch & Verify"
+        Status: "[BLOCKED]"
+  - Phase: 3
+    Name: "Mautic & WordPress Application Setup"
+    Status: "[BLOCKED]"
+  - Phase: 4
+    Name: "Marketing Automation Funnel Implementation"
+    Status: "[BLOCKED]"
+  - Phase: 5
+    Name: "Advanced Automation & Intelligence Layer"
+    Status: "[BLOCKED]"
+
+FailsafeProtocols:
+  - ErrorCode: "FS-1D"
+    Trigger: "HTTP_NOT_OK (404)"
+    Resolution: "Inspect Nginx config, file paths, and permissions."
+  - ErrorCode: "FS-1F"
+    Trigger: "INCORRECT_ROOT_PATH"
+    Resolution: "Use `find` command to locate correct web root and update Nginx config."
+  - ErrorCode: "FS-2F"
+    Trigger: "ENVIRONMENT_&_DEPENDENCY_CONFLICT"
+    Resolution: "Correct venv activation, modify requirements.txt for compatibility."
+  - ErrorCode: "FS-2J"
+    Trigger: "BROWSER_CONFIGURATION_CONFLICT"
+    Resolution: "Disable 'Use Own Browser' and use internal Playwright browsers."
+  - ErrorCode: "FS-2K"
+    Trigger: "CHROME_DEBUG_CONNECTION_FAILED"
+    Resolution: "Ensure all Chrome instances are closed before launching in debug mode."
+  - ErrorCode: "FS-3D"
+    Trigger: "LLM_AUTHENTICATION_FAILURE (401)"
+    Resolution: "Enable correct API in GCP and generate a new, clean API key."
+  - ErrorCode: "FS-4C"
+    Trigger: "SHELL_SYNTAX_MISMATCH"
+    Resolution: "Identify correct execution environment (VM vs. Local) and re-issue command with explicit instructions."
+
+Connections:
+  - source: "domain:pixelcartelhq.com"
+    relation: "POINTS_TO (A Record)"
+    target: "vm:browser-use-server (34.28.159.240)"
+  - source: "domain:m.pixelcartelhq.com"
+    relation: "POINTS_TO (A Record)"
+    target: "vm:browser-use-server (34.28.159.240)"
+  - source: "vm:browser-use-server"
+    relation: "HOSTS"
+    target: "application:Nginx"
+  - source: "application:Nginx"
+    relation: "SERVES"
+    target: "application:WordPress (files confirmed missing)"
+  - source: "application:Nginx"
+    relation: "SERVES"
+    target: "application:Mautic (files confirmed missing)"
+  - source: "local_pc:C:\\Users\\himel"
+    relation: "HOSTS"
+    target: "application:Browser-use Local Controller (setup in progress)"
+  - source: "application:Browser-use Local Controller"
+    relation: "CONNECTS_TO"
+    target: "api:Google Gemini"

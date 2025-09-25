@@ -1,0 +1,26 @@
+2025-09-21 01:11:31,685 - INFO - Starting SecureMemoryAgent
+2025-09-21 01:11:31,687 - INFO - ✅ Gemini API configured securely
+2025-09-21 01:11:31,687 - INFO - SecureMemoryAgent initialized
+2025-09-21 01:11:31,690 - INFO - Starting conversation session
+2025-09-21 01:14:40,672 - ERROR - Conversation error: 
+2025-09-21 01:14:53,138 - INFO - User input received: python -m pip install --upgrade pip setuptools wheel...
+2025-09-21 01:14:53,148 - INFO - Sending request to Gemini API (input length: 52)
+2025-09-21 01:15:00,127 - INFO - Gemini API response received (duration: 6.98s, response length: 4225)
+2025-09-21 01:15:00,136 - INFO - Conversation saved (1 total exchanges)
+2025-09-21 01:18:36,571 - INFO - Session interrupted by user (Ctrl+C)
+2025-09-21 01:22:03,534 - INFO - Starting SecureMemoryAgent
+2025-09-21 01:22:03,535 - INFO - ✅ Gemini API configured securely
+2025-09-21 01:22:03,536 - INFO - SecureMemoryAgent initialized
+2025-09-21 01:22:03,539 - INFO - Starting conversation session
+2025-09-21 01:22:27,647 - INFO - User input received: HI...
+2025-09-21 01:22:27,654 - INFO - Sending request to Gemini API (input length: 2)
+2025-09-21 01:22:34,606 - INFO - Gemini API response received (duration: 6.95s, response length: 3596)
+2025-09-21 01:22:34,609 - INFO - Conversation saved (1 total exchanges)
+2025-09-21 01:23:12,405 - INFO - User input received: HOW ARE YOU?...
+2025-09-21 01:23:12,408 - INFO - Sending request to Gemini API (input length: 12)
+2025-09-21 01:23:18,732 - INFO - Gemini API response received (duration: 6.32s, response length: 4018)
+2025-09-21 01:23:18,736 - INFO - Conversation saved (2 total exchanges)
+2025-09-21 01:24:04,357 - INFO - User input received: QUIT...
+2025-09-21 01:24:04,359 - INFO - Session ended by user
+2025-09-21 01:39:06,312 [INFO] SecureMemoryAgent initialized with Gemini API
+2025-09-21 01:39:06,331 [INFO] Agent initialized in Streamlit session

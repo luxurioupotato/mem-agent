@@ -1,0 +1,3 @@
+{
+  "prompt": "[CONTEXT]\nMemories: {MEMCUBE:9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d}\nUser Profile: {USER_PROFILE:123e4567-e89b-12d3-a456-426614174000}\nCurrent Goal: {CURRENT_GOAL:strategic_planning_improvement}\n\n[INSTRUCTION]\nRespond as an expert AI mentor with a tone that is curious and professional. Use clear explanations and provide actionable advice.\n\n[USER INPUT]\nHow can I enhance my strategic business planning?\n\n[RESPONSE]\n"
+}

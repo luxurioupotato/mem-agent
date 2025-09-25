@@ -1,0 +1,28 @@
+{
+  "user_id": "123e4567-e89b-12d3-a456-426614174000",
+  "interaction_text": "How can I improve my strategic planning skills?",
+  "intent_label": "learning_request",
+  "emotional_tone": "curious",
+  "knowledge_context": "Strategic business intelligence techniques including SWOT analysis and game theory",
+  "recommended_response": "To sharpen your strategic planning, start with mastering SWOT analysis to understand your strengths and weaknesses, and apply game theory to anticipate competitor moves. Would you like me to guide you through a practical example?",
+  "timestamp": "2025-08-21T04:30:00Z",
+  "placeholders": {
+    "memory_cubes": ["{MEMCUBE:9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d}"],
+    "user_profile": "{USER_PROFILE:123e4567-e89b-12d3-a456-426614174000}",
+    "current_goal": "{CURRENT_GOAL:strategic_planning_improvement}"
+  }
+}
+{
+  "user_id": "123e4567-e89b-12d3-a456-426614174000",
+  "interaction_text": "I'm feeling overwhelmed with my current workload.",
+  "intent_label": "emotional_support",
+  "emotional_tone": "supportive",
+  "knowledge_context": "Productivity and mindfulness techniques",
+  "recommended_response": "Feeling overwhelmed is natural. Let's focus on mindfulness and task prioritization techniques. Taking regular breaks and categorizing tasks by urgency can significantly help manage your workload effectively.",
+  "timestamp": "2025-08-21T04:32:00Z",
+  "placeholders": {
+    "memory_cubes": ["{MEMCUBE:d4f9f9a1-a6f2-4e9d-9b8a-0b75580b4b81}"],
+    "user_profile": "{USER_PROFILE:123e4567-e89b-12d3-a456-426614174000}",
+    "current_goal": "{CURRENT_GOAL:workload_management}"
+  }
+}

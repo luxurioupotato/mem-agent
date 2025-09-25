@@ -1,0 +1,276 @@
+{
+  "app_config": {
+    "page_title": "🧠 Enhanced Memory Agent",
+    "page_icon": "🧠",
+    "layout": "wide",
+    "initial_sidebar_state": "expanded"
+  },
+  "theme": {
+    "primaryColor": "#1f77b4",
+    "backgroundColor": "#ffffff",
+    "secondaryBackgroundColor": "#f0f2f6",
+    "textColor": "#262730"
+  },
+  "sidebar": {
+    "layout": "wide",
+    "sections": [
+      {
+        "title": "🎛️ System Control Panel",
+        "components": [
+          {
+            "type": "metric",
+            "label": "System Status",
+            "value": "21/21 Modules Online",
+            "delta": "100% Operational"
+          },
+          {
+            "type": "module_status_grid",
+            "categories": [
+              "Core",
+              "Advanced",
+              "Brain",
+              "Business",
+              "Intelligence",
+              "Optimization"
+            ]
+          }
+        ]
+      },
+      {
+        "title": "🤖 Cursor AI Autonomous Init",
+        "components": [
+          {
+            "type": "status_display",
+            "metrics": [
+              "Readiness Score",
+              "System State",
+              "Files Processed"
+            ]
+          },
+          {
+            "type": "action_button",
+            "label": "🤖 Execute Cursor AI Initialization",
+            "action": "trigger_autonomous_init",
+            "description": "Automatically access and analyze 114,511+ files"
+          }
+        ]
+      },
+      {
+        "title": "⚡ Strategic Commands",
+        "components": [
+          {
+            "type": "command_grid",
+            "buttons": [
+              {
+                "label": "📊 Status",
+                "command": "status"
+              },
+              {
+                "label": "📋 Plan",
+                "command": "plan"
+              },
+              {
+                "label": "🔍 Analyze",
+                "command": "analyze"
+              },
+              {
+                "label": "🚀 Optimize",
+                "command": "optimize"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "📚 Knowledge Base",
+        "components": [
+          {
+            "type": "file_upload",
+            "accepted_types": [
+              "txt",
+              "md",
+              "pdf",
+              "docx",
+              "json",
+              "csv"
+            ],
+            "multiple": true,
+            "description": "Upload business documents for analysis"
+          },
+          {
+            "type": "knowledge_metrics",
+            "displays": [
+              "Documents",
+              "PRESONA Files",
+              "Mentor Data"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "chat": {
+    "layout": "centered",
+    "features": [
+      {
+        "type": "message_display",
+        "styling": {
+          "user_messages": {
+            "background": "#f0f2f6",
+            "align": "right"
+          },
+          "agent_messages": {
+            "background": "#ffffff",
+            "align": "left"
+          },
+          "system_messages": {
+            "background": "#e1f5fe",
+            "style": "info"
+          }
+        }
+      },
+      {
+        "type": "input_interface",
+        "placeholder": "Ask your AI mentor about business strategy, revenue optimization, or system capabilities...",
+        "features": [
+          "autocomplete",
+          "command_recognition",
+          "file_reference"
+        ]
+      },
+      {
+        "type": "response_enhancement",
+        "features": [
+          "typing_indicator",
+          "progress_tracking",
+          "multi_cluster_processing_display",
+          "confidence_scoring"
+        ]
+      }
+    ]
+  },
+  "status": {
+    "real_time_metrics": [
+      {
+        "label": "System Health",
+        "value": "system_health_percentage",
+        "format": "percentage",
+        "color_coding": {
+          "good": ">90%",
+          "warning": "70-90%",
+          "critical": "<70%"
+        }
+      },
+      {
+        "label": "Active Modules",
+        "value": "active_modules_count",
+        "format": "fraction",
+        "total": 21
+      },
+      {
+        "label": "Cursor AI Status",
+        "value": "cursor_ai_status",
+        "format": "status",
+        "states": [
+          "Ready",
+          "Processing",
+          "Completed"
+        ]
+      },
+      {
+        "label": "Revenue Target Progress",
+        "value": "revenue_progress",
+        "format": "currency",
+        "target": "$10K-$20K/month"
+      }
+    ],
+    "performance_indicators": [
+      {
+        "label": "Response Time",
+        "metric": "avg_response_time",
+        "unit": "seconds",
+        "target": "<3s"
+      },
+      {
+        "label": "File Processing",
+        "metric": "files_processed",
+        "unit": "files",
+        "capability": "114,511+ accessible"
+      },
+      {
+        "label": "Business Intelligence",
+        "metric": "strategies_extracted",
+        "unit": "strategies",
+        "source": "PRESONA RESOURCES"
+      }
+    ]
+  },
+  "commands": {
+    "strategic_commands": {
+      "plan": {
+        "description": "Generate comprehensive business plan",
+        "clusters": [
+          "Business Strategy",
+          "Analysis Intelligence"
+        ],
+        "expected_output": "3 revenue strategies with ROI projections"
+      },
+      "analyze": {
+        "description": "Execute data analysis across intelligence clusters",
+        "clusters": [
+          "Analysis Intelligence",
+          "Data Acquisition"
+        ],
+        "expected_output": "Market insights and opportunity assessment"
+      },
+      "optimize": {
+        "description": "Initiate optimization procedures",
+        "clusters": [
+          "Optimization Automation",
+          "Business Strategy"
+        ],
+        "expected_output": "Process improvements and cost reductions"
+      },
+      "cursor": {
+        "description": "Execute Cursor AI autonomous initialization",
+        "clusters": [
+          "All Clusters"
+        ],
+        "expected_output": "Complete file analysis and system preparation"
+      }
+    },
+    "command_recognition": {
+      "patterns": [
+        {
+          "pattern": "(?i)(plan|strategy|business)",
+          "command": "plan"
+        },
+        {
+          "pattern": "(?i)(analyze|analysis|data)",
+          "command": "analyze"
+        },
+        {
+          "pattern": "(?i)(optimize|improve|efficiency)",
+          "command": "optimize"
+        },
+        {
+          "pattern": "(?i)(cursor|autonomous|file)",
+          "command": "cursor"
+        },
+        {
+          "pattern": "(?i)(boot|start|initialize)",
+          "command": "boot"
+        },
+        {
+          "pattern": "(?i)(status|health|system)",
+          "command": "status"
+        }
+      ]
+    },
+    "response_templates": {
+      "command_execution": "🚀 Executing {command} command with {clusters} coordination...",
+      "processing": "🔄 Processing through {cluster_count} strategic clusters...",
+      "completion": "✅ {command} completed: {result_summary}"
+    }
+  }
+}

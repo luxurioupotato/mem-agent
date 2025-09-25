@@ -1,0 +1,76 @@
+{
+  "automated_setup": {
+    "campaigns": [
+      {
+        "name": "Welcome Series",
+        "description": "Automated welcome email sequence",
+        "triggers": ["new_contact"],
+        "emails": [
+          {
+            "name": "Welcome Email",
+            "subject": "Welcome to MEM_AGENT!",
+            "template": "welcome-email.html",
+            "delay": "0 minutes"
+          },
+          {
+            "name": "Getting Started",
+            "subject": "Getting Started with MEM_AGENT",
+            "template": "getting-started.html",
+            "delay": "1 day"
+          },
+          {
+            "name": "Advanced Features",
+            "subject": "Unlock Advanced MEM_AGENT Features",
+            "template": "advanced-features.html",
+            "delay": "3 days"
+          }
+        ]
+      },
+      {
+        "name": "Lead Nurturing",
+        "description": "Automated lead nurturing sequence",
+        "triggers": ["lead_score_updated"],
+        "emails": [
+          {
+            "name": "High-Value Lead",
+            "subject": "Exclusive MEM_AGENT Insights",
+            "template": "high-value-lead.html",
+            "conditions": {
+              "lead_score": ">= 80"
+            }
+          },
+          {
+            "name": "Medium-Value Lead",
+            "subject": "MEM_AGENT Tips and Tricks",
+            "template": "medium-value-lead.html",
+            "conditions": {
+              "lead_score": ">= 50"
+            }
+          }
+        ]
+      }
+    ],
+    "lead_scoring": {
+      "rules": [
+        {
+          "field": "email",
+          "condition": "contains",
+          "value": "@company.com",
+          "score": 20
+        },
+        {
+          "field": "company_size",
+          "condition": ">=",
+          "value": "100",
+          "score": 30
+        },
+        {
+          "field": "engagement",
+          "condition": ">=",
+          "value": "high",
+          "score": 25
+        }
+      ]
+    }
+  }
+}

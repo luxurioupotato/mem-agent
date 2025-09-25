@@ -1,0 +1,633 @@
+{
+  "metadata": {
+    "created_date": "2025-09-17",
+    "version": "1.0",
+    "purpose": "Complete step-by-step setup guide for modular AI memory agent system",
+    "target_audience": "System administrators and developers",
+    "estimated_setup_time": "4-6 hours for complete setup",
+    "difficulty_level": "Intermediate to Advanced"
+  },
+  "phase_1_prerequisites_and_installation": {
+    "timeline": "1-2 hours",
+    "objectives": [
+      "Install all required software and dependencies",
+      "Set up development environment",
+      "Configure essential tools and plugins"
+    ],
+    "checklist": [
+      {
+        "step": "1.1",
+        "task": "Install Python 3.11+ and pip",
+        "description": "Install latest Python version with pip package manager",
+        "commands": [
+          "Download Python 3.11+ from python.org",
+          "Install with 'Add to PATH' option checked",
+          "Verify installation: python --version",
+          "Verify pip: pip --version"
+        ],
+        "verification": "Both commands return version numbers",
+        "troubleshooting": "If PATH issues, manually add Python to system PATH"
+      },
+      {
+        "step": "1.2",
+        "task": "Install Cursor IDE and configure",
+        "description": "Set up Cursor IDE with AI capabilities and extensions",
+        "commands": [
+          "Download Cursor from cursor.sh",
+          "Install Cursor IDE",
+          "Sign in with GitHub account",
+          "Install recommended extensions: Python, Docker, Kubernetes"
+        ],
+        "verification": "Cursor opens and shows Python syntax highlighting",
+        "troubleshooting": "Restart Cursor if extensions don't load"
+      },
+      {
+        "step": "1.3",
+        "task": "Install core Python dependencies",
+        "description": "Install all required Python packages for the memory agent system",
+        "commands": [
+          "pip install pandas numpy scikit-learn",
+          "pip install fastapi uvicorn pydantic",
+          "pip install redis neo4j influxdb-client",
+          "pip install psycopg2-binary sqlalchemy",
+          "pip install celery redis",
+          "pip install openai anthropic",
+          "pip install transformers torch",
+          "pip install elasticsearch",
+          "pip install beautifulsoup4 requests",
+          "pip install prometheus-client grafana-api",
+          "pip install mlflow",
+          "pip install pytest pytest-asyncio",
+          "pip install docker kubernetes"
+        ],
+        "verification": "All packages import without errors",
+        "troubleshooting": "Use virtual environment if package conflicts occur"
+      },
+      {
+        "step": "1.4",
+        "task": "Install and configure Docker",
+        "description": "Set up Docker for containerized deployment",
+        "commands": [
+          "Download Docker Desktop from docker.com",
+          "Install Docker Desktop",
+          "Start Docker Desktop service",
+          "Verify installation: docker --version",
+          "Test with: docker run hello-world"
+        ],
+        "verification": "Docker runs hello-world container successfully",
+        "troubleshooting": "Enable virtualization in BIOS if Docker fails to start"
+      },
+      {
+        "step": "1.5",
+        "task": "Install browser-use and web scraping tools",
+        "description": "Set up browser automation and web scraping capabilities",
+        "commands": [
+          "pip install browser-use",
+          "pip install selenium webdriver-manager",
+          "pip install playwright",
+          "playwright install",
+          "pip install scrapy"
+        ],
+        "verification": "Browser automation tools work without errors",
+        "troubleshooting": "Install browser drivers if needed"
+      },
+      {
+        "step": "1.6",
+        "task": "Set up AI Studio integration",
+        "description": "Configure AI Studio for LLM integration and management",
+        "commands": [
+          "Create OpenAI API account and get API key",
+          "Create Anthropic API account and get API key",
+          "Set environment variables:",
+          "  - OPENAI_API_KEY=your_openai_key",
+          "  - ANTHROPIC_API_KEY=your_anthropic_key",
+          "Test API connections with simple requests"
+        ],
+        "verification": "API keys work with test requests",
+        "troubleshooting": "Check API key format and billing status"
+      }
+    ]
+  },
+  "phase_2_folder_structure_and_organization": {
+    "timeline": "30 minutes",
+    "objectives": [
+      "Create organized folder structure",
+      "Set up input and output directories",
+      "Configure logging and backup systems"
+    ],
+    "checklist": [
+      {
+        "step": "2.1",
+        "task": "Create main project structure",
+        "description": "Set up the core folder structure for the memory agent system",
+        "commands": [
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\agents",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\memory_bank",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\logs",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\config",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\data",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\backups",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\tests"
+        ],
+        "verification": "All directories exist and are accessible",
+        "troubleshooting": "Check permissions if directory creation fails"
+      },
+      {
+        "step": "2.2",
+        "task": "Set up memory bank structure",
+        "description": "Create organized memory storage with proper categorization",
+        "commands": [
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\memory_bank\\episodic",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\memory_bank\\semantic",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\memory_bank\\working",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\memory_bank\\procedural",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\memory_bank\\templates",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\memory_bank\\schemas"
+        ],
+        "verification": "Memory bank structure is properly organized",
+        "troubleshooting": "Ensure sufficient disk space for memory storage"
+      },
+      {
+        "step": "2.3",
+        "task": "Configure logging system",
+        "description": "Set up comprehensive logging for all system components",
+        "commands": [
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\logs\\agents",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\logs\\errors",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\logs\\performance",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\logs\\learning",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\logs\\audit"
+        ],
+        "verification": "Logging directories are created and writable",
+        "troubleshooting": "Check file permissions and disk space"
+      },
+      {
+        "step": "2.4",
+        "task": "Set up input and output directories",
+        "description": "Create directories for data ingestion and output generation",
+        "commands": [
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\data\\input",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\data\\output",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\data\\processed",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\data\\external",
+          "mkdir E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\data\\temp"
+        ],
+        "verification": "Data directories are accessible and writable",
+        "troubleshooting": "Set appropriate permissions for data access"
+      }
+    ]
+  },
+  "phase_3_template_import_and_configuration": {
+    "timeline": "1 hour",
+    "objectives": [
+      "Import and configure key files as system templates",
+      "Set up foundational schemas and configurations",
+      "Initialize memory structures and relationships"
+    ],
+    "checklist": [
+      {
+        "step": "3.1",
+        "task": "Copy foundational files to system",
+        "description": "Import the optimized foundational files as system templates",
+        "commands": [
+          "copy E:\\MEM_AGENT\\ORGANIZED_SYSTEM\\06_METADATA_INDEX\\modular_memory_agent_architecture.json E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\config\\",
+          "copy E:\\MEM_AGENT\\ORGANIZED_SYSTEM\\06_METADATA_INDEX\\implementation_specifications.json E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\config\\",
+          "copy E:\\MEM_AGENT\\ORGANIZED_SYSTEM\\06_METADATA_INDEX\\foundational_schema.json E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\memory_bank\\schemas\\",
+          "copy E:\\MEM_AGENT\\ORGANIZED_SYSTEM\\06_METADATA_INDEX\\migration_implementation_plan.json E:\\MEM_AGENT\\MEMORY_AGENT_SYSTEM\\config\\"
+        ],
+        "verification": "All template files are copied and accessible",
+        "troubleshooting": "Check file paths and permissions"
+      },
+      {
+        "step": "3.2",
+        "task": "Initialize memory schemas",
+        "description": "Set up the foundational memory schemas and structures",
+        "commands": [
+          "python -c \"import json; schema = json.load(open('E:/MEM_AGENT/MEMORY_AGENT_SYSTEM/memory_bank/schemas/foundational_schema.json')); print('Schema loaded successfully')\"",
+          "Create initial memory cube templates",
+          "Set up relationship mappings",
+          "Initialize memory compression algorithms"
+        ],
+        "verification": "Memory schemas are loaded and functional",
+        "troubleshooting": "Check JSON format and Python imports"
+      },
+      {
+        "step": "3.3",
+        "task": "Configure agent templates",
+        "description": "Set up agent configuration templates and initialization scripts",
+        "commands": [
+          "Create agent configuration files",
+          "Set up inter-agent communication protocols",
+          "Configure error handling templates",
+          "Initialize learning and adaptation settings"
+        ],
+        "verification": "Agent templates are properly configured",
+        "troubleshooting": "Validate configuration file formats"
+      },
+      {
+        "step": "3.4",
+        "task": "Set up external research templates",
+        "description": "Configure templates for external research and web scraping",
+        "commands": [
+          "Create web scraping templates",
+          "Set up API integration templates",
+          "Configure research workflow templates",
+          "Initialize knowledge integration protocols"
+        ],
+        "verification": "Research templates are functional",
+        "troubleshooting": "Test API connections and web scraping capabilities"
+      }
+    ]
+  },
+  "phase_4_agent_setup_and_configuration": {
+    "timeline": "2-3 hours",
+    "objectives": [
+      "Set up individual agent modules",
+      "Configure inter-agent communication",
+      "Implement error correction and logging",
+      "Set up adaptive self-prompting"
+    ],
+    "checklist": [
+      {
+        "step": "4.1",
+        "task": "Set up Memory Manager Agent",
+        "description": "Deploy and configure the central memory management system",
+        "commands": [
+          "Create memory_manager.py in agents directory",
+          "Configure Redis connection for working memory",
+          "Set up Neo4j connection for semantic memory",
+          "Configure InfluxDB for episodic memory",
+          "Set up PostgreSQL for procedural memory",
+          "Test all database connections"
+        ],
+        "verification": "Memory manager connects to all databases successfully",
+        "troubleshooting": "Check database credentials and network connectivity"
+      },
+      {
+        "step": "4.2",
+        "task": "Deploy Core Processing Agents",
+        "description": "Set up ingestion, categorization, and search agents",
+        "commands": [
+          "Create ingestion_agent.py with file processing capabilities",
+          "Create categorization_agent.py with ML model integration",
+          "Create search_agent.py with Elasticsearch integration",
+          "Configure inter-agent communication protocols",
+          "Set up error handling and logging for each agent"
+        ],
+        "verification": "All core agents start and communicate successfully",
+        "troubleshooting": "Check agent dependencies and configuration files"
+      },
+      {
+        "step": "4.3",
+        "task": "Deploy Advanced Analysis Agents",
+        "description": "Set up analytics, reasoning, and summarization agents",
+        "commands": [
+          "Create analytics_agent.py with pattern detection",
+          "Create reasoning_agent.py with LLM integration",
+          "Create summarization_agent.py with transformer models",
+          "Configure advanced workflow capabilities",
+          "Set up performance monitoring for each agent"
+        ],
+        "verification": "Advanced agents process data and generate insights",
+        "troubleshooting": "Check LLM API keys and model availability"
+      },
+      {
+        "step": "4.4",
+        "task": "Deploy Learning and Error Management Agents",
+        "description": "Set up learning, error detection, and adaptation systems",
+        "commands": [
+          "Create learning_agent.py with continuous learning capabilities",
+          "Create error_detection_agent.py with monitoring and recovery",
+          "Configure adaptive self-prompting mechanisms",
+          "Set up feedback loops and performance optimization",
+          "Test learning and error recovery workflows"
+        ],
+        "verification": "Learning and error management systems are functional",
+        "troubleshooting": "Check learning algorithms and error detection thresholds"
+      },
+      {
+        "step": "4.5",
+        "task": "Deploy Brain Module and Orchestration",
+        "description": "Set up the supervisory brain module for system coordination",
+        "commands": [
+          "Create brain_module.py with orchestration capabilities",
+          "Configure cross-agent coordination protocols",
+          "Set up strategic analysis and decision making",
+          "Configure health monitoring and system optimization",
+          "Test system-wide coordination and orchestration"
+        ],
+        "verification": "Brain module coordinates all agents successfully",
+        "troubleshooting": "Check orchestration protocols and agent communication"
+      }
+    ]
+  },
+  "phase_5_ai_studio_integration": {
+    "timeline": "1 hour",
+    "objectives": [
+      "Integrate with AI Studio for LLM management",
+      "Configure external tool integrations",
+      "Set up web scraping and research capabilities"
+    ],
+    "checklist": [
+      {
+        "step": "5.1",
+        "task": "Configure AI Studio Integration",
+        "description": "Set up AI Studio as the central LLM management console",
+        "commands": [
+          "Create ai_studio_integration.py",
+          "Configure OpenAI API integration",
+          "Set up Anthropic Claude integration",
+          "Configure model selection and fallback mechanisms",
+          "Test LLM connectivity and response generation"
+        ],
+        "verification": "AI Studio integration works with all configured models",
+        "troubleshooting": "Check API keys and model availability"
+      },
+      {
+        "step": "5.2",
+        "task": "Set up External Research Tools",
+        "description": "Configure web scraping and external research capabilities",
+        "commands": [
+          "Create web_scraper.py with browser-use integration",
+          "Set up API integration for external data sources",
+          "Configure research workflow automation",
+          "Set up knowledge validation and integration protocols",
+          "Test external research and data collection"
+        ],
+        "verification": "External research tools collect and process data successfully",
+        "troubleshooting": "Check web scraping permissions and API rate limits"
+      },
+      {
+        "step": "5.3",
+        "task": "Configure Tool Integration Framework",
+        "description": "Set up framework for integrating additional tools and services",
+        "commands": [
+          "Create tool_integration_framework.py",
+          "Set up plugin system for new tools",
+          "Configure tool discovery and registration",
+          "Set up tool performance monitoring",
+          "Test tool integration and execution"
+        ],
+        "verification": "Tool integration framework supports new tools",
+        "troubleshooting": "Check tool compatibility and integration protocols"
+      }
+    ]
+  },
+  "phase_6_system_testing_and_validation": {
+    "timeline": "1 hour",
+    "objectives": [
+      "Test all system components and workflows",
+      "Validate error handling and recovery",
+      "Verify learning and adaptation capabilities"
+    ],
+    "checklist": [
+      {
+        "step": "6.1",
+        "task": "Run System Health Checks",
+        "description": "Execute comprehensive system health and functionality tests",
+        "commands": [
+          "python -m pytest tests/unit/ -v",
+          "python -m pytest tests/integration/ -v",
+          "python -m pytest tests/end_to_end/ -v",
+          "Check all agent status endpoints",
+          "Verify database connectivity and performance"
+        ],
+        "verification": "All tests pass and system components are healthy",
+        "troubleshooting": "Fix failing tests and resolve component issues"
+      },
+      {
+        "step": "6.2",
+        "task": "Test Error Handling and Recovery",
+        "description": "Validate error detection, logging, and recovery mechanisms",
+        "commands": [
+          "Simulate agent failures and test recovery",
+          "Test error logging and alerting systems",
+          "Validate emergency override procedures",
+          "Test system rollback and recovery capabilities",
+          "Verify error pattern detection and learning"
+        ],
+        "verification": "Error handling and recovery systems work correctly",
+        "troubleshooting": "Fix error handling logic and recovery procedures"
+      },
+      {
+        "step": "6.3",
+        "task": "Validate Learning and Adaptation",
+        "description": "Test continuous learning and system adaptation capabilities",
+        "commands": [
+          "Feed test data to trigger learning cycles",
+          "Test schema evolution and rule refinement",
+          "Validate performance optimization mechanisms",
+          "Test knowledge integration and relationship mapping",
+          "Verify adaptive self-prompting functionality"
+        ],
+        "verification": "Learning and adaptation systems improve performance",
+        "troubleshooting": "Check learning algorithms and adaptation triggers"
+      }
+    ]
+  },
+  "phase_7_backup_and_maintenance_setup": {
+    "timeline": "30 minutes",
+    "objectives": [
+      "Set up automated backup systems",
+      "Configure maintenance and monitoring",
+      "Implement future-proofing measures"
+    ],
+    "checklist": [
+      {
+        "step": "7.1",
+        "task": "Set up Automated Backup System",
+        "description": "Configure automated backups for data and configurations",
+        "commands": [
+          "Create backup_script.py for automated backups",
+          "Set up GitHub repository for code versioning",
+          "Configure database backup procedures",
+          "Set up configuration file backups",
+          "Test backup and restore procedures"
+        ],
+        "verification": "Backup system creates and restores data successfully",
+        "troubleshooting": "Check backup permissions and storage space"
+      },
+      {
+        "step": "7.2",
+        "task": "Configure Monitoring and Alerting",
+        "description": "Set up comprehensive monitoring and alerting systems",
+        "commands": [
+          "Set up Prometheus for metrics collection",
+          "Configure Grafana dashboards for visualization",
+          "Set up log aggregation with ELK stack",
+          "Configure alerting rules and notifications",
+          "Test monitoring and alerting systems"
+        ],
+        "verification": "Monitoring systems collect data and send alerts",
+        "troubleshooting": "Check monitoring service configurations"
+      },
+      {
+        "step": "7.3",
+        "task": "Implement Future-Proofing Measures",
+        "description": "Set up systems for continuous improvement and evolution",
+        "commands": [
+          "Configure automated dependency updates",
+          "Set up performance monitoring and optimization",
+          "Configure schema evolution and migration tools",
+          "Set up security scanning and updates",
+          "Test future-proofing mechanisms"
+        ],
+        "verification": "Future-proofing systems are operational",
+        "troubleshooting": "Check update mechanisms and compatibility"
+      }
+    ]
+  },
+  "phase_8_final_validation_and_first_run": {
+    "timeline": "30 minutes",
+    "objectives": [
+      "Execute final system validation",
+      "Run first complete workflow",
+      "Verify all requirements are met"
+    ],
+    "checklist": [
+      {
+        "step": "8.1",
+        "task": "Execute Final System Validation",
+        "description": "Run comprehensive validation of all system components",
+        "commands": [
+          "Check all agent services are running",
+          "Verify database connections and performance",
+          "Test inter-agent communication",
+          "Validate error handling and recovery",
+          "Check learning and adaptation systems"
+        ],
+        "verification": "All system components are operational",
+        "troubleshooting": "Resolve any remaining issues"
+      },
+      {
+        "step": "8.2",
+        "task": "Run First Complete Workflow",
+        "description": "Execute end-to-end workflow with test data",
+        "commands": [
+          "Upload test document to input directory",
+          "Monitor processing through all agents",
+          "Verify output generation and quality",
+          "Check learning and adaptation triggers",
+          "Validate error handling and recovery"
+        ],
+        "verification": "Complete workflow executes successfully",
+        "troubleshooting": "Debug workflow issues and optimize performance"
+      },
+      {
+        "step": "8.3",
+        "task": "Verify System Requirements",
+        "description": "Confirm all system requirements and capabilities are met",
+        "commands": [
+          "Check modular design and agent independence",
+          "Verify self-adapting and learning capabilities",
+          "Test efficient internal communication",
+          "Validate advanced fail-safes and triggers",
+          "Confirm big picture cognition and orchestration"
+        ],
+        "verification": "All requirements are met and functional",
+        "troubleshooting": "Address any missing requirements or capabilities"
+      }
+    ]
+  },
+  "troubleshooting_guide": {
+    "common_issues": {
+      "agent_startup_failures": {
+        "symptoms": "Agents fail to start or communicate",
+        "causes": ["Missing dependencies", "Configuration errors", "Port conflicts"],
+        "solutions": [
+          "Check all dependencies are installed",
+          "Verify configuration files are correct",
+          "Check for port conflicts and firewall issues",
+          "Review agent logs for specific errors"
+        ]
+      },
+      "database_connection_issues": {
+        "symptoms": "Database connections fail or timeout",
+        "causes": ["Incorrect credentials", "Network issues", "Database not running"],
+        "solutions": [
+          "Verify database credentials and configuration",
+          "Check network connectivity and firewall settings",
+          "Ensure all database services are running",
+          "Test database connections independently"
+        ]
+      },
+      "memory_management_issues": {
+        "symptoms": "Memory operations fail or are slow",
+        "causes": ["Insufficient memory", "Corrupted data", "Configuration errors"],
+        "solutions": [
+          "Check available system memory",
+          "Verify memory configuration settings",
+          "Test memory operations independently",
+          "Check for data corruption or corruption"
+        ]
+      },
+      "learning_adaptation_issues": {
+        "symptoms": "Learning and adaptation not working",
+        "causes": ["Insufficient data", "Algorithm errors", "Configuration issues"],
+        "solutions": [
+          "Check learning data availability and quality",
+          "Verify learning algorithm configurations",
+          "Test learning triggers and mechanisms",
+          "Review learning logs and performance metrics"
+        ]
+      }
+    },
+    "diagnostic_commands": [
+      "python -c \"import sys; print('Python version:', sys.version)\"",
+      "pip list | grep -E '(fastapi|redis|neo4j|influxdb)'",
+      "docker ps | grep -E '(redis|neo4j|influxdb)'",
+      "curl -X GET http://localhost:8000/health",
+      "python -c \"import redis; r = redis.Redis(); print('Redis:', r.ping())\""
+    ]
+  },
+  "maintenance_schedule": {
+    "daily": [
+      "Check system health and performance metrics",
+      "Review error logs and resolve issues",
+      "Monitor memory usage and optimization",
+      "Verify backup systems are working"
+    ],
+    "weekly": [
+      "Run comprehensive system tests",
+      "Update dependencies and security patches",
+      "Review learning and adaptation progress",
+      "Optimize system performance based on usage"
+    ],
+    "monthly": [
+      "Conduct full system health assessment",
+      "Update schemas and knowledge structures",
+      "Review and update security configurations",
+      "Plan system improvements and enhancements"
+    ]
+  },
+  "success_checklist": {
+    "system_requirements": [
+      "✅ All agents are running and communicating",
+      "✅ Database connections are stable and performant",
+      "✅ Memory management is working efficiently",
+      "✅ Error handling and recovery are functional",
+      "✅ Learning and adaptation systems are active",
+      "✅ External research and web scraping work",
+      "✅ AI Studio integration is operational",
+      "✅ Monitoring and alerting systems are active",
+      "✅ Backup and recovery systems are working",
+      "✅ Complete workflows execute successfully"
+    ],
+    "performance_metrics": [
+      "✅ Response times are under 5 seconds",
+      "✅ Error rates are below 1%",
+      "✅ Memory usage is optimized",
+      "✅ Learning improvements are measurable",
+      "✅ System availability is above 99%"
+    ],
+    "business_capabilities": [
+      "✅ Document processing and analysis",
+      "✅ Strategic insights and recommendations",
+      "✅ Automated research and data collection",
+      "✅ Continuous learning and improvement",
+      "✅ Error detection and recovery",
+      "✅ Multi-agent coordination and orchestration"
+    ]
+  }
+}

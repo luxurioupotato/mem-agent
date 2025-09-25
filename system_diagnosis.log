@@ -1,0 +1,55 @@
+2025-09-21 07:23:22,410 [INFO] 🔍 Starting comprehensive system diagnosis
+2025-09-21 07:23:46,260 [INFO] ✅ Registered module: memory_module
+2025-09-21 07:23:46,263 [INFO] ✅ Registered module: processing_module
+2025-09-21 07:23:46,263 [INFO] ✅ Registered module: knowledge_module
+2025-09-21 07:23:46,264 [INFO] ✅ Registered module: interface_module
+2025-09-21 07:23:46,264 [INFO] ✅ Registered module: monitoring_module
+2025-09-21 07:23:46,264 [INFO] ✅ Registered module: integration_module
+2025-09-21 07:23:46,265 [INFO] ✅ Registered module: bonus_knowledge_module
+2025-09-21 07:23:46,266 [INFO] ✅ Registered module: ultra_token_module
+2025-09-21 07:23:46,266 [INFO] ✅ Registered module: scraping_module
+2025-09-21 07:23:46,266 [INFO] ✅ Registered module: analysis_module
+2025-09-21 07:23:46,266 [INFO] ✅ Registered module: mentor_brain
+2025-09-21 07:23:46,266 [INFO] ✅ Registered module: personal_assistant
+2025-09-21 07:23:46,267 [INFO] ✅ Registered module: finance_team
+2025-09-21 07:23:46,267 [INFO] ✅ Registered module: security_team
+2025-09-21 07:23:46,267 [INFO] ✅ Registered module: business_manager
+2025-09-21 07:23:46,267 [INFO] ✅ Registered module: data_intelligence
+2025-09-21 07:23:46,268 [INFO] ✅ Registered module: research_engine
+2025-09-21 07:23:46,268 [INFO] ✅ Registered module: competitive_analysis
+2025-09-21 07:23:46,268 [INFO] ✅ Registered module: token_optimizer
+2025-09-21 07:23:46,268 [INFO] ✅ Registered module: workflow_automation
+2025-09-21 07:23:46,269 [INFO] ✅ Registered module: revenue_optimizer
+2025-09-21 07:23:46,282 [INFO] ✅ Cluster Orchestrator initialized with 5 strategic clusters
+2025-09-21 07:23:47,888 [INFO] ✅ Gemini API configured
+2025-09-21 07:23:47,943 [INFO] ✅ Gemini API configured
+2025-09-21 07:23:47,943 [INFO] ✅ Working Memory Agent initialized
+2025-09-21 07:23:48,006 [INFO] ✅ Gemini API configured for strategic analysis
+2025-09-21 07:23:48,006 [INFO] ✅ Cluster orchestrator connected
+2025-09-21 07:23:48,007 [INFO] ✅ Registered module: memory_module
+2025-09-21 07:23:48,007 [INFO] ✅ Registered module: processing_module
+2025-09-21 07:23:48,007 [INFO] ✅ Registered module: knowledge_module
+2025-09-21 07:23:48,007 [INFO] ✅ Registered module: interface_module
+2025-09-21 07:23:48,008 [INFO] ✅ Registered module: monitoring_module
+2025-09-21 07:23:48,008 [INFO] ✅ Registered module: integration_module
+2025-09-21 07:23:48,008 [INFO] ✅ Registered module: bonus_knowledge_module
+2025-09-21 07:23:48,008 [INFO] ✅ Registered module: ultra_token_module
+2025-09-21 07:23:48,008 [INFO] ✅ Registered module: scraping_module
+2025-09-21 07:23:48,009 [INFO] ✅ Registered module: analysis_module
+2025-09-21 07:23:48,009 [INFO] ✅ Registered module: mentor_brain
+2025-09-21 07:23:48,009 [INFO] ✅ Registered module: personal_assistant
+2025-09-21 07:23:48,009 [INFO] ✅ Registered module: finance_team
+2025-09-21 07:23:48,010 [INFO] ✅ Registered module: security_team
+2025-09-21 07:23:48,010 [INFO] ✅ Registered module: business_manager
+2025-09-21 07:23:48,010 [INFO] ✅ Registered module: data_intelligence
+2025-09-21 07:23:48,010 [INFO] ✅ Registered module: research_engine
+2025-09-21 07:23:48,010 [INFO] ✅ Registered module: competitive_analysis
+2025-09-21 07:23:48,011 [INFO] ✅ Registered module: token_optimizer
+2025-09-21 07:23:48,011 [INFO] ✅ Registered module: workflow_automation
+2025-09-21 07:23:48,011 [INFO] ✅ Registered module: revenue_optimizer
+2025-09-21 07:23:48,011 [INFO] ✅ Module manager initialized
+2025-09-21 07:23:48,011 [INFO] 🚀 Comprehensive Boot Orchestrator initialized
+2025-09-21 07:23:50,573 [INFO] ✅ Memory database initialized successfully
+2025-09-21 07:23:50,573 [INFO] ✅ AI integration configured successfully
+2025-09-21 07:23:50,574 [INFO] 🚀 Autonomous Initialization Orchestrator initialized
+2025-09-21 07:23:50,574 [INFO] 🔧 Cursor AI Integration Wrapper initialized

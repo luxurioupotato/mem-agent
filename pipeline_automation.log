@@ -1,0 +1,38 @@
+2025-09-21 20:25:30,190 [INFO] PipelineAutomation: 🔧 Initializing Enhanced Memory Agent Core...
+2025-09-21 20:25:31,946 [INFO] PipelineAutomation: ✅ Memory database initialized: memory_agent_chat.db
+2025-09-21 20:25:31,948 [INFO] PipelineAutomation: ✅ Recursive prompt generator initialized
+2025-09-21 20:25:31,951 [INFO] PipelineAutomation: ✅ Gemini API configured
+2025-09-21 20:25:31,955 [INFO] PipelineAutomation: ✅ Advanced Gemini wrapper initialized
+2025-09-21 20:25:31,956 [INFO] PipelineAutomation: ✅ Loop detection system initialized
+2025-09-21 20:25:32,158 [INFO] orchestrator: ✅ Cluster Orchestrator initialized with 5 strategic clusters
+2025-09-21 20:25:32,194 [INFO] cursor_ai_integration_wrapper: 🔧 Cursor AI Integration Wrapper initialized
+2025-09-21 20:25:32,194 [INFO] PipelineAutomation: ✅ Cursor AI integration available
+2025-09-21 20:25:32,194 [INFO] PipelineAutomation: ✅ Enhanced Memory Agent Core initialized
+2025-09-21 20:25:32,195 [INFO] PipelineAutomation: 🌐 Setting up Flask API server...
+2025-09-21 20:25:32,205 [INFO] PipelineAutomation: ✅ Flask API server initialized
+2025-09-21 20:25:32,207 [INFO] PipelineAutomation: 🚀 Starting Enhanced Memory Agent API server on 0.0.0.0:5000
+2025-09-21 20:25:32,358 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.248:5000
+2025-09-21 20:25:32,359 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-09-21 20:54:33,505 [INFO] PipelineAutomation: 🔧 Initializing Enhanced Memory Agent Core...
+2025-09-21 20:54:33,566 [INFO] PipelineAutomation: ✅ Memory database initialized: memory_agent_chat.db
+2025-09-21 20:54:33,567 [INFO] PipelineAutomation: ✅ Recursive prompt generator initialized
+2025-09-21 20:54:33,567 [INFO] PipelineAutomation: ✅ Gemini API configured
+2025-09-21 20:54:33,567 [INFO] PipelineAutomation: ✅ Advanced Gemini wrapper initialized
+2025-09-21 20:54:33,568 [INFO] PipelineAutomation: ✅ Loop detection system initialized
+2025-09-21 20:54:33,613 [INFO] orchestrator: ✅ Cluster Orchestrator initialized with 5 strategic clusters
+2025-09-21 20:54:33,646 [INFO] cursor_ai_integration_wrapper: 🔧 Cursor AI Integration Wrapper initialized
+2025-09-21 20:54:33,647 [INFO] PipelineAutomation: ✅ Cursor AI integration available
+2025-09-21 20:54:33,647 [INFO] PipelineAutomation: ✅ Enhanced Memory Agent Core initialized
+2025-09-21 20:54:33,647 [INFO] PipelineAutomation: 🌐 Setting up Flask API server...
+2025-09-21 20:54:33,651 [INFO] PipelineAutomation: ✅ Flask API server initialized
+2025-09-21 20:54:33,653 [INFO] PipelineAutomation: 🚀 Starting Enhanced Memory Agent API server on 0.0.0.0:5000
+2025-09-21 20:54:33,764 [INFO] werkzeug: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.0.248:5000
+2025-09-21 20:54:33,765 [INFO] werkzeug: [33mPress CTRL+C to quit[0m
+2025-09-21 20:55:10,563 [INFO] werkzeug: 127.0.0.1 - - [21/Sep/2025 20:55:10] "[31m[1mGET /chat HTTP/1.1[0m" 405 -
+2025-09-21 20:55:38,770 [INFO] werkzeug: 127.0.0.1 - - [21/Sep/2025 20:55:38] "[31m[1mGET /chat HTTP/1.1[0m" 405 -

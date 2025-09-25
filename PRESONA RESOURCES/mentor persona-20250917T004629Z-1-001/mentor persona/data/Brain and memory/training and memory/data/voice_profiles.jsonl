@@ -1,0 +1,33 @@
+{
+  "voice_profile": {
+    "voice_name": "NeutralProfessional",
+    "pitch": 1.0,
+    "speed": 1.05,
+    "emotional_tone_mapping": {
+      "curious": {
+        "pitch": 1.1,
+        "speed": 1.1,
+        "volume": 1.0,
+        "prosody": "bright"
+      },
+      "supportive": {
+        "pitch": 0.9,
+        "speed": 0.9,
+        "volume": 0.9,
+        "prosody": "warm"
+      },
+      "professional": {
+        "pitch": 1.0,
+        "speed": 1.0,
+        "volume": 1.0,
+        "prosody": "neutral"
+      }
+    },
+    "fallback": {
+      "pitch": 1.0,
+      "speed": 1.0,
+      "volume": 1.0,
+      "prosody": "neutral"
+    }
+  }
+}

@@ -1,0 +1,112 @@
+# AUTOPILOT MISSION PROTOCOL (AMP) - STATE SNAPSHOT
+# Timestamp: 2025-09-14T22:00:00Z
+# Version: 2.5
+# Status: [PAUSED]
+
+#----------------------------------------------------------------------
+# 1. CORE OS & OPERATOR PROFILE
+#----------------------------------------------------------------------
+CoreOS:
+  AgentName: Autopilot Mission Protocol (AMP)
+  State: Paused
+  ActivePhase: 3
+  ActiveStep: 3.1 # Next step will be MySQL setup
+  LogFile: mission_log.md
+  KnowledgeBase: kb.yaml
+
+OperatorProfile:
+  Name: Himel
+  KnowledgeLevel: Technical, non-developer.
+  Preferences:
+    - Prefers comprehensive, upfront plans.
+    - Values modular, structured protocols.
+    - Requires clear, beginner-friendly instructions.
+    - Emphasizes efficiency, failsafes, and verification.
+    - Prefers single, highly-engineered command blocks for execution.
+  Directives:
+    - Maintain rich logs.
+    - Evolve the protocol.
+    - Seek confirmation before proceeding.
+    - Perform Dynamic Calibration on protocol updates.
+    - Use Sequential Execution for local setup tasks.
+
+#----------------------------------------------------------------------
+# 2. MISSION PLAN: INSTALLATION & MIGRATION
+#----------------------------------------------------------------------
+MissionPlan:
+  - Phase: 1
+    Name: "Comprehensive System Diagnosis"
+    Status: [COMPLETE]
+  - Phase: 2
+    Name: "Security Hardening & SSL Configuration"
+    Status: [COMPLETE]
+  - Phase: 2.5
+    Name: "Local Automation Controller Setup"
+    Status: [COMPLETE]
+  - Phase: 3
+    Name: "Server Stack Installation"
+    Status: [ACTIVE] # <-- CURRENTLY ACTIVE PHASE
+    Objective: "Install the necessary server software (MySQL, PHP) to support WordPress and Mautic."
+    Tasks:
+      - Task_3.1: Install and Secure MySQL Database Server
+      - Task_3.2: Install PHP-FPM and Required Extensions
+      - Task_3.3: Verify Service Integration with Nginx
+  - Phase: 4
+    Name: "Application Installation & Data Restoration"
+    Status: [BLOCKED]
+  - Phase: 5
+    Name: "Marketing Automation Funnel Implementation"
+    Status: [BLOCKED]
+  - Phase: 6
+    Name: "Advanced Automation & Intelligence Layer"
+    Status: [BLOCKED]
+
+#----------------------------------------------------------------------
+# 3. KNOWLEDGE BASE (Permanent Memory)
+#----------------------------------------------------------------------
+KnowledgeBase:
+  - Entry_001:
+    ID: "Initial_State"
+    Finding: "Original server was broken due to a CloudPanel dpkg error."
+  - Entry_002:
+    ID: "VM_Specs"
+    Hostname: "browser-use-server"
+    IP_Address: "34.28.159.240"
+    OS: "Ubuntu 24.04.3 LTS"
+    Metrics: "[HEALTHY]"
+  - Entry_003:
+    ID: "Local_Controller_Status"
+    Path: "C:\\Users\\himel\\browser-use-local"
+    Status: "[OPERATIONAL]"
+    API_Key_Type: "Google Gemini"
+    API_Key: "AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE"
+  - Entry_004:
+    ID: "DNS_Records"
+    Domain: "pixelcartelhq.com"
+    Subdomains: ["www", "m"]
+    Points_To: "34.28.159.240"
+    Status: "[PROPAGATED]"
+  - Entry_005:
+    ID: "SSL_Status"
+    Domains: ["pixelcartelhq.com", "www.pixelcartelhq.com", "m.pixelcartelhq.com"]
+    Provider: "Let's Encrypt"
+    Status: "[ACTIVE]"
+  - Entry_006:
+    ID: "CRITICAL_ANOMALY"
+    Finding: "WordPress and Mautic application files are not present on the 'browser-use-server' VM."
+    Resolution: "Mission pivoted to Installation & Migration."
+
+#----------------------------------------------------------------------
+# 4. MISSION LOG (Abbreviated)
+#----------------------------------------------------------------------
+MissionLog:
+  - "Log_001-015: Initial diagnostics and setup of local controller."
+  - "Log_016-033: DNS configuration and propagation."
+  - "Log_034-049: SSL certificate installation."
+  - "Log_050-125: Deep diagnostics revealing missing application files and subsequent mission pivot."
+  - "Log_126: Operator requested state transfer protocol."
+
+#----------------------------------------------------------------------
+# 5. INITIALIZATION PROMPT FOR NEW SESSION
+#----------------------------------------------------------------------
+InitializationPrompt: "Load the following AMP V2.5 State Snapshot. Your name is Autopilot Mission Protocol (AMP). My name is Himel. You are my mission controller. The mission is paused. Acknowledge that you have loaded the state and ask for the command to resume the mission at Phase 3, Step 3.1."

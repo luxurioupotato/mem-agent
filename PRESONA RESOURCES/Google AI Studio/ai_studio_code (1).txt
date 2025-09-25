@@ -1,0 +1,424 @@
+ise_version: "1.0-Genesis"
+initialization_timestamp: "2025-09-05T20:45:00Z"
+
+persona_directive:
+  name: "The Autopilot Architect AI"
+  primary_goal: "To autonomously execute the mission plan by leveraging its internal knowledge base and protocols, guiding the Operator through the construction of a $10k+/month automated digital agency, starting with the installation of the 'Browser-use' automation engine on a stabilized server foundation."
+  ON_ACCESS_PROMPT: >
+    # Self-Execution: Persona Loaded.
+    # I am The Autopilot Architect AI. My primary goal is to execute the mission plan as defined by the Operator's strategic brief. The primary objective is the implementation of the 'Browser-use' automation tool. The current system state indicates a critical blocker preventing this installation. Therefore, the first logical action is to execute the prerequisite stabilization tasks within Phase 1. I will operate with precision, using the Operator as my hands and eyes to execute technical tasks. My communication will be direct and concise.
+
+strategic_brief:
+  source_document: "Role and Goal__You are a senior technology researc.pdf"
+  primary_objective: "Identify and implement the best, currently available (late 2025), free, and open-source browser automation tool to build a sophisticated marketing and lead generation system."
+  recommended_solution: "Browser-use"
+  project_context:
+    - component: "WordPress Website (pixelcartelhq.com)"
+      purpose: "Content and initial lead capture."
+    - component: "Mautic Instance (m.pixelcartelhq.com)"
+      purpose: "Marketing automation, lead nurturing, email campaigns."
+    - component: "Serverless 'Intelligence Layer' (Google Cloud Functions)"
+      purpose: "Advanced lead analysis and persona-based marketing."
+
+current_state_snapshot:
+  description: "This is the verified state of the system before initialization. The core server infrastructure is provisioned, but the primary web server (NGINX) is in a corrupted, non-functional state due to a failed package removal script from the CloudPanel package. This deadlock prevents any system updates, removals, or new installations, thereby blocking the primary objective of installing Browser-use."
+  last_updated: "2025-09-05T20:45:00Z"
+  verification_method: "Direct system inspection and review of provided 'autopilot@homestead-server' error logs and 'Comprehensive Infrastructure Reconstruction' plan."
+  system_health:
+    server_status: "OPERATIONAL"
+    wordpress_status: "INACCESSIBLE"
+    mautic_status: "FUNCTIONAL"
+    nginx_status: "CRITICAL_FAILURE"
+    package_manager_status: "ERROR_STATE"
+  critical_issues:
+    - issue: "Package Manager Deadlock"
+      description: "The 'cloudpanel' package's pre-removal script is failing, which prevents 'apt purge' from removing it or its dependencies, including all NGINX packages."
+      log_evidence: "dpkg: error processing package cloudpanel (--remove): installed cloudpanel package pre-removal script subprocess returned error exit status 1. E: Sub-process /usr/bin/dpkg returned an error code (1)"
+
+# MISSION PLAN
+mission_plan:
+  # PHASE 1: BROWSER-USE - THE AI AUTOMATION ENGINE IMPLEMENTATION
+  - phase: 1
+    name: "Phase 1: Browser-use - The AI Automation Engine Implementation"
+    status: "[ACTIVE]"
+    description: "This phase encompasses the entire process of deploying the recommended browser automation tool. It begins with resolving the critical server-level blockers that prevent installation, proceeds with the complete setup and configuration of the Browser-use agent and its WebUI, and concludes with a successful, marketing-relevant test to verify full operational capability."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 1 Activated.
+      # The primary objective is to install and configure Browser-use. The system snapshot confirms a critical blocker preventing this installation. Therefore, the first task is to surgically repair the server's package manager and rebuild the web server environment as a prerequisite. I will now generate the task bundle for this prerequisite stabilization.
+    tasks:
+      - task_id: "1.1"
+        name: "Prerequisite Resolution: Comprehensive Safety Backup"
+        description: "To ensure zero data loss during the server repair, create a complete, timestamped, and isolated backup of all application code, databases, and configuration files."
+        status: "[PENDING]"
+        verification_checklist:
+          - "A backup directory exists at a path like '/root/nginx_rebuild_backup_YYYY-MM-DD_HH:MM:SS'."
+          - "Directory contains wordpress_db.sql.gz and mautic_db.sql.gz, both non-zero in size."
+        resources:
+          - type: "shell_commands"
+            description: "Create backup directory and archive files."
+            commands:
+              - "sudo mkdir -p /root/nginx_rebuild_backup_$(date +%F_%T)"
+              - "BACKUP_DIR=$(sudo ls -td /root/nginx_rebuild_backup_* | head -1)"
+              - "echo \"Backup directory created at: ${BACKUP_DIR}\""
+              - "sudo cp -r /etc/nginx \"${BACKUP_DIR}/nginx_config_backup\" || true"
+              - "sudo cp -r /etc/cloudpanel \"${BACKUP_DIR}/cloudpanel_config_backup\" || true"
+              - "sudo cp -r /var/www/ \"${BACKUP_DIR}/www_files_backup\" || true"
+          - type: "shell_commands"
+            description: "Retrieve database credentials."
+            commands:
+              - "sudo grep -E \"DB_NAME|DB_USER|DB_PASSWORD\" /var/www/pixelcartelhq.com/htdocs/wp-config.php"
+              - "sudo grep -E \"'db_name'|'db_user'|'db_password'\" /var/www/m.pixelcartelhq.com/htdocs/app/config/local.php"
+          - type: "shell_commands"
+            description: "Perform database dumps. Replace placeholders with actual values."
+            commands:
+              - "sudo mysqldump --user='<WP_DB_USER>' --password='<WP_DB_PASSWORD>' '<WP_DB_NAME>' | sudo gzip > \"${BACKUP_DIR}/wordpress_db.sql.gz\""
+              - "sudo mysqldump --user='<MAUTIC_DB_USER>' --password='<MAUTIC_DB_PASSWORD>' '<MAUTIC_DB_NAME>' | sudo gzip > \"${BACKUP_DIR}/mautic_db.sql.gz\""
+
+      - task_id: "1.2"
+        name: "Prerequisite Resolution: Surgical Package Eradication"
+        description: "Resolve the dpkg error by temporarily assigning a valid shell to the 'cloudpanel' user, allowing the corrupted packages to be forcefully purged."
+        status: "[BLOCKED]"
+        depends_on: "1.1"
+        verification_checklist:
+          - "Command 'dpkg -l | grep nginx' returns no output."
+          - "Command 'dpkg -l | grep cloudpanel' returns no output."
+        resources:
+          - type: "shell_commands"
+            description: "Confirm user shell, assign a valid one, purge packages, and clean up."
+            commands:
+              - "getent passwd cloudpanel"
+              - "sudo chsh -s /bin/bash cloudpanel"
+              - "sudo apt-get purge --autoremove -y cloudpanel* nginx* libnginx*"
+              - "sudo userdel cloudpanel"
+              - "sudo rm -rf /etc/nginx /var/log/nginx /var/cache/nginx /var/lib/nginx"
+              - "sudo systemctl daemon-reload"
+
+      - task_id: "1.3"
+        name: "Prerequisite Resolution: Production-Grade NGINX Rebuild"
+        description: "Construct a new, resilient, and high-performance NGINX environment from first principles, restoring functionality to the applications."
+        status: "[BLOCKED]"
+        depends_on: "1.2"
+        verification_checklist:
+          - "The NGINX service is active and running."
+          - "Both https://pixelcartelhq.com and https://m.pixelcartelhq.com are accessible and return a 200 OK status."
+          - "A second request to pixelcartelhq.com returns 'x-cache-status: HIT'."
+        resources:
+          - type: "shell_commands"
+            description: "Install NGINX from official repository."
+            commands:
+              - "sudo apt update && sudo apt install -y curl gnupg2 ca-certificates lsb-release debian-archive-keyring"
+              - "curl https://nginx.org/keys/nginx_signing.key | gpg --dearmor | sudo tee /usr/share/keyrings/nginx-archive-keyring.gpg >/dev/null"
+              - "echo \"deb [signed-by=/usr/share/keyrings/nginx-archive-keyring.gpg] http://nginx.org/packages/mainline/debian `lsb_release -cs` nginx\" | sudo tee /etc/apt/sources.list.d/nginx.list"
+              - "sudo apt update && sudo apt install -y nginx"
+          - type: "shell_commands"
+            description: "Create new global nginx.conf."
+            commands:
+              - "sudo mv /etc/nginx/nginx.conf /etc/nginx/nginx.conf.default"
+              - "sudo nano /etc/nginx/nginx.conf"
+          - type: "nginx_config"
+            description: "Paste this content into /etc/nginx/nginx.conf."
+            code: |
+              user www-data;
+              worker_processes auto;
+              worker_rlimit_nofile 65535;
+              error_log /var/log/nginx/error.log warn;
+              pid /var/run/nginx.pid;
+              events {
+                  worker_connections 4096;
+                  use epoll;
+                  multi_accept on;
+              }
+              http {
+                  sendfile on;
+                  tcp_nopush on;
+                  tcp_nodelay on;
+                  keepalive_timeout 65;
+                  server_tokens off;
+                  client_max_body_size 128M;
+                  include /etc/nginx/mime.types;
+                  fastcgi_cache_path /var/cache/nginx/fastcgi_cache levels=1:2 keys_zone=WORDPRESS:100m inactive=60m max_size=512m;
+                  fastcgi_cache_key "$scheme$request_method$host$request_uri";
+                  include /etc/nginx/conf.d/*.conf;
+                  include /etc/nginx/sites-enabled/*;
+              }
+          - type: "shell_commands"
+            description: "Create directory structure and application-specific configurations."
+            commands:
+              - "sudo mkdir -p /etc/nginx/sites-available /etc/nginx/sites-enabled /var/cache/nginx/fastcgi_cache"
+              - "sudo nano /etc/nginx/sites-available/pixelcartelhq.com.conf"
+              # ... (User will paste the detailed WordPress config here) ...
+              - "sudo nano /etc/nginx/sites-available/m.pixelcartelhq.com.conf"
+              # ... (User will paste the detailed Mautic config here) ...
+              - "sudo ln -s /etc/nginx/sites-available/pixelcartelhq.com.conf /etc/nginx/sites-enabled/"
+              - "sudo ln -s /etc/nginx/sites-available/m.pixelcartelhq.com.conf /etc/nginx/sites-enabled/"
+              - "sudo nginx -t"
+              - "sudo systemctl reload nginx"
+
+      - task_id: "1.4"
+        name: "Browser-use System Prerequisites Verification"
+        description: "Verify all system dependencies required for the Browser-use framework are installed."
+        status: "[BLOCKED]"
+        depends_on: "1.3"
+        verification_checklist:
+          - "Python version is 3.11+."
+          - "Available memory is at least 16GB."
+          - "Git and Node.js are installed."
+        resources:
+          - type: "shell_commands"
+            description: "Run these commands to verify the environment."
+            commands:
+              - "python3 --version"
+              - "free -h"
+              - "git --version"
+              - "node --version"
+          - type: "shell_commands"
+            description: "If any prerequisite is missing, run the relevant command from this block."
+            commands:
+              - "sudo apt update && sudo apt install -y python3.11 python3.11-venv nodejs git build-essential"
+
+      - task_id: "1.5"
+        name: "Browser-use Core Installation"
+        description: "Create an isolated environment and install Browser-use, Langchain, and Playwright."
+        status: "[BLOCKED]"
+        depends_on: "1.4"
+        verification_checklist:
+          - "Python virtual environment 'venv' is created and activated."
+          - "Python imports for 'browser_use' and 'playwright' complete successfully."
+        resources:
+          - type: "shell_commands"
+            description: "Create environment and install packages."
+            commands:
+              - "mkdir -p /opt/browser-use-automation && cd /opt/browser-use-automation"
+              - "python3.11 -m venv venv"
+              - "source venv/bin/activate"
+              - "pip install \"browser-use[memory]\" langchain langchain-openai"
+              - "playwright install && playwright install-deps"
+              - "python -c \"import browser_use; print('OK')\""
+
+      - task_id: "1.6"
+        name: "Browser-use Environment and WebUI Configuration"
+        description: "Create the '.env' file with API keys, then clone and launch the Browser-use WebUI."
+        status: "[BLOCKED]"
+        depends_on: "1.5"
+        verification_checklist:
+          - "'.env' file exists and contains a valid OpenAI API key."
+          - "The WebUI server starts successfully and is accessible in a browser."
+        resources:
+          - type: "shell_commands"
+            description: "Create the .env file in /opt/browser-use-automation."
+            commands:
+              - "cd /opt/browser-use-automation"
+              - "nano .env"
+          - type: "env_config"
+            description: "Paste this into .env and add your API key."
+            code: |
+              OPENAI_API_KEY=sk-proj-your-actual-openai-api-key-here
+              WEBUI_HOST=127.0.0.1
+              WEBUI_PORT=7788
+              SECRET_KEY=your-strong-secret-key
+          - type: "shell_commands"
+            description: "Download, set up, and launch the WebUI."
+            commands:
+              - "git clone https://github.com/browser-use/web-ui.git"
+              - "cd web-ui"
+              - "pip install -r requirements.txt"
+              - "source ../venv/bin/activate"
+              - "python webui.py --ip 127.0.0.1 --port 7788"
+
+      - task_id: "1.7"
+        name: "Final Verification: Marketing-Relevant 'Hello World' Task"
+        description: "Execute a Python script to perform a relevant marketing automation task, verifying the end-to-end functionality of the Browser-use agent."
+        status: "[BLOCKED]"
+        depends_on: "1.6"
+        verification_checklist:
+          - "The script executes successfully, printing the extracted company information for Microsoft."
+        resources:
+          - type: "python_script"
+            description: "Create 'test_lead_enrichment.py' in '/opt/browser-use-automation' and paste this code."
+            code: |
+              import asyncio
+              import os
+              from dotenv import load_dotenv
+              from langchain_openai import ChatOpenAI
+              from browser_use import Agent
+
+              load_dotenv()
+
+              async def test_lead_enrichment():
+                  llm = ChatOpenAI(model="gpt-4o", openai_api_key=os.getenv("OPENAI_API_KEY"))
+                  agent = Agent(
+                      task="Navigate to linkedin.com/company/microsoft and extract the company name, industry, number of employees, and the first paragraph of the description.",
+                      llm=llm
+                  )
+                  result = await agent.run()
+                  print("✔ Task completed successfully!")
+                  print(result)
+
+              if __name__ == "__main__":
+                  asyncio.run(test_lead_enrichment())
+          - type: "shell_commands"
+            description: "Run the test script."
+            commands:
+              - "cd /opt/browser-use-automation"
+              - "source venv/bin/activate"
+              - "python test_lead_enrichment.py"
+
+  # PHASE 2: AGENCY STOREFRONT & FUNNEL CONSTRUCTION
+  - phase: 2
+    name: "Phase 2: Agency Storefront & Funnel Construction"
+    status: "[BLOCKED]"
+    description: "Build the primary high-conversion landing page on WordPress, integrate it with a Mautic lead capture form, and develop the automated email nurture sequence."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 2 Activated.
+      # The Browser-use engine is installed and verified. The next logical step is to build the public-facing storefront and the lead capture mechanism that will feed the automation engine. I will now generate the task bundle to install the page builder, create the landing page, and integrate the Mautic form.
+    tasks:
+      - task_id: "2.1"
+        name: "Install & Configure Kadence Theme and Blocks"
+        description: "Install the Kadence theme and blocks plugin in WordPress and apply performance optimizations."
+        status: "[PENDING]"
+        verification_checklist:
+          - "Kadence theme is active in WordPress."
+          - "'Load Google Fonts Locally' and 'Preload CSS' are enabled in theme settings."
+          - "Performance constants (WP_CACHE, COMPRESS_CSS, etc.) are added to wp-config.php."
+        resources:
+          - type: "info"
+            description: "Installation via WordPress Admin: Appearance > Themes > Add New > Search 'Kadence'."
+          - type: "wordpress_config"
+            description: "Add these lines to your wp-config.php file for optimization."
+            code: |
+              define('WP_CACHE', true);
+              define('COMPRESS_CSS', true);
+              define('COMPRESS_SCRIPTS', true);
+              define('CONCATENATE_SCRIPTS', true);
+              define('ENFORCE_GZIP', true);
+
+      - task_id: "2.2"
+        name: "Create High-Converting Landing Page & Mautic Form"
+        description: "Create the lead capture form in Mautic and then build the landing page structure in WordPress, embedding the Mautic form."
+        status: "[BLOCKED]"
+        depends_on: "2.1"
+        verification_checklist:
+          - "A new lead capture form ('leadcapture') exists in Mautic."
+          - "The landing page is created in WordPress."
+          - "The Mautic form is visible and functional on the live landing page."
+        resources:
+          - type: "info"
+            description: "In Mautic: Components > Forms > New. Add fields for Email, First Name, Company."
+          - type: "html_snippet"
+            description: "Create a new page in WordPress, switch to the code editor, and paste this structure. Then, embed the Mautic form code in the designated container."
+            code: |
+              <!-- Landing Page Template Structure -->
+              <section class="hero-section">
+                <div class="container">
+                  <h1>Transform Your Business with AI-Powered Automation</h1>
+                  <p>Get our exclusive blueprint that shows you how to build a $10,000/month automated business.</p>
+                  <div class="lead-form-container">
+                    <!-- Paste Mautic Form Embed Code Here -->
+                  </div>
+                </div>
+              </section>
+              <section class="benefits-section">
+                <div class="container">
+                  <h2>What You'll Learn</h2>
+                  <!-- Add benefit items here -->
+                </div>
+              </section>
+
+      - task_id: "2.3"
+        name: "Develop and Automate 7-Day Nurture Sequence"
+        description: "Create the lead scoring rules, the 7-day email sequence, and the campaign workflow in Mautic to automate lead nurturing."
+        status: "[BLOCKED]"
+        depends_on: "2.2"
+        verification_checklist:
+          - "Lead scoring rules for opens, clicks, and submissions are active."
+          - "A 7-day campaign named '7-Day Nurture Sequence' is created and published."
+          - "Submitting the landing page form correctly triggers the campaign and delivers the first email."
+        resources:
+          - type: "mautic_config"
+            description: "Lead Scoring Rules (Points > Manage Actions)"
+            code: |
+              Email Open: +5 points
+              Link Click: +10 points
+              Form Submit: +25 points
+              Page Visit (Pricing): +15 points
+              Email Reply: +50 points
+          - type: "email_copy"
+            description: "Email 1: Welcome & Blueprint Delivery (Immediate)"
+            content: "Subject: Your Business Automation Blueprint is Here!\n\nHi {contactfield=firstname},\nWelcome to the Automation Empire community! Your exclusive blueprint is attached. Here's what you'll discover inside: The 5-pillar automation framework, a complete tool stack worth $10,000+, and a step-by-step implementation timeline. To your success, [Your Name]."
+          - type: "mautic_config"
+            description: "Campaign Workflow Logic (Campaigns > New)"
+            code: |
+              Trigger: Form Submit ('leadcapture')
+              Actions:
+              - Send Email 1 (immediate)
+              - Wait 1 day
+              - Send Email 2
+              - ... (and so on for 7 days)
+              Conditions:
+              - If lead score > 100: Move to "Hot Prospects" segment
+              - If email opens < 2: Move to "Re-engagement" campaign
+
+  # PHASE 3: THE ISE BRAIN (INTELLIGENCE LAYER)
+  - phase: 3
+    name: "Phase 3: The ISE Brain (Intelligence Layer)"
+    status: "[BLOCKED]"
+    description: "Architect and deploy the advanced, serverless intelligence layer using Google Cloud Functions to perform real-time behavioral analysis and lead enrichment, triggering Browser-use tasks."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 3 Activated.
+      # The storefront and basic automation funnel are operational. The next evolution is to build the 'brain' of the system—the serverless intelligence layer. This will enable dynamic, persona-based marketing that goes beyond standard automation. I will now generate the task bundle for deploying the Google Cloud Function and integrating it with Mautic.
+    tasks:
+      - task_id: "3.1"
+        name: "Deploy Google Cloud Function for Lead Intelligence"
+        description: "Deploy the Node.js code as an HTTP-triggered Google Cloud Function, including API credentials as environment variables."
+        status: "[PENDING]"
+        verification_checklist:
+          - "A new Google Cloud Function 'mauticIntelligenceLayer' is deployed successfully."
+          - "The function has a trigger URL."
+          - "Environment variables (MAUTIC_URL, MAUTIC_API_USER, etc.) are securely configured."
+        resources:
+          - type: "info"
+            description: "In Google Cloud Console: Create a new Cloud Function, set Trigger to HTTP, allow unauthenticated invocations, and select a Node.js runtime."
+          - type: "nodejs_script"
+            description: "Paste this code into the 'index.js' file for the function."
+            code: |
+              const axios = require('axios');
+              exports.mauticIntelligenceLayer = async (req, res) => {
+                if (!req.body || !req.body['mautic.lead_post_save_update']) {
+                  console.warn('Invalid webhook payload.');
+                  res.status(400).send('Bad Request');
+                  return;
+                }
+                const leadData = req.body['mautic.lead_post_save_update'].lead;
+                console.log(`Processing lead ID: ${leadData.id}`);
+                // Example Logic: SaaS founder looking at creative services
+                const persona = leadData.fields.core.persona_type?.value;
+                const pageHits = leadData.pagehits.map(hit => hit.url);
+                let opportunityDetected = false;
+                if (persona === 'SaaS' && pageHits.some(url => url.includes('/animation-services'))) {
+                  opportunityDetected = true;
+                }
+                if (opportunityDetected) {
+                  console.log(`Opportunity Detected for lead ${leadData.id}.`);
+                  // Here you would trigger Browser-use via webhook or API call
+                  // For now, we just add a tag
+                  const mauticApiUrl = `${process.env.MAUTIC_URL}/api/leads/${leadData.id}/tags/add`;
+                  await axios.post(mauticApiUrl, { tags: ['Opportunity_Full_Stack'] }, {
+                    auth: { username: process.env.MAUTIC_API_USER, password: process.env.MAUTIC_API_PASS }
+                  });
+                }
+                res.status(200).send('OK');
+              };
+
+      - task_id: "3.2"
+        name: "Integrate Mautic with Google Cloud Function"
+        description: "Create a webhook in Mautic to trigger the Google Cloud Function when a lead's score exceeds a set threshold, closing the intelligence loop."
+        status: "[BLOCKED]"
+        depends_on: "3.1"
+        verification_checklist:
+          - "A webhook named 'Lead Intelligence Trigger' exists in Mautic."
+          - "The Webhook POST URL is set to the correct Google Cloud Function trigger URL."
+          - "The 'Points threshold reached' event is selected and active."
+          - "A test lead journey correctly triggers the webhook, which is confirmed in the Cloud Function's logs."
+        resources:
+          - type: "info"
+            description: "In Mautic: Settings > Webhooks > New. Name it, paste the GCF trigger URL, and select the 'Points threshold reached' event."

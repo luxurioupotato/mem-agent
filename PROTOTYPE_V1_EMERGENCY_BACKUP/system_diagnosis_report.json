@@ -1,0 +1,184 @@
+{
+  "environment": {
+    "python_version": "3.13.7 (tags/v3.13.7:bcee1c3, Aug 14 2025, 14:15:11) [MSC v.1944 64 bit (AMD64)]",
+    "virtual_environment": true,
+    "available_dependencies": [
+      "streamlit",
+      "google.generativeai",
+      "sqlite3",
+      "asyncio",
+      "logging",
+      "json",
+      "pathlib",
+      "datetime"
+    ],
+    "missing_dependencies": [],
+    "optional_available": [
+      "psutil",
+      "pandas",
+      "numpy",
+      "flask"
+    ],
+    "optional_missing": [],
+    "api_key_configured": true
+  },
+  "core_files": {
+    "modules.py": {
+      "exists": true,
+      "size": 37738,
+      "modified": "2025-09-21T02:39:24.076624"
+    },
+    "orchestrator.py": {
+      "exists": true,
+      "size": 24012,
+      "modified": "2025-09-21T03:57:18.583358"
+    },
+    "enhanced_memory_agent_ui.py": {
+      "exists": true,
+      "size": 48260,
+      "modified": "2025-09-21T05:54:24.561873"
+    },
+    "working_memory_agent.py": {
+      "exists": true,
+      "size": 17435,
+      "modified": "2025-09-21T04:58:20.977946"
+    },
+    "comprehensive_boot_orchestrator.py": {
+      "exists": true,
+      "size": 33584,
+      "modified": "2025-09-21T04:41:59.710182"
+    },
+    "autonomous_initialization_orchestrator.py": {
+      "exists": true,
+      "size": 48828,
+      "modified": "2025-09-21T05:54:24.561873"
+    },
+    "cursor_ai_integration_wrapper.py": {
+      "exists": true,
+      "size": 19559,
+      "modified": "2025-09-21T05:54:24.561873"
+    },
+    "test_autonomous_init.py": {
+      "exists": true,
+      "size": 5829,
+      "modified": "2025-09-21T05:54:24.593456"
+    },
+    "requirements_rag.txt": {
+      "exists": true,
+      "size": 268,
+      "modified": "2025-09-21T04:30:31.561610"
+    },
+    "launch_working_agent.bat": {
+      "exists": true,
+      "size": 331,
+      "modified": "2025-09-21T04:58:20.977946"
+    },
+    "summary": {
+      "total_files": 10,
+      "available_files": 10,
+      "missing_files": 0
+    }
+  },
+  "system_components": {
+    "modules": {
+      "import_status": "success",
+      "file_exists": true,
+      "error": null,
+      "module_manager": "available"
+    },
+    "orchestrator": {
+      "import_status": "success",
+      "file_exists": true,
+      "error": null
+    },
+    "enhanced_memory_agent_ui": {
+      "import_status": "error",
+      "file_exists": true,
+      "error": "st.session_state has no attribute \"enhanced_agent\". Did you forget to initialize it? More info: https://docs.streamlit.io/develop/concepts/architecture/session-state#initialization"
+    },
+    "working_memory_agent": {
+      "import_status": "success",
+      "file_exists": true,
+      "error": null
+    },
+    "comprehensive_boot_orchestrator": {
+      "import_status": "success",
+      "file_exists": true,
+      "error": null
+    },
+    "autonomous_initialization_orchestrator": {
+      "import_status": "success",
+      "file_exists": true,
+      "error": null
+    },
+    "cursor_ai_integration_wrapper": {
+      "import_status": "success",
+      "file_exists": true,
+      "error": null
+    }
+  },
+  "configurations": {
+    "environment_variables": {
+      "GEMINI_API_KEY": {
+        "configured": true,
+        "length": 39
+      },
+      "ANTHROPIC_API_KEY": {
+        "configured": false,
+        "length": 0
+      }
+    },
+    "configuration_files": {
+      "requirements_rag.txt": true,
+      ".env": false,
+      "MEMORY_AGENT_SYSTEM/config/system_config.json": true
+    },
+    "working_directory": "E:\\MEM_AGENT"
+  },
+  "integrations": {
+    "gemini_api": {
+      "status": "success",
+      "response_length": 36,
+      "error": null
+    },
+    "streamlit": {
+      "status": "available",
+      "version": "1.49.1"
+    },
+    "cursor_ai": {
+      "status": "available",
+      "orchestrator": "functional",
+      "wrapper": "functional"
+    }
+  },
+  "performance": {
+    "system_resources": {
+      "cpu_percent": 4.8,
+      "memory_percent": 87.1,
+      "memory_available_gb": 1.0171737670898438,
+      "disk_free_gb": 571.678165435791,
+      "disk_percent": 1.8599639493095212
+    },
+    "file_system": {
+      "python_files_found": 11,
+      "scan_time_seconds": 0.000745
+    }
+  },
+  "security": {
+    "api_key_security": {
+      "configured": true,
+      "format_valid": true,
+      "exposed_in_code": true
+    },
+    "file_permissions": {
+      ".env": "not_found",
+      "autonomous_system_memory.db": "accessible",
+      "memory_agent_chat.db": "not_found"
+    },
+    "network_config": {
+      "streamlit_host": "0.0.0.0",
+      "api_host": "0.0.0.0",
+      "security_level": "medium"
+    }
+  }
+}

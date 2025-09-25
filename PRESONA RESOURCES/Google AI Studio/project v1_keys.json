@@ -1,0 +1,99 @@
+{
+  "schema_version": "1.1",
+  "export_timestamp": "2025-09-14T22:50:00Z",
+  "project_name": "pixelcartelhq",
+  "assets": [
+    {
+      "asset_type": "domain",
+      "name": "pixelcartelhq.com",
+      "registrar": "Namecheap",
+      "dns_records": [
+        {
+          "type": "A",
+          "host": "@",
+          "value": "34.28.159.240",
+          "ttl": "Automatic"
+        },
+        {
+          "type": "A",
+          "host": "www",
+          "value": "34.28.159.240",
+          "ttl": "Automatic"
+        },
+        {
+          "type": "A",
+          "host": "m",
+          "value": "34.28.159.240",
+          "ttl": "Automatic"
+        }
+      ]
+    },
+    {
+      "asset_type": "gcp_virtual_machine",
+      "name": "browser-use-server",
+      "gcp_project_id": "hardy-canyon-470416-q9",
+      "instance_id": "8028812815938021057",
+      "ip_address": "34.28.159.240",
+      "location": "us-central1-a",
+      "machine_type": "e2-standard-2",
+      "os": "Debian 12 Bookworm",
+      "service_account": "870857226062-compute@developer.gserviceaccount.com"
+    },
+    {
+      "asset_type": "local_automation_controller",
+      "path": "C:\\Users\\himel\\browser-use-local",
+      "status": "Setup in Progress"
+    }
+  ],
+  "credentials": [
+    {
+      "credential_type": "api_key",
+      "provider": "Google Gemini",
+      "key_string": "AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE",
+      "status": "Active",
+      "purpose": "Local Browser-use Controller",
+      "notes": "To be used in the .env file with the key GOOGLE_API_KEY."
+    },
+    {
+      "credential_type": "application_login",
+      "application": "WordPress",
+      "url": "https://pixelcartelhq.com/wp-login.php",
+      "username": "pixCadmin",
+      "password": "[PASSWORD_NOT_EXTRACTED_FROM_LOGS]",
+      "status": "Active"
+    },
+    {
+      "credential_type": "server_login",
+      "hostname": "browser-use-server",
+      "ip_address": "34.28.159.240",
+      "username": "pixxelcartel",
+      "authentication_method": "SSH Key (Google-managed)",
+      "status": "Active"
+    },
+    {
+      "credential_type": "deprecated_server_login",
+      "context": "Old CloudPanel Server (IP: 34.58.122.171)",
+      "username": "pare",
+      "password": "ZyraQwertzyZahed313604!",
+      "sftp_ssh_password": "Ws4ujJZDEV8WndV1B13y",
+      "status": "DEPRECATED"
+    },
+    {
+      "credential_type": "deprecated_api_key",
+      "provider": "Google Gemini",
+      "key_string": "AIzaSyBL3dVurCjIWezo2pOXQEbWfWn9ucoKCdA",
+      "status": "DEPRECATED",
+      "reason": "Superseded due to 401 Unauthorized errors."
+    }
+  ],
+  "configurations": {
+    "nginx_final_config": {
+      "filepath": "/etc/nginx/sites-enabled/default",
+      "content": "# Correct Nginx Configuration for pixelcartelhq.com (WordPress)\n\nserver {\n    listen 80;\n    server_name pixelcartelhq.com www.pixelcartelhq.com m.pixelcartelhq.com;\n    # This block is now handled by Certbot's auto-redirect\n    return 301 https://$host$request_uri;\n}\n\nserver {\n    listen 443 ssl http2;\n    server_name pixelcartelhq.com www.pixelcartelhq.com;\n\n    # Define the root directory for WordPress files\n    root /var/www/html/wordpress; # This is a placeholder and needs to be updated once files are restored\n    index index.php;\n\n    # SSL Configuration managed by Certbot\n    ssl_certificate /etc/letsencrypt/live/pixelcartelhq.com/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/pixelcartelhq.com/privkey.pem;\n    include /etc/letsencrypt/options-ssl-nginx.conf;\n    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;\n\n    location / {\n        # This is the crucial part for WordPress URLs to work\n        try_files $uri $uri/ /index.php?$args;\n    }\n\n    location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        # Ensure this path is correct for your PHP version\n        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;\n    }\n\n    location ~ /\\.ht {\n        deny all;\n    }\n}\n\nserver {\n    listen 443 ssl http2;\n    server_name m.pixelcartelhq.com;\n\n    # Define the root directory for Mautic files\n    root /var/www/html/mautic; # This is a placeholder and needs to be updated once files are restored\n    index index.php index.html;\n\n    # SSL Configuration managed by Certbot\n    ssl_certificate /etc/letsencrypt/live/pixelcartelhq.com/fullchain.pem;\n    ssl_certificate_key /etc/letsencrypt/live/pixelcartelhq.com/privkey.pem;\n    include /etc/letsencrypt/options-ssl-nginx.conf;\n    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;\n\n    location / {\n        try_files $uri /index.php?$args;\n    }\n\n    location ~ \\.php$ {\n        include snippets/fastcgi-php.conf;\n        fastcgi_pass unix:/var/run/php/php8.2-fpm.sock;\n    }\n}"
+    },
+    "browser_use_local_env": {
+      "filepath": "C:\\Users\\himel\\browser-use-local\\web-ui\\.env",
+      "content": "# AI Model Configuration (Gemini)\nGOOGLE_API_KEY=AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE\n\n# Set Default LLM\nDEFAULT_LLM=google\n\n# --- Telemetry ---\nANONYMIZED_TELEMETRY=false"
+    }
+  }
+}

@@ -1,0 +1,56 @@
+from typing import List, Dict
+
+class MemoryCube:
+    def __init__(self, memcube_id: str, content: str, attributes: Dict):
+        self.memcube_id = memcube_id
+        self.content = content
+        self.attributes = attributes
+
+class MemoryManager:
+    def __init__(self):
+        self.memory_store = {}  # memcube_id -> MemoryCube
+
+    def load_memory_cubes(self, cubes: List[Dict]):
+        for cube in cubes:
+            memcube = MemoryCube(cube['memcube_id'], cube['content'], cube['attributes'])
+            self.memory_store[memcube.memcube_id] = memcube
+
+    def query_memcubes(self, user_id: str, filters: Dict = None, limit: int = 10) -> List[MemoryCube]:
+        # Simple attribute filter example
+        results = []
+        for cube in self.memory_store.values():
+            if filters:
+                matched = all(cube.attributes.get(k) == v for k, v in filters.items())
+                if not matched:
+                    continue
+            results.append(cube)
+            if len(results) >= limit:
+                break
+        return results
+
+class LLMPersonalizedOrchestrator:
+    def __init__(self, llm_client, memory_manager: MemoryManager):
+        self.llm_client = llm_client
+        self.memory_manager = memory_manager
+
+    def build_prompt(self, user_input: str, user_id: str, current_goal: str) -> str:
+        memcubes = self.memory_manager.query_memcubes(user_id, limit=3)
+        mem_text = "\n".join([cube.content for cube in memcubes])
+        prompt = (
+            f"[CONTEXT]\nMemories:\n{mem_text}\n"
+            f"User Profile: {{USER_PROFILE:{user_id}}}\n"
+            f"Current Goal: {{CURRENT_GOAL:{current_goal}}}\n\n"
+            f"[INSTRUCTION]\nRespond as a supportive, ethical mentor.\n\n"
+            f"[USER INPUT]\n{user_input}\n\n[RESPONSE]\n"
+        )
+        return prompt
+
+    def query_llm(self, prompt: str):
+        response = self.llm_client.query(prompt)
+        return response
+
+    def get_personalized_response(self, user_input: str, user_id: str, current_goal: str):
+        prompt = self.build_prompt(user_input, user_id, current_goal)
+        response = self.query_llm(prompt)
+        # Optionally apply bias checking and ethical filters here
+        return response

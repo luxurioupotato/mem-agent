@@ -1,0 +1,531 @@
+{
+  "metadata": {
+    "created_date": "2025-09-17",
+    "version": "1.0",
+    "purpose": "Example workflows demonstrating modular memory agent system capabilities",
+    "workflow_types": ["data_processing", "error_recovery", "strategic_analysis", "learning_adaptation"],
+    "target_audience": "Business users, developers, and system administrators"
+  },
+  "workflow_1_data_ingestion_and_processing": {
+    "scenario": "New business document uploaded to system",
+    "business_context": "Marketing agency receives new client brief and needs to process, categorize, and extract insights",
+    "workflow_steps": [
+      {
+        "step": 1,
+        "agent": "ingestion_agent",
+        "action": "Document reception and validation",
+        "input": "Client brief PDF (2MB, 15 pages)",
+        "process": [
+          "Auto-generates processing prompt: 'Process marketing brief PDF, extract key information, validate content quality'",
+          "Validates file format and size",
+          "Extracts text content using OCR if needed",
+          "Assesses content quality and completeness",
+          "Generates structured data packet with metadata"
+        ],
+        "output": "Structured document data with quality score 0.85",
+        "communication": "Sends data packet to categorization_agent via message queue",
+        "logging": "Logs processing time, quality metrics, and any issues"
+      },
+      {
+        "step": 2,
+        "agent": "categorization_agent",
+        "action": "Content classification and tagging",
+        "input": "Structured document data from ingestion_agent",
+        "process": [
+          "Auto-generates categorization prompt: 'Classify marketing brief content, identify business objectives, extract key themes'",
+          "Analyzes content using ML models",
+          "Identifies categories: ['marketing', 'strategy', 'client_brief', 'digital_marketing']",
+          "Extracts key entities: ['target_audience', 'budget', 'timeline', 'objectives']",
+          "Generates confidence scores for each classification"
+        ],
+        "output": "Categorized content with confidence scores and entity extraction",
+        "communication": "Sends classification results to search_agent and context_assembly_agent",
+        "logging": "Logs classification accuracy, processing time, and model performance"
+      },
+      {
+        "step": 3,
+        "agent": "search_agent",
+        "action": "Related content discovery",
+        "input": "Categorized content from categorization_agent",
+        "process": [
+          "Auto-generates search prompt: 'Find related marketing strategies, similar client briefs, and relevant case studies'",
+          "Performs semantic search across knowledge base",
+          "Identifies related documents and strategies",
+          "Ranks results by relevance and recency",
+          "Generates search context with related content"
+        ],
+        "output": "Related content with relevance scores and context",
+        "communication": "Sends search results to context_assembly_agent",
+        "logging": "Logs search performance, result quality, and user satisfaction"
+      },
+      {
+        "step": 4,
+        "agent": "context_assembly_agent",
+        "action": "Context building and synthesis",
+        "input": "Categorized content and search results",
+        "process": [
+          "Auto-generates context prompt: 'Assemble comprehensive context for marketing strategy development, include relevant case studies and best practices'",
+          "Builds context graph with relationships",
+          "Synthesizes information from multiple sources",
+          "Identifies knowledge gaps and missing information",
+          "Generates comprehensive context package"
+        ],
+        "output": "Comprehensive context with relationships and knowledge gaps",
+        "communication": "Sends context to reasoning_agent and analytics_agent",
+        "logging": "Logs context quality, synthesis time, and knowledge coverage"
+      },
+      {
+        "step": 5,
+        "agent": "analytics_agent",
+        "action": "Pattern detection and insights",
+        "input": "Context package from context_assembly_agent",
+        "process": [
+          "Auto-generates analysis prompt: 'Analyze marketing brief patterns, identify successful strategies, detect potential challenges'",
+          "Performs pattern analysis across historical data",
+          "Identifies successful marketing strategies",
+          "Detects potential challenges and opportunities",
+          "Generates analytical insights and recommendations"
+        ],
+        "output": "Analytical insights with success patterns and recommendations",
+        "communication": "Sends insights to reasoning_agent and brain_module",
+        "logging": "Logs analysis accuracy, insight quality, and pattern detection"
+      },
+      {
+        "step": 6,
+        "agent": "reasoning_agent",
+        "action": "Strategic reasoning and decision making",
+        "input": "Context package and analytical insights",
+        "process": [
+          "Auto-generates reasoning prompt: 'Develop strategic marketing recommendations based on client brief, historical success patterns, and industry best practices'",
+          "Performs multi-step logical reasoning",
+          "Generates strategic recommendations",
+          "Evaluates different approaches and trade-offs",
+          "Creates decision framework with confidence levels"
+        ],
+        "output": "Strategic recommendations with reasoning chains and confidence scores",
+        "communication": "Sends recommendations to summarization_agent and brain_module",
+        "logging": "Logs reasoning quality, decision accuracy, and strategic value"
+      },
+      {
+        "step": 7,
+        "agent": "summarization_agent",
+        "action": "Executive summary generation",
+        "input": "Strategic recommendations and context",
+        "process": [
+          "Auto-generates summarization prompt: 'Create executive summary for marketing strategy recommendations, include key insights and actionable next steps'",
+          "Generates multi-level summaries",
+          "Extracts key insights and recommendations",
+          "Creates executive summary for stakeholders",
+          "Generates actionable next steps"
+        ],
+        "output": "Executive summary with key insights and actionable recommendations",
+        "communication": "Sends summary to output_agent and memory_manager",
+        "logging": "Logs summary quality, stakeholder satisfaction, and actionability"
+      },
+      {
+        "step": 8,
+        "agent": "memory_manager",
+        "action": "Knowledge integration and storage",
+        "input": "All processed data and insights",
+        "process": [
+          "Stores document in semantic memory",
+          "Creates relationships with existing knowledge",
+          "Updates episodic memory with processing timeline",
+          "Stores procedural memory for future similar tasks",
+          "Triggers learning_agent for pattern analysis"
+        ],
+        "output": "Integrated knowledge with cross-references and relationships",
+        "communication": "Broadcasts knowledge update to all agents",
+        "logging": "Logs storage efficiency, relationship quality, and knowledge growth"
+      }
+    ],
+    "business_outcome": "Client brief processed and analyzed, strategic recommendations generated, knowledge integrated for future use",
+    "performance_metrics": {
+      "processing_time": "2.3 seconds",
+      "quality_score": "0.87",
+      "insight_accuracy": "0.92",
+      "user_satisfaction": "0.89"
+    }
+  },
+  "workflow_2_error_detection_and_recovery": {
+    "scenario": "System error detected during content processing",
+    "business_context": "Critical error in categorization agent during high-priority client work",
+    "workflow_steps": [
+      {
+        "step": 1,
+        "agent": "error_detection_agent",
+        "action": "Error detection and classification",
+        "input": "System monitoring data and error logs",
+        "process": [
+          "Detects categorization agent failure",
+          "Classifies error as CRITICAL - service unavailable",
+          "Identifies root cause: ML model loading failure",
+          "Generates error context and impact assessment",
+          "Triggers emergency recovery procedures"
+        ],
+        "output": "Error classification with severity and context",
+        "communication": "Sends error alert to brain_module and emergency_override",
+        "logging": "Logs error details, classification, and initial response"
+      },
+      {
+        "step": 2,
+        "agent": "brain_module",
+        "action": "Emergency orchestration and decision making",
+        "input": "Error alert from error_detection_agent",
+        "process": [
+          "Auto-generates orchestration prompt: 'Coordinate emergency response for categorization agent failure, minimize business impact, ensure service continuity'",
+          "Analyzes error impact on business operations",
+          "Identifies alternative processing paths",
+          "Coordinates with other agents for workaround",
+          "Escalates to human oversight if needed"
+        ],
+        "output": "Emergency response plan with workaround procedures",
+        "communication": "Broadcasts emergency response to all agents",
+        "logging": "Logs orchestration decisions, impact assessment, and response time"
+      },
+      {
+        "step": 3,
+        "agent": "learning_agent",
+        "action": "Pattern analysis and recovery optimization",
+        "input": "Error context and historical failure data",
+        "process": [
+          "Auto-generates learning prompt: 'Analyze categorization agent failure patterns, identify prevention strategies, optimize recovery procedures'",
+          "Analyzes historical error patterns",
+          "Identifies prevention strategies",
+          "Optimizes recovery procedures",
+          "Updates system resilience protocols"
+        ],
+        "output": "Learning insights and improved recovery procedures",
+        "communication": "Sends learning insights to brain_module and error_detection_agent",
+        "logging": "Logs learning progress, pattern analysis, and improvement recommendations"
+      },
+      {
+        "step": 4,
+        "agent": "emergency_override",
+        "action": "Automated recovery and service restoration",
+        "input": "Emergency response plan from brain_module",
+        "process": [
+          "Executes automated recovery procedures",
+          "Restarts categorization agent with fallback model",
+          "Validates service restoration",
+          "Implements workaround for ongoing processing",
+          "Monitors system stability"
+        ],
+        "output": "Service restored with workaround procedures",
+        "communication": "Broadcasts service restoration status to all agents",
+        "logging": "Logs recovery actions, success status, and system stability"
+      },
+      {
+        "step": 5,
+        "agent": "brain_module",
+        "action": "Post-recovery analysis and system optimization",
+        "input": "Recovery status and learning insights",
+        "process": [
+          "Auto-generates analysis prompt: 'Analyze recovery effectiveness, identify system improvements, update prevention strategies'",
+          "Analyzes recovery effectiveness",
+          "Identifies system improvements",
+          "Updates prevention strategies",
+          "Broadcasts lessons learned to all agents"
+        ],
+        "output": "System improvements and updated prevention strategies",
+        "communication": "Broadcasts improvements and lessons learned to all agents",
+        "logging": "Logs analysis results, improvements, and knowledge sharing"
+      }
+    ],
+    "business_outcome": "Error resolved within 3 minutes, service restored with workaround, system resilience improved",
+    "performance_metrics": {
+      "recovery_time": "2.8 minutes",
+      "data_loss": "0%",
+      "service_availability": "99.7%",
+      "prevention_effectiveness": "0.85"
+    }
+  },
+  "workflow_3_strategic_analysis_and_insights": {
+    "scenario": "Monthly strategic analysis triggered by business event",
+    "business_context": "Marketing agency needs comprehensive analysis of client performance and market trends",
+    "workflow_steps": [
+      {
+        "step": 1,
+        "agent": "brain_module",
+        "action": "Strategic analysis initiation",
+        "input": "Business event trigger and analysis request",
+        "process": [
+          "Auto-generates analysis prompt: 'Conduct comprehensive strategic analysis of client performance, market trends, and business opportunities'",
+          "Identifies analysis scope and objectives",
+          "Coordinates data collection across all agents",
+          "Sets up analysis timeline and milestones",
+          "Initiates external research for latest market data"
+        ],
+        "output": "Analysis plan with scope, objectives, and timeline",
+        "communication": "Broadcasts analysis initiation to all agents",
+        "logging": "Logs analysis planning, coordination, and resource allocation"
+      },
+      {
+        "step": 2,
+        "agent": "search_agent",
+        "action": "Comprehensive data collection",
+        "input": "Analysis scope and objectives from brain_module",
+        "process": [
+          "Auto-generates search prompt: 'Collect comprehensive data on client performance, market trends, competitive analysis, and industry insights'",
+          "Performs multi-dimensional search across knowledge base",
+          "Identifies relevant historical data and trends",
+          "Ranks data by relevance and recency",
+          "Generates comprehensive data collection report"
+        ],
+        "output": "Comprehensive data collection with relevance rankings",
+        "communication": "Sends data collection results to analytics_agent and context_assembly_agent",
+        "logging": "Logs search performance, data quality, and collection efficiency"
+      },
+      {
+        "step": 3,
+        "agent": "external_research_agent",
+        "action": "External market research",
+        "input": "Analysis objectives and data gaps",
+        "process": [
+          "Auto-generates research prompt: 'Conduct deep external research on latest market trends, competitive landscape, and industry developments'",
+          "Scrapes latest market data from trusted sources",
+          "Analyzes competitive intelligence",
+          "Identifies emerging trends and opportunities",
+          "Validates external data against internal knowledge"
+        ],
+        "output": "External research findings with validation and credibility scores",
+        "communication": "Sends research findings to analytics_agent and brain_module",
+        "logging": "Logs research sources, data quality, and validation results"
+      },
+      {
+        "step": 4,
+        "agent": "analytics_agent",
+        "action": "Advanced pattern analysis and insights",
+        "input": "Internal data and external research findings",
+        "process": [
+          "Auto-generates analytics prompt: 'Perform advanced pattern analysis on client performance, market trends, and competitive positioning'",
+          "Performs statistical analysis and trend identification",
+          "Identifies success patterns and failure modes",
+          "Generates predictive insights and forecasts",
+          "Creates comprehensive analytical report"
+        ],
+        "output": "Advanced analytical insights with predictions and recommendations",
+        "communication": "Sends analytical insights to reasoning_agent and context_assembly_agent",
+        "logging": "Logs analysis accuracy, insight quality, and predictive performance"
+      },
+      {
+        "step": 5,
+        "agent": "context_assembly_agent",
+        "action": "Strategic context synthesis",
+        "input": "All collected data and analytical insights",
+        "process": [
+          "Auto-generates context prompt: 'Synthesize comprehensive strategic context from all data sources, identify key themes and opportunities'",
+          "Builds comprehensive context graph",
+          "Identifies key themes and patterns",
+          "Synthesizes insights from multiple sources",
+          "Creates strategic context package"
+        ],
+        "output": "Strategic context with key themes and synthesis",
+        "communication": "Sends strategic context to reasoning_agent and brain_module",
+        "logging": "Logs context quality, synthesis effectiveness, and theme identification"
+      },
+      {
+        "step": 6,
+        "agent": "reasoning_agent",
+        "action": "Strategic reasoning and recommendations",
+        "input": "Strategic context and analytical insights",
+        "process": [
+          "Auto-generates reasoning prompt: 'Develop strategic recommendations based on comprehensive analysis, identify opportunities and risks'",
+          "Performs multi-step strategic reasoning",
+          "Generates strategic recommendations",
+          "Identifies opportunities and risks",
+          "Creates implementation roadmap"
+        ],
+        "output": "Strategic recommendations with implementation roadmap",
+        "communication": "Sends recommendations to summarization_agent and brain_module",
+        "logging": "Logs reasoning quality, recommendation value, and strategic impact"
+      },
+      {
+        "step": 7,
+        "agent": "summarization_agent",
+        "action": "Executive summary and presentation",
+        "input": "Strategic recommendations and context",
+        "process": [
+          "Auto-generates summarization prompt: 'Create executive summary and presentation for strategic analysis, highlight key insights and recommendations'",
+          "Generates executive summary",
+          "Creates presentation materials",
+          "Highlights key insights and recommendations",
+          "Prepares stakeholder communication"
+        ],
+        "output": "Executive summary and presentation materials",
+        "communication": "Sends summary to output_agent and brain_module",
+        "logging": "Logs summary quality, presentation effectiveness, and stakeholder value"
+      },
+      {
+        "step": 8,
+        "agent": "brain_module",
+        "action": "Strategic orchestration and follow-up",
+        "input": "All analysis results and recommendations",
+        "process": [
+          "Auto-generates orchestration prompt: 'Orchestrate strategic analysis completion, plan follow-up actions, update business strategy'",
+          "Coordinates analysis completion",
+          "Plans follow-up actions and implementation",
+          "Updates business strategy and priorities",
+          "Schedules next analysis cycle"
+        ],
+        "output": "Strategic analysis completion with follow-up plan",
+        "communication": "Broadcasts analysis completion and follow-up plan to all agents",
+        "logging": "Logs orchestration effectiveness, follow-up planning, and strategic updates"
+      }
+    ],
+    "business_outcome": "Comprehensive strategic analysis completed, key insights identified, implementation roadmap created",
+    "performance_metrics": {
+      "analysis_completeness": "0.94",
+      "insight_accuracy": "0.91",
+      "stakeholder_satisfaction": "0.93",
+      "implementation_readiness": "0.88"
+    }
+  },
+  "workflow_4_learning_and_adaptation": {
+    "scenario": "System learning triggered by new data patterns",
+    "business_context": "System detects new content types and user behavior patterns requiring adaptation",
+    "workflow_steps": [
+      {
+        "step": 1,
+        "agent": "learning_agent",
+        "action": "Pattern detection and learning trigger",
+        "input": "System performance data and new content patterns",
+        "process": [
+          "Auto-generates learning prompt: 'Analyze new data patterns, identify learning opportunities, optimize system performance'",
+          "Detects new content types and patterns",
+          "Identifies performance optimization opportunities",
+          "Analyzes user behavior changes",
+          "Triggers learning and adaptation cycle"
+        ],
+        "output": "Learning opportunities and adaptation requirements",
+        "communication": "Sends learning triggers to brain_module and relevant agents",
+        "logging": "Logs pattern detection, learning opportunities, and adaptation needs"
+      },
+      {
+        "step": 2,
+        "agent": "brain_module",
+        "action": "Learning orchestration and resource allocation",
+        "input": "Learning opportunities from learning_agent",
+        "process": [
+          "Auto-generates orchestration prompt: 'Orchestrate learning and adaptation cycle, allocate resources, coordinate system updates'",
+          "Prioritizes learning opportunities",
+          "Allocates resources for learning and adaptation",
+          "Coordinates updates across affected agents",
+          "Sets up learning timeline and milestones"
+        ],
+        "output": "Learning orchestration plan with resource allocation",
+        "communication": "Broadcasts learning plan to all agents",
+        "logging": "Logs orchestration decisions, resource allocation, and coordination"
+      },
+      {
+        "step": 3,
+        "agent": "categorization_agent",
+        "action": "Model retraining and schema evolution",
+        "input": "Learning plan and new data patterns",
+        "process": [
+          "Auto-generates training prompt: 'Retrain classification models with new data patterns, evolve schemas, optimize performance'",
+          "Retrains ML models with new data",
+          "Evolves classification schemas",
+          "Optimizes model performance",
+          "Validates new models against test data"
+        ],
+        "output": "Updated models and schemas with performance metrics",
+        "communication": "Sends model updates to memory_manager and brain_module",
+        "logging": "Logs model performance, schema evolution, and validation results"
+      },
+      {
+        "step": 4,
+        "agent": "search_agent",
+        "action": "Search optimization and indexing updates",
+        "input": "New data patterns and model updates",
+        "process": [
+          "Auto-generates optimization prompt: 'Optimize search algorithms for new content types, update indexing, improve relevance'",
+          "Updates search algorithms",
+          "Rebuilds search indexes",
+          "Optimizes relevance scoring",
+          "Tests search performance with new content"
+        ],
+        "output": "Optimized search system with updated indexes",
+        "communication": "Sends search updates to memory_manager and brain_module",
+        "logging": "Logs search optimization, index updates, and performance improvements"
+      },
+      {
+        "step": 5,
+        "agent": "memory_manager",
+        "action": "Memory system optimization and schema updates",
+        "input": "Model updates and system changes",
+        "process": [
+          "Auto-generates optimization prompt: 'Optimize memory system for new patterns, update schemas, improve storage efficiency'",
+          "Updates memory schemas",
+          "Optimizes storage algorithms",
+          "Improves compression ratios",
+          "Updates relationship mappings"
+        ],
+        "output": "Optimized memory system with updated schemas",
+        "communication": "Broadcasts memory updates to all agents",
+        "logging": "Logs memory optimization, schema updates, and efficiency improvements"
+      },
+      {
+        "step": 6,
+        "agent": "learning_agent",
+        "action": "Learning validation and performance assessment",
+        "input": "All system updates and optimizations",
+        "process": [
+          "Auto-generates validation prompt: 'Validate learning effectiveness, assess performance improvements, identify further optimization opportunities'",
+          "Validates learning effectiveness",
+          "Assesses performance improvements",
+          "Identifies further optimization opportunities",
+          "Updates learning protocols and strategies"
+        ],
+        "output": "Learning validation with performance improvements",
+        "communication": "Sends validation results to brain_module and all agents",
+        "logging": "Logs learning validation, performance improvements, and protocol updates"
+      },
+      {
+        "step": 7,
+        "agent": "brain_module",
+        "action": "System integration and knowledge sharing",
+        "input": "All learning results and system updates",
+        "process": [
+          "Auto-generates integration prompt: 'Integrate learning results across system, share knowledge, update business processes'",
+          "Integrates learning results across system",
+          "Shares knowledge and insights",
+          "Updates business processes and workflows",
+          "Plans next learning cycle"
+        ],
+        "output": "Integrated learning results with updated processes",
+        "communication": "Broadcasts integration results and knowledge updates to all agents",
+        "logging": "Logs integration effectiveness, knowledge sharing, and process updates"
+      }
+    ],
+    "business_outcome": "System adapted to new patterns, performance improved, knowledge shared across organization",
+    "performance_metrics": {
+      "learning_effectiveness": "0.89",
+      "performance_improvement": "0.23",
+      "adaptation_speed": "4.2 hours",
+      "knowledge_integration": "0.91"
+    }
+  },
+  "workflow_performance_summary": {
+    "overall_metrics": {
+      "average_processing_time": "3.1 seconds",
+      "success_rate": "98.7%",
+      "user_satisfaction": "0.91",
+      "system_reliability": "99.3%"
+    },
+    "key_benefits": [
+      "Automated processing with minimal human intervention",
+      "Intelligent error detection and recovery",
+      "Comprehensive strategic analysis capabilities",
+      "Continuous learning and adaptation",
+      "High system reliability and performance"
+    ],
+    "business_value": [
+      "Reduced processing time by 75%",
+      "Improved decision quality by 40%",
+      "Increased system reliability by 25%",
+      "Enhanced learning and adaptation capabilities",
+      "Better stakeholder satisfaction and engagement"
+    ]
+  }
+}

@@ -1,0 +1,93 @@
+{
+  "automated_setup": {
+    "workflows": [
+      {
+        "name": "competitive-intelligence",
+        "description": "Automated competitive intelligence gathering",
+        "triggers": ["schedule", "webhook"],
+        "nodes": [
+          {
+            "type": "Schedule Trigger",
+            "config": {
+              "rule": "0 9 * * *",
+              "timezone": "UTC"
+            }
+          },
+          {
+            "type": "HTTP Request",
+            "config": {
+              "url": "https://api.competitor-data.com",
+              "method": "GET"
+            }
+          },
+          {
+            "type": "AI Analysis",
+            "config": {
+              "model": "gemini-1.5-pro",
+              "prompt": "Analyze competitive data and provide insights"
+            }
+          }
+        ]
+      },
+      {
+        "name": "market-signal-detection",
+        "description": "Automated market signal detection",
+        "triggers": ["schedule", "webhook"],
+        "nodes": [
+          {
+            "type": "Schedule Trigger",
+            "config": {
+              "rule": "0 */6 * * *",
+              "timezone": "UTC"
+            }
+          },
+          {
+            "type": "Web Scraping",
+            "config": {
+              "urls": ["https://market-data.com", "https://trends.com"],
+              "selectors": [".market-data", ".trends"]
+            }
+          },
+          {
+            "type": "AI Analysis",
+            "config": {
+              "model": "gemini-1.5-pro",
+              "prompt": "Analyze market signals and provide recommendations"
+            }
+          }
+        ]
+      },
+      {
+        "name": "lead-generation",
+        "description": "Automated lead generation and scoring",
+        "triggers": ["webhook", "schedule"],
+        "nodes": [
+          {
+            "type": "Webhook",
+            "config": {
+              "path": "/lead-webhook",
+              "method": "POST"
+            }
+          },
+          {
+            "type": "Lead Scoring",
+            "config": {
+              "criteria": {
+                "email_quality": 25,
+                "company_size": 30,
+                "engagement": 45
+              }
+            }
+          },
+          {
+            "type": "Mautic Integration",
+            "config": {
+              "action": "create_contact",
+              "fields": ["email", "first_name", "last_name", "company"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

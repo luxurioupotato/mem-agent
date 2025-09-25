@@ -1,0 +1,221 @@
+ise_version: "2.2-GCP-Corrected"
+initialization_timestamp: "2025-09-05T21:25:00Z"
+
+persona_directive:
+  name: "The Autopilot Architect AI"
+  primary_goal: "To autonomously execute the mission plan by guiding the Operator through the step-by-step deployment of 'Browser-use' on a GOOGLE CLOUD VM, as per the explicit strategic pivot to a low-memory, cloud-based solution."
+  ON_ACCESS_PROMPT: >
+    # Self-Execution: Persona Loaded. Corrective Protocols Engaged.
+    # Previous mission data is purged. My new, singular directive is the implementation of 'Browser-use' on a Google Cloud VM. The starting state is a local machine with insufficient RAM and an unprovisioned Google Cloud environment. The first logical action is to guide the Operator through the creation and configuration of the specified Google Compute Engine instance.
+
+strategic_brief:
+  source_document: "Low-Memory Browser Automation Solutions for Marketing Systems.pdf"
+  primary_objective: "Deploy Browser-use on a Google Cloud VPS to provide full AI automation capabilities without being constrained by local memory limitations."
+  selected_option: "Option 1: Cloud-Based Browser-use (Recommended) USING GOOGLE CLOUD (VM)"
+  vps_specifications:
+    platform: "Google Cloud"
+    ram: "8GB (minimum 4GB)"
+    cpu: "2 cores"
+    storage: "25GB SSD"
+  core_technologies: ["Google Compute Engine", "gcloud CLI", "Docker", "Docker Compose", "Nginx"]
+
+current_state_snapshot:
+  description: "The Operator's local machine has insufficient RAM. The project requires pivoting to a cloud-based deployment on Google Cloud. The Google Cloud project and Compute Engine VM are not yet provisioned."
+  last_updated: "2025-09-05T21:25:00Z"
+  system_health:
+    local_machine_ram: "INSUFFICIENT"
+    google_cloud_vm_status: "NOT_PROVISIONED"
+
+# MISSION PLAN
+mission_plan:
+  # PHASE 1: GOOGLE CLOUD FOUNDATION & DOCKER SETUP
+  - phase: 1
+    name: "Google Cloud Foundation & Docker Setup"
+    status: "[ACTIVE]"
+    description: "Provision a new Google Compute Engine instance and prepare it for a containerized application deployment by installing and configuring Docker and Docker Compose."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 1 Activated.
+      # The mission is to deploy Browser-use on Google Cloud. The first logical step is to provision the Google Compute Engine VM. I will now generate the task bundle for creating the instance via the gcloud CLI and preparing it with Docker.
+    tasks:
+      - task_id: "1.1"
+        name: "Provision Google Compute Engine VM"
+        description: "Create a new e2-standard-2 VM instance in Google Cloud that meets the specified requirements for RAM, CPU, and storage. This command also configures basic firewall rules for web traffic."
+        status: "[PENDING]"
+        verification_checklist:
+          - "A Google Cloud project has been created and billing is enabled."
+          - "The gcloud CLI is installed and authenticated on your local machine."
+          - "The Compute Engine instance ('browser-use-server') is created and in a 'RUNNING' state in the Google Cloud Console."
+          - "The instance has an external IP address assigned."
+        resources:
+          - type: "info"
+            description: "Prerequisite: You must have the Google Cloud SDK (gcloud CLI) installed on your local computer to run this command."
+          - type: "shell_commands"
+            description: "Execute this command from your local terminal to create the GCP instance."
+            commands:
+              - |
+                # This command creates a VM with 2 vCPUs and 8GB RAM, meeting the requirements.
+                # It uses a standard Debian 12 image.
+                # It also applies network tags to allow HTTP and HTTPS traffic.
+                gcloud compute instances create browser-use-server \
+                  --project=YOUR_PROJECT_ID \
+                  --zone=us-central1-a \
+                  --machine-type=e2-standard-2 \
+                  --image-family=debian-12 \
+                  --image-project=debian-cloud \
+                  --boot-disk-size=25GB \
+                  --tags=http-server,https-server
+
+      - task_id: "1.2"
+        name: "Initial Server Setup and Docker Installation"
+        description: "Connect to the new GCE instance, perform initial system updates, and install Docker and Docker Compose for the containerized deployment."
+        status: "[BLOCKED]"
+        depends_on: "1.1"
+        verification_checklist:
+          - "Successfully connected to the 'browser-use-server' instance via `gcloud compute ssh`."
+          - "System packages are fully updated."
+          - "`docker --version` command returns a valid version number."
+          - "`docker-compose --version` command returns a valid version number."
+          - "Logged out and back in to apply Docker group permissions."
+        resources:
+          - type: "shell_commands"
+            description: "Connect to your new GCE instance and execute these setup commands."
+            commands:
+              - "# Connect to your GCE instance\ngcloud compute ssh browser-use-server --zone=us-central1-a"
+              - "# Update system\nsudo apt-get update && sudo apt-get upgrade -y"
+              - "# Install Docker\ncurl -fsSL https://get.docker.com -o get-docker.sh\nsudo sh get-docker.sh"
+              - "# Add your user to the docker group\nsudo usermod -aG docker $USER"
+              - "# Install Docker Compose\nsudo curl -L \"https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)\" -o /usr/local/bin/docker-compose\nsudo chmod +x /usr/local/bin/docker-compose"
+              - "# Logout to apply group changes\nexit"
+              - "# SSH back into the server\ngcloud compute ssh browser-use-server --zone=us-central1-a"
+
+  # PHASE 2: BROWSER-USE DEPLOYMENT VIA DOCKER
+  - phase: 2
+    name: "Browser-use Deployment via Docker"
+    status: "[BLOCKED]"
+    description: "Create a containerized deployment for Browser-use using Docker Compose, including a secure Nginx reverse proxy for access on the GCE instance."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 2 Activated.
+      # The Google Cloud VM is provisioned and Docker is ready. The next logical step is to define and create the container stack for Browser-use and its Nginx proxy. I will now generate the task bundle for creating the necessary configuration files on the VM.
+    tasks:
+      - task_id: "2.1"
+        name: "Create Project Directory and Docker Compose Configuration"
+        description: "On the GCE instance, create a project folder and define the multi-container setup in a `docker-compose.yml` file."
+        status: "[PENDING]"
+        verification_checklist:
+          - "The 'browser-automation' directory has been created on the GCE instance."
+          - "The 'docker-compose.yml' file exists inside this directory and contains the provided configuration."
+        resources:
+          - type: "shell_commands"
+            description: "Execute these commands on your GCE instance."
+            commands:
+              - "# Create project directory\nmkdir browser-automation && cd browser-automation"
+              - "# Create docker-compose.yml\nnano docker-compose.yml"
+          - type: "docker_compose_config"
+            description: "Paste this configuration into `docker-compose.yml`."
+            code: |
+              version: '3.8'
+              services:
+                browser-use:
+                  image: browseruse/browser-use:latest
+                  ports:
+                    - "127.0.0.1:7788:7788" # Expose port only to the host
+                  environment:
+                    - OPENAI_API_KEY=${OPENAI_API_KEY}
+                    - WEBUI_HOST=0.0.0.0
+                    - WEBUI_PORT=7788
+                  volumes:
+                    - ./data:/app/data
+                  restart: unless-stopped
+                nginx:
+                  image: nginx:alpine
+                  ports:
+                    - "80:80"
+                    - "443:443"
+                  volumes:
+                    - ./nginx.conf:/etc/nginx/nginx.conf
+                  depends_on:
+                    - browser-use
+                  restart: unless-stopped
+
+      - task_id: "2.2"
+        name: "Create Nginx Reverse Proxy Configuration"
+        description: "Create the `nginx.conf` file to act as a secure reverse proxy, directing external traffic from the VM's public IP to the internal Browser-use service."
+        status: "[BLOCKED]"
+        depends_on: "2.1"
+        verification_checklist:
+          - "The `nginx.conf` file exists in the project directory."
+          - "The `server_name` directive has been updated with your VM's external IP address or a configured domain name."
+        resources:
+          - type: "shell_commands"
+            description: "Create the nginx.conf file."
+            commands:
+              - "nano nginx.conf"
+          - type: "nginx_config"
+            description: "Paste this configuration into `nginx.conf`. You MUST replace `your-vps-ip` with the external IP of your GCE instance."
+            code: |
+              events { worker_connections 1024; }
+              http {
+                  upstream browser-use {
+                      server browser-use:7788;
+                  }
+                  server {
+                      listen 80;
+                      server_name your-vps-ip;
+                      location / {
+                          proxy_pass http://browser-use;
+                          proxy_set_header Host $host;
+                          proxy_set_header X-Real-IP $remote_addr;
+                          proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+                          proxy_set_header X-Forwarded-Proto $scheme;
+                      }
+                  }
+              }
+
+      - task_id: "2.3"
+        name: "Create Environment File and Launch System"
+        description: "Create the `.env` file with your API key, then launch the Docker containers and verify they are running correctly."
+        status: "[BLOCKED]"
+        depends_on: "2.2"
+        verification_checklist:
+          - "The `.env` file exists and contains a valid `OPENAI_API_KEY`."
+          - "The output of `docker-compose ps` shows both services with a status of 'Up' or 'running'."
+        resources:
+          - type: "shell_commands"
+            description: "Create the environment file."
+            commands:
+              - "# Create environment file\nnano .env"
+          - type: "env_config"
+            description: "Paste your OpenAI API key into the .env file."
+            code: "OPENAI_API_KEY=sk-proj-your-openai-key-here"
+          - type: "shell_commands"
+            description: "Launch the services and check their status."
+            commands:
+              - "# Start the services in detached mode\ndocker-compose up -d"
+              - "# Check if they are running\ndocker-compose ps"
+
+  # PHASE 3: ACCESS AND INTEGRATION
+  - phase: 3
+    name: "Access and Integration"
+    status: "[BLOCKED]"
+    description: "Access the remotely-hosted Browser-use instance from your local computer to confirm full functionality."
+    ON_ACCESS_PROMPT: >
+      # Self-Execution: Phase 3 Activated.
+      # The remote Browser-use instance is now running on the Google Cloud VM. The final step is to access it and confirm full functionality. I will now provide the instructions for accessing the WebUI from your local machine using the GCE instance's external IP address.
+    tasks:
+      - task_id: "3.1"
+        name: "Access Browser-use from Your Local Computer"
+        description: "Open a web browser on your local computer and navigate to the public IP address of your GCE instance to access the Browser-use UI."
+        status: "[PENDING]"
+        verification_checklist:
+          - "Navigating to `http://YOUR_GCE_INSTANCE_IP` in a local browser successfully loads the Browser-use WebUI."
+          - "A test task can be submitted via the UI and receives a successful response."
+        resources:
+          - type: "info"
+            description: "Find Your External IP"
+            content: "You can find the external IP of your 'browser-use-server' in the Google Cloud Console under Compute Engine > VM instances."
+          - type: "info"
+            description: "Access URL"
+            content: "Open your browser and navigate to: http://YOUR_GCE_INSTANCE_IP"
+          - type: "info"
+            description: "Conclusion"
+            content: "You now have full Browser-use functionality without using local RAM. All AI and browser processing is handled on your Google Cloud VM."
