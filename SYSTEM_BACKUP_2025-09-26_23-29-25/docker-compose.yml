@@ -68,7 +68,6 @@ services:
       - MAUTIC_MAILER_FROM_NAME=${SMTP_FROM_NAME}
     volumes:
       - mautic_data:/var/www/html:rw
-      - ./config/apache-server-name.conf:/etc/apache2/conf-available/server-name.conf:ro
     ports:
       - "8888:80"
     restart: unless-stopped
@@ -120,8 +119,6 @@ services:
       - SESSION_SECRET=${SESSION_SECRET}
       - LOG_LEVEL=${LOG_LEVEL:-INFO}
       - DEBUG=${DEBUG:-false}
-      - ENVIRONMENT=${ENVIRONMENT:-production}
-      - MISSION_PROTOCOL_VERSION=${MISSION_PROTOCOL_VERSION:-1.2}
     depends_on:
       - redis
       - postgres
@@ -132,12 +129,6 @@ services:
     restart: unless-stopped
     networks:
       - mem-agent-network
-    healthcheck:
-      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 40s
 
 volumes:
   n8n_data:

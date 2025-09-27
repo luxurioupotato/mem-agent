@@ -1,0 +1,25 @@
+{"level":"info","time":"2025-09-26T12:39:45Z","message":"Thank you for trying Cloudflare Tunnel. Doing so, without a Cloudflare account, is a quick way to experiment and try it out. However, be aware that these account-less Tunnels have no uptime guarantee, are subject to the Cloudflare Online Services Terms of Use (https://www.cloudflare.com/website-terms/), and Cloudflare reserves the right to investigate your use of Tunnels for violations of such terms. If you intend to use Tunnels in production you should use a pre-created named tunnel by following: https://developers.cloudflare.com/cloudflare-one/connections/connect-apps"}
+{"level":"info","time":"2025-09-26T12:39:45Z","message":"Requesting new quick Tunnel on trycloudflare.com..."}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"+--------------------------------------------------------------------------------------------+"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"|  Your quick Tunnel has been created! Visit it at (it may take some time to be reachable):  |"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"|  https://cheap-cardiac-traveler-springs.trycloudflare.com                                  |"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"+--------------------------------------------------------------------------------------------+"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"Cannot determine default configuration path. No file [config.yml config.yaml] in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp]"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"Version 2025.9.1 (Checksum 871c63a23f167ec1a4fc5e2c3de9e91e4f0742af708fb8b86055ddd6da82ea8e)"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"GOOS: windows, GOVersion: go1.24.6, GoArch: amd64"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"Settings: map[ha-connections:1 logfile:E:\\MEM_AGENT\\scripts\\tunnel-logs\\mautic.log loglevel:info protocol:quic url:http://localhost:8888]"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"cloudflared will not automatically update on Windows systems."}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"Generated Connector ID: 8562a9c3-2d9d-4740-b0a2-0f7d8592b54a"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"Initial protocol quic"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"ICMP proxy will use 192.168.0.248 as source for IPv4"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"ICMP proxy will use fe80::2a45:2207:763c:2547 in zone Wi-Fi as source for IPv6"}
+{"level":"error","originCertPath":"","time":"2025-09-26T12:39:51Z","message":"Cannot determine default origin certificate path. No file cert.pem in [~/.cloudflared ~/.cloudflare-warp ~/cloudflare-warp]. You need to specify the origin certificate path by specifying the origincert option in the configuration file, or set TUNNEL_ORIGIN_CERT environment variable"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"cloudflared does not support loading the system root certificate pool on Windows. Please use --origin-ca-pool <PATH> to specify the path to the certificate pool"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"ICMP proxy will use 192.168.0.248 as source for IPv4"}
+{"level":"info","event":0,"ip":"198.41.192.27","connIndex":0,"time":"2025-09-26T12:39:51Z","message":"Tunnel connection curve preferences: [X25519MLKEM768 CurveP256]"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"ICMP proxy will use fe80::2a45:2207:763c:2547 in zone Wi-Fi as source for IPv6"}
+{"level":"info","time":"2025-09-26T12:39:51Z","message":"Starting metrics server on 127.0.0.1:20243/metrics"}
+{"level":"info","event":0,"connection":"7f5f9269-d50a-4eb9-a7c1-f69bf1d39b90","connIndex":0,"location":"dac07","ip":"198.41.192.27","protocol":"quic","time":"2025-09-26T12:39:51Z","message":"Registered tunnel connection"}
+{"level":"error","error":"lookup region1.v2.argotunnel.com: i/o timeout","time":"2025-09-26T15:39:58Z","message":"Failed to refresh DNS local resolver"}
+{"level":"error","error":"lookup region1.v2.argotunnel.com: i/o timeout","time":"2025-09-26T15:45:03Z","message":"Failed to refresh DNS local resolver"}
+{"level":"error","error":"lookup region1.v2.argotunnel.com: i/o timeout","time":"2025-09-26T16:00:09Z","message":"Failed to refresh DNS local resolver"}

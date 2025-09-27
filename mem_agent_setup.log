@@ -1,0 +1,66 @@
+2025-09-28 01:40:03,998 - __main__ - INFO - Logging system initialized
+2025-09-28 01:40:03,999 - __main__ - INFO - Created directory: data
+2025-09-28 01:40:04,000 - __main__ - INFO - Created directory: logs
+2025-09-28 01:40:04,000 - __main__ - INFO - Created directory: exports
+2025-09-28 01:40:04,001 - __main__ - INFO - Created directory: backups
+2025-09-28 01:40:04,001 - __main__ - INFO - Created directory: config
+2025-09-28 01:40:04,002 - __main__ - INFO - Created directory: temp
+2025-09-28 01:40:04,003 - __main__ - INFO - Created directory: agents
+2025-09-28 01:40:04,003 - __main__ - INFO - Created directory: frontend
+2025-09-28 01:40:04,004 - __main__ - INFO - Created directory: dashboard
+2025-09-28 01:40:04,516 - agents.memory_manager - INFO - Stored memory: f3066666f88a38c4477fc8f42d123135
+2025-09-28 01:40:04,608 - agents.memory_manager - INFO - Stored memory: 6953befb3ee293a7cc321bf4aa34a6c9
+2025-09-28 01:40:04,708 - agents.memory_manager - INFO - Stored memory: f458144de09744bfd39532812658baeb
+2025-09-28 01:40:04,709 - __main__ - INFO - Memory system initialized
+2025-09-28 01:40:04,709 - __main__ - INFO - Business intelligence system initialized
+2025-09-28 01:40:04,714 - __main__ - INFO - Data scraper system initialized
+2025-09-28 01:40:04,714 - agents.automation_engine - INFO - Created task: system_health_check
+2025-09-28 01:40:04,715 - agents.automation_engine - INFO - Created task: business_metrics_collection
+2025-09-28 01:40:04,715 - agents.automation_engine - INFO - Created task: daily_data_scraping
+2025-09-28 01:40:04,715 - __main__ - INFO - Automation engine initialized
+2025-09-28 01:40:05,198 - agents.mentor_enhanced - WARNING - No API key provided - AI responses will be limited
+2025-09-28 01:40:05,198 - agents.automation_engine - INFO - Created task: mentor_health_check
+2025-09-28 01:40:05,199 - agents.automation_engine - INFO - Created task: business_metrics_collection
+2025-09-28 01:40:05,199 - agents.automation_engine - INFO - Created task: memory_cleanup
+2025-09-28 01:40:05,199 - __main__ - INFO - Enhanced mentor system initialized
+2025-09-28 01:40:05,200 - __main__ - INFO - System configuration files created
+2025-09-28 01:40:05,286 - agents.memory_manager - INFO - Stored memory: 87e954416d8fc22c304c3084d667987a
+2025-09-28 01:40:07,278 - agents.data_scraper - INFO - Successfully scraped: https://httpbin.org/html
+2025-09-28 01:40:07,357 - agents.memory_manager - INFO - Stored memory: 416352f78f07a8bec81305325176ccca
+2025-09-28 01:40:07,475 - agents.memory_manager - INFO - Stored memory: 1e472e9c97c24e481cc8c13c3cd141b1
+2025-09-28 01:40:07,600 - __main__ - INFO - System tests completed: 5 passed, 0 failed
+2025-09-28 01:40:07,601 - __main__ - ERROR - Setup report generation failed: 'charmap' codec can't encode character '\u2705' in position 19: character maps to <undefined>
+2025-09-28 01:40:07,602 - __main__ - INFO - MEM_AGENT Complete System Setup completed successfully
+2025-09-28 01:42:23,644 - __main__ - INFO - Logging system initialized
+2025-09-28 01:42:23,652 - __main__ - INFO - Created directory: data
+2025-09-28 01:42:23,652 - __main__ - INFO - Created directory: logs
+2025-09-28 01:42:23,653 - __main__ - INFO - Created directory: exports
+2025-09-28 01:42:23,653 - __main__ - INFO - Created directory: backups
+2025-09-28 01:42:23,653 - __main__ - INFO - Created directory: config
+2025-09-28 01:42:23,654 - __main__ - INFO - Created directory: temp
+2025-09-28 01:42:23,654 - __main__ - INFO - Created directory: agents
+2025-09-28 01:42:23,654 - __main__ - INFO - Created directory: frontend
+2025-09-28 01:42:23,654 - __main__ - INFO - Created directory: dashboard
+2025-09-28 01:42:23,776 - agents.memory_manager - INFO - Stored memory: 52dfa2cad19a8f1d0da46a42f7ec8f34
+2025-09-28 01:42:23,887 - agents.memory_manager - INFO - Stored memory: b8061619718841f20e4ab22a02f3bf4b
+2025-09-28 01:42:23,987 - agents.memory_manager - INFO - Stored memory: 4429740d28d31965ae9e1bad2fd6c5f9
+2025-09-28 01:42:23,987 - __main__ - INFO - Memory system initialized
+2025-09-28 01:42:23,988 - __main__ - INFO - Business intelligence system initialized
+2025-09-28 01:42:23,993 - __main__ - INFO - Data scraper system initialized
+2025-09-28 01:42:23,993 - agents.automation_engine - INFO - Created task: system_health_check
+2025-09-28 01:42:23,994 - agents.automation_engine - INFO - Created task: business_metrics_collection
+2025-09-28 01:42:23,994 - agents.automation_engine - INFO - Created task: daily_data_scraping
+2025-09-28 01:42:23,994 - __main__ - INFO - Automation engine initialized
+2025-09-28 01:42:24,005 - agents.mentor_enhanced - WARNING - No API key provided - AI responses will be limited
+2025-09-28 01:42:24,005 - agents.automation_engine - INFO - Created task: mentor_health_check
+2025-09-28 01:42:24,005 - agents.automation_engine - INFO - Created task: business_metrics_collection
+2025-09-28 01:42:24,006 - agents.automation_engine - INFO - Created task: memory_cleanup
+2025-09-28 01:42:24,006 - __main__ - INFO - Enhanced mentor system initialized
+2025-09-28 01:42:24,008 - __main__ - INFO - System configuration files created
+2025-09-28 01:42:24,091 - agents.memory_manager - INFO - Stored memory: dcc0411d5f93d168eb257245feeeb084
+2025-09-28 01:42:26,105 - agents.data_scraper - INFO - Successfully scraped: https://httpbin.org/html
+2025-09-28 01:42:26,242 - agents.memory_manager - INFO - Stored memory: f082d42622cccf705bde121f124a49d7
+2025-09-28 01:42:26,352 - agents.memory_manager - INFO - Stored memory: 1c13419d9a0a00166f54e5f219a017ff
+2025-09-28 01:42:26,432 - __main__ - INFO - System tests completed: 5 passed, 0 failed
+2025-09-28 01:42:26,440 - __main__ - ERROR - Setup report generation failed: 'charmap' codec can't encode character '\u2705' in position 19: character maps to <undefined>
+2025-09-28 01:42:26,440 - __main__ - INFO - MEM_AGENT Complete System Setup completed successfully

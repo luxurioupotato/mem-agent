@@ -1,0 +1,9 @@
+{
+  "targets": [
+    "https://example-business-news.com",
+    "https://example-market-analysis.com",
+    "https://example-competitor-analysis.com"
+  ],
+  "scraping_interval": "daily",
+  "data_storage": "data/scraped_data.json"
+}
