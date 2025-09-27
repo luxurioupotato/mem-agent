@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🚀 MEM_AGENT - AI Business Intelligence Platform
 
 ## Overview
@@ -167,3 +168,6 @@ For support and questions:
 ---
 
 **🚀 MEM_AGENT - Your AI Business Intelligence Platform**
+=======
+# mem-agent
+>>>>>>> 28d80c099877d7f3bae639dc216089a7c7fdfe32
