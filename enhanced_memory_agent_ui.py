@@ -528,7 +528,7 @@ Generate a comprehensive response that leverages the full multi-cluster parallel
             logger.info("✅ Cursor AI autonomous initialization completed")
             return {"status": "completed", "report": self.autonomous_report}
 
-            except Exception as e:
+        except Exception as e:
             logger.error(f"❌ Cursor AI initialization failed: {e}")
             return {"status": "failed", "error": str(e)}
 
@@ -806,10 +806,10 @@ with st.sidebar:
                     st.error("❌ Failed to add files")
 
     st.subheader("🛠️ Session Controls")
-        if st.button("🗑️ Clear Chat", use_container_width=True):
+    if st.button("🗑️ Clear Chat", use_container_width=True):
         st.session_state.messages = []
         inject_initial_prompts()
-            st.rerun()
+        st.rerun()
     
     if st.button("💾 Export Session", use_container_width=True):
         export_data = {
@@ -879,8 +879,7 @@ if hasattr(st.session_state, 'boot_in_progress') and st.session_state.boot_in_pr
                 # Clear progress indicators
                 progress_placeholder.empty()
                 status_placeholder.empty()
-                
-                        st.rerun()
+                st.rerun()
             else:
                 status_placeholder.error("❌ Boot sequence encountered issues. Check logs for details.")
                 st.session_state.boot_in_progress = False
