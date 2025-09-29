@@ -77,7 +77,7 @@ class EnhancedMemoryAgent:
 
     def setup_gemini(self):
         """Setup Gemini API"""
-        api_key = os.getenv('GEMINI_API_KEY', 'AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE')
+        api_key = os.getenv('GEMINI_API_KEY', '')
         if not api_key:
             logger.warning("GEMINI_API_KEY is not set!")
         genai.configure(api_key=api_key)

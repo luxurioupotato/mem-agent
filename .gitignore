@@ -1,0 +1,36 @@
+# Logs and runtime artifacts
+*.log
+logs/
+scripts/tunnel-logs/
+enhanced_memory_agent.log
+conversation_history.json
+enhanced_conversation_history.json
+
+# Virtual environments
+venv/
+.venv/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Env files
+.env
+env.final.production
+env.final.production.backup
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Notebooks and checkpoints
+.ipynb_checkpoints/
+
+# Build artifacts
+dist/
+build/
+
+# Streamlit
+.streamlit/secrets.toml
+
+

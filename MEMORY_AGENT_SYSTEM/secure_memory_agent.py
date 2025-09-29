@@ -42,7 +42,7 @@ class SecureMemoryAgent:
             api_key = os.getenv('GEMINI_API_KEY')
             if not api_key:
                 # Fallback to direct assignment for this session
-                api_key = 'AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE'
+                api_key = os.getenv('GEMINI_API_KEY', '')
                 os.environ['GEMINI_API_KEY'] = api_key
                 logger.warning("Using fallback API key - consider setting GEMINI_API_KEY environment variable")
             

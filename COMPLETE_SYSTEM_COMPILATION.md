@@ -200,7 +200,7 @@ logger = logging.getLogger("EmergencySystemFix")
 
 # Load environment
 load_dotenv()
-api_key = os.getenv('GEMINI_API_KEY', 'AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE')
+api_key = os.getenv('GEMINI_API_KEY', '')
 genai.configure(api_key=api_key)
 
 class EmergencySystemRestoration:
@@ -351,7 +351,7 @@ class WorkingMemoryAgent:
 
     def setup_gemini(self):
         """Setup Gemini API"""
-        api_key = os.getenv('GEMINI_API_KEY', 'AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE')
+        api_key = os.getenv('GEMINI_API_KEY', '')
         if not api_key:
             logger.warning("GEMINI_API_KEY is not set!")
         genai.configure(api_key=api_key)
@@ -528,7 +528,7 @@ psutil>=5.9.0
 @echo off
 cd /d "E:\MEM_AGENT"
 call .\venv\Scripts\activate.bat
-set GEMINI_API_KEY=AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE
+set GEMINI_API_KEY=YOUR_KEY
 echo Starting Working Memory Agent...
 echo System will be available at http://localhost:8501
 .\venv\Scripts\streamlit.exe run working_memory_agent.py --server.port 8501 --server.address 0.0.0.0
@@ -537,7 +537,7 @@ pause
 
 ### **6. ENVIRONMENT CONFIGURATION (.env)**
 ```env
-GEMINI_API_KEY=AIzaSyDj-aTJt7riqX6MJSsW2Tu7uO8cjisEGqE
+GEMINI_API_KEY=YOUR_KEY
 ```
 
 ---
