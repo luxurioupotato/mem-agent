@@ -27,7 +27,8 @@ class WorkingMemoryAgent:
             # This avoids embedding secrets in code while remaining functional
             pass
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel("gemini-1.5-flash")
+        model_name = os.getenv("GEMINI_MODEL", "gemini-2.5-pro")
+        self.model = genai.GenerativeModel(model_name)
 
     def generate_response(self, user_input: str) -> str:
         """Generate business-focused response."""

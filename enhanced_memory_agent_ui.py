@@ -81,7 +81,8 @@ class EnhancedMemoryAgent:
         if not api_key:
             logger.warning("GEMINI_API_KEY is not set!")
         genai.configure(api_key=api_key)
-        self.model = genai.GenerativeModel('gemini-1.5-flash')
+        model_name = os.getenv('GEMINI_MODEL', 'gemini-2.5-pro')
+        self.model = genai.GenerativeModel(model_name)
         logger.info("✅ Gemini API configured")
 
     async def async_initialize_modules(self):

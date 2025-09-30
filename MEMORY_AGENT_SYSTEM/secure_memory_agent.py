@@ -47,7 +47,8 @@ class SecureMemoryAgent:
                 logger.warning("Using fallback API key - consider setting GEMINI_API_KEY environment variable")
             
             genai.configure(api_key=api_key)
-            self.model = genai.GenerativeModel('gemini-1.5-flash')
+            model_name = os.getenv('GEMINI_MODEL', 'gemini-2.5-pro')
+            self.model = genai.GenerativeModel(model_name)
             logger.info("✅ Gemini API configured securely")
             
         except Exception as e:
